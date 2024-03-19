@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Warehouse Management System</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/vi/thumb/b/bf/Logo_HUET.svg/1200px-Logo_HUET.svg.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        html {
+            font-family: 'Roboto', sans-serif;
+            }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            background-image: url('https://images.ctfassets.net/aguk64kkrmhj/64VigtnNY9zO2YJhAY05RS/dfc4827f1847dca96e4b629620f779e8/dotwms.png?fm=webp&q=75');
+            background-size: 50%; 
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position-y: 60%;
+        }
+
+        header {
+            background-color: #70d8ff;
+            padding: 1px;
+            text-align: center;
+            color: 004580;
+            font-size: 18px;
+            font-weight: bold;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #0077cb;
+            padding: 0px;
+            position: fixed;
+            width: 100%; 
+            top: 90px;
+            left: 0;
+            right: 0;
+            z-index: 998;
+        }
+
+        .logo {
+            position: absolute;
+            top: 5px;
+            right: 30px;
+            width: 80px;
+            height: auto;
+            z-index: 999;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+            font-size: 15px;
+
+        }
+
+        nav a:hover {
+            background-color: #999;
+        }
+
+        .bottom-text {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: transparent;
+            color: rgb(66, 66, 70);
+            text-align: center;
+            padding: 10px;
+            font-size: 1.2rem;
+            font-style: italic;
+            font-weight: bold;
+            animation: slide 30s linear infinite;
+        }
+
+        nav a.active {
+            background-color: #244975;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .logo {
+                width: 70px;
+            }
+
+            header {
+                font-size: 16px;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 5px 0;
+            }
+        }
+
+
+        /*--------------------LOCATION-------------------------*/
+        .custom-popup {
+            left: 35%; 
+            top: -9%
+        }
+        #floor1ButtonContainer {
+            position: fixed;
+            top: 20%;
+            left: 30%; /* Điều chỉnh vị trí bên trái của nút */
+            transform: translateY(-50%);
+            z-index: 9999; /* Đảm bảo nút "Tầng 1" hiển thị trên cùng */
+        }
+        #floor2ButtonContainer {
+            position: fixed;
+            top: 20%;
+            right: 57%; /* Điều chỉnh vị trí bên trái của nút */
+            transform: translateY(-50%);
+            z-index: 9999; /* Đảm bảo nút "Tầng 1" hiển thị trên cùng */
+        }
+        #floor3ButtonContainer {
+            position: fixed;
+            top: 20%;
+            right: 50%; /* Điều chỉnh vị trí bên trái của nút */
+            transform: translateY(-50%);
+            z-index: 9999; /* Đảm bảo nút "Tầng 1" hiển thị trên cùng */
+        }
+
+        #floor1Button {
+            padding: 10px;
+            background-color: #0d4b8d;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #floor2Button {
+            padding: 10px;
+            background-color: #0d4b8d;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #floor3Button {
+            padding: 10px;
+            background-color: #0d4b8d;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #floor1Button:hover {
+            background-color: #70d8ff;
+        }
+        #floor2Button:hover {
+            background-color: #70d8ff;
+        }
+        #floor3Button:hover {
+            background-color: #70d8ff;
+        }
+        #rectangle1 {
+            display: none;
+            position: absolute;
+            width: 775px;
+            height: 648px;
+            background: url('https://wcs.smartdraw.com/floor-plan/img/warehouse-design-example.png?bn=15100111907') no-repeat center center/cover;
+            left: 50%;
+            top: 58%;
+            transform: translate(-50%, -50%);
+        }
+        #rectangle2 {
+            display: none;
+            position: absolute;
+            width: 775px;
+            height: 648px;
+            background: url('https://i.pinimg.com/736x/e1/51/85/e15185a49a8a6d74e9ce085f2e37cb35.jpg') no-repeat center center/cover;
+            left: 50%;
+            top: 58%;
+            transform: translate(-50%, -50%);
+        }
+        #rectangle3 {
+            display: none;
+            position: absolute;
+            width: 775px;
+            height: 648px;
+            background: url('https://conceptdraw.com/a64c3/p1/preview/640/pict--warehouse-equipment-layout-warehouse-layout-floor-plan.png--diagram-flowchart-example.png') no-repeat center center/cover;
+            left: 50%;
+            top: 58%;
+            transform: translate(-50%, -50%);
+        }
+
+        .product {
+            display: none;
+            position: absolute;
+            width: 55px;
+            height: 55px;
+            background: url('https://vietbox.vn/wp-content/uploads/2019/08/sp_5_thungcarton.png') no-repeat center center/contain;
+            cursor: pointer;
+        }
+
+        .anchor {
+            display: none;
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+        }
+
+        /* CSS cho khung thông tin1 */
+        .floor1-info-container {
+            position: absolute;
+            top: 30%; /* Điều chỉnh vị trí tùy thuộc vào cụ thể trang của bạn */
+            right: 10%;
+            border: 1px solid #70d8ff;
+            padding: 10px;
+            background-color: #fff;
+            z-index: 999; /* Đảm bảo khung thông tin hiển thị trên các phần khác */
+        }
+
+        .floor1-info {
+            margin: 0px;
+        }
+        /* CSS cho khung thông tin2 */
+        .floor2-info-container {
+            position: absolute;
+            top: 30%; /* Điều chỉnh vị trí tùy thuộc vào cụ thể trang của bạn */
+            right: 10%;
+            border: 1px solid #70d8ff;
+            padding: 10px;
+            background-color: #fff;
+            z-index: 999; /* Đảm bảo khung thông tin hiển thị trên các phần khác */
+        }
+
+        .floor2-info {
+            margin: 0px;
+        }
+        /* CSS cho khung thông tin3 */
+        .floor3-info-container {
+            position: absolute;
+            top: 30%; /* Điều chỉnh vị trí tùy thuộc vào cụ thể trang của bạn */
+            right: 10%;
+            border: 1px solid #70d8ff;
+            padding: 10px;
+            background-color: #fff;
+            z-index: 999; /* Đảm bảo khung thông tin hiển thị trên các phần khác */
+        }
+
+        .floor3-info {
+            margin: 0px;
+        }
+
+
+
+        /*--------------------STATISTICS-------------------------*/
+        .centered-table {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: auto;
+        }
+
+        .product:hover {
+            border: 2px solid #244975;
+        }
+
+        #productTable {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        #productTable th,
+        #productTable td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        #productTable th {
+            background-color: #f2f2f2;
+        }
+
+        #exportButton {
+            background-color: #244975;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 30px
+        }
+
+        #exportButton:hover {
+            background-color: #244975;
+        }
+
+        #productTable {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 140px;
+            background-color: #fff;
+        }
+
+        #productTable th,
+        #productTable td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        #productTable th {
+            background-color: #f2f2f2;
+            border-top: 2px solid #ddd;
+            border-bottom: 2px solid #ddd;
+            color: #333;
+            text-align: center;
+            padding: 10px;
+        }
+
+        #productTable td {
+            text-align: center;
+            padding: 10px;
+        }
+
+        #productTable th,
+        #productTable td {
+            padding: 10px;
+            /* Tăng khoảng cách giữa nội dung và đường biên của ô */
+        }
+
+        #productTable td:hover {
+            background-color: #f5f5f5;
+            /* Màu nền khi di chuột qua */
+        }
+
+
+        .export-button {
+            background-color: #244975;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .export-button:hover {
+            background-color: #244975;
+        }
+
+        /*--------------------ABOUT US-------------------------*/
+
+
+        /*--------------------SET ANCHOR POSITION-------------------------*/
+
+
+
+
+
+    </style>
+    <!-- <link rel="stylesheet" href="./assets/css/styles.css"> -->
+</head>
+<body>
+    <img src="https://upload.wikimedia.org/wikipedia/vi/thumb/b/bf/Logo_HUET.svg/1200px-Logo_HUET.svg.png" alt="Logo"
+        class="logo">
+    <header>
+        <h1>WAREHOUSE MANAGEMENT SYSTEM</h1>
+    </header>
+    <nav>
+        <a href="#" id="menuTraCuu">LOCATION</a>
+        <button id="floor1Button" style="display: none;">Floor 1</button>
+        <button id="floor2Button" style="display: none;">Floor 2</button>        
+        <button id="floor3Button" style="display: none;">Floor 3</button>
+        <a href="#" id="menuB">SET ANCHOR POSITION</a>
+        <a href="#" id="menuC">STATISTICS</a>
+        <a href="#" id="menuA">ABOUT US</a>
+    </nav>
+    <div id="floor1ButtonContainer"></div>
+    <div id="floor2ButtonContainer"></div>
+    <div id="floor3ButtonContainer"></div>
+    <div id="tableContainer" class="centered-table" style="display: none;">
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Building</th>
+                    <th>Floor</th>
+                    <th>Tag</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody id="productTableBody"></tbody>
+        </table>
+        <button id="exportButton" class="export-button">Export Statistics</button>
+    </div> 
+    <div class="bottom-text">Graduation Thesis _ Ware House Management System </div>
+    <div id="rectangle3">
+        <div id="product7" class="product"></div>
+        <div id="product8" class="product"></div>
+        <div id="product9" class="product"></div>
+        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+        alt="anchor 9" class="anchor" id="anchor9">
+        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+        alt="anchor 10" class="anchor" id="anchor10">
+        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+        alt="anchor 11" class="anchor" id="anchor11">
+        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+        alt="anchor 12" class="anchor" id="anchor12">
+    </div>
+    <div id="rectangle2">
+        <div id="product4" class="product"></div>
+        <div id="product5" class="product"></div>
+        <div id="product6" class="product"></div>
+        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+        alt="anchor 5" class="anchor" id="anchor5">
+        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+        alt="anchor 6" class="anchor" id="anchor6">
+        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+        alt="anchor 7" class="anchor" id="anchor7">
+        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+        alt="anchor 8" class="anchor" id="anchor8">
+    </div>
+    <div id="rectangle1">
+        <div id="product1" class="product"></div>
+        <div id="product2" class="product"></div>
+        <div id="product3" class="product"></div>
+        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+        alt="anchor 1" class="anchor" id="anchor1">
+        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+        alt="anchor 2" class="anchor" id="anchor2">
+        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+        alt="anchor 3" class="anchor" id="anchor3">
+        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+        alt="anchor 4" class="anchor" id="anchor4">
+    </div>
+    
+    <div id="anchorDetails" style="display: none;">
+        <label for="xCoordinate">X Coordinates:</label>
+        <input type="text" id="xCoordinate" placeholder="Enter X coordinates">
+        <label for="yCoordinate">Y Coordinates:</label>
+        <input type="text" id="yCoordinate" placeholder="Enter Y coordinates">
+        <button id="saveCoordinates">Lưu</button>
+    </div>
+    <div id="floor1InfoContainer" class="floor1-info-container">
+    </div>
+    <div id="floor2InfoContainer" class="floor2-info-container">
+    </div></div>
+    <div id="floor3InfoContainer" class="floor3-info-container">
+    </div>
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDsZGUIWm5X8i79CnSnJKwlv4_Pu3q3iuc",
+            authDomain: "myfirstfb-65c63.firebaseapp.com",
+            databaseURL: "https://myfirstfb-65c63-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "myfirstfb-65c63",
+            storageBucket: "myfirstfb-65c63.appspot.com",
+            messagingSenderId: "290610857576",
+            appId: "1:290610857576:web:593011b529606c2b611ddd",
+            measurementId: "G-55Z9TR5GK7"
+        };
+        firebase.initializeApp(firebaseConfig);
+        var db = firebase.database();
+        var isElementsVisible = false;
+        var rectangle1Element = document.getElementById('rectangle1');
+        var rectangle2Element = document.getElementById('rectangle2');
+        var rectangle3Element = document.getElementById('rectangle3');
+        var isFloor1Clicked = false;
+        var isFloor2Clicked = false;        
+        var isFloor3Clicked = false;
+        document.querySelectorAll('.product').forEach(function (product, index) {
+            product.style.display = 'block';
+            var productId = 'product' + (index + 1);
+            db.ref('/Building 1/floor1/product').once('value', function(productSnapshot) {
+                updateproductPosition(productSnapshot.child(productId).val(), product.id);
+            });
+            product.addEventListener('click', function () {
+                showProductDetails1(productId, 'productDetails');
+            });
+        });
+        document.querySelectorAll('.product').forEach(function (product, index) {
+            product.style.display = 'block';
+            var productId = 'product' + (index + 1);
+            db.ref('/Building 1/floor2/product').once('value', function(productSnapshot) {
+                updateproductPosition(productSnapshot.child(productId).val(), product.id);
+            });
+            product.addEventListener('click', function () {
+                showProductDetails2(productId, 'productDetails');
+            });
+        });
+        document.querySelectorAll('.product').forEach(function (product, index) {
+            product.style.display = 'block';
+            var productId = 'product' + (index + 1);
+            db.ref('/Building 1/floor3/product').once('value', function(productSnapshot) {
+                updateproductPosition(productSnapshot.child(productId).val(), product.id);
+            });
+            product.addEventListener('click', function () {
+                showProductDetails3(productId, 'productDetails');
+            });
+        });
+        document.querySelectorAll('.anchor').forEach(function (anchor, index) {
+            anchor.style.display = 'block';
+            var anchorId = 'anchor' + (index + 1);
+            db.ref('/Building 1/floor1/anchor').once('value', function(anchorSnapshot) {
+                updateAnchorPosition(anchorSnapshot.child(anchorId).val(), anchor.id);
+            });
+        });
+        document.querySelectorAll('.anchor').forEach(function (anchor, index) {
+            anchor.style.display = 'block';
+            var anchorId = 'anchor' + (index + 1);
+            db.ref('/Building 1/floor2/anchor').once('value', function(anchorSnapshot) {
+                updateAnchorPosition(anchorSnapshot.child(anchorId).val(), anchor.id);
+            });
+        });
+        document.querySelectorAll('.anchor').forEach(function (anchor, index) {
+            anchor.style.display = 'block';
+            var anchorId = 'anchor' + (index + 1);
+            db.ref('/Building 1/floor3/anchor').once('value', function(anchorSnapshot) {
+                updateAnchorPosition(anchorSnapshot.child(anchorId).val(), anchor.id);
+            });
+        });
+        window.onload = function() {
+            rectangle1Element.style.display = 'none';
+            rectangle2Element.style.display = 'none';            
+            rectangle3Element.style.display = 'none';
+            document.querySelectorAll('.product').forEach(function (product) {
+                product.style.display = 'none';
+            });
+            document.querySelectorAll('.anchor').forEach(function (anchor) {
+                anchor.style.display = 'none';
+            });
+        }
+        var menuTraCuu = document.getElementById('menuTraCuu');
+        rectangle1Element.style.display = 'none';
+        rectangle2Element.style.display = 'none';        
+        rectangle3Element.style.display = 'none';
+        document.querySelectorAll('.product').forEach(function (product) {
+            product.style.display = 'none';
+        });
+        document.querySelectorAll('.anchor').forEach(function (anchor) {
+            anchor.style.display = 'none';
+        });
+        menuTraCuu.addEventListener('click', function() {
+            floor1Button.style.display = 'block';
+            isFloor1Clicked = false;
+            floor2Button.style.display = 'block';
+            isFloor2Clicked = false;
+            floor3Button.style.display = 'block';
+            isFloor3Clicked = false;
+        });
+        menuTraCuu.addEventListener('click', function() {
+            var floor1Button = document.createElement('button');
+            floor1Button.textContent = 'Floor 1';
+            floor1Button.id = 'floor1Button';
+            var floor2Button = document.createElement('button');
+            floor2Button.textContent = 'Floor 2';
+            floor2Button.id = 'floor2Button';
+            var floor3Button = document.createElement('button');
+            floor3Button.textContent = 'Floor 3';
+            floor3Button.id = 'floor3Button';
+            var floor1Button = document.getElementById('floor1Button');
+            var floor2Button = document.getElementById('floor2Button');
+            var floor3Button = document.getElementById('floor3Button');
+            floor1Button.addEventListener('click', function() {
+                if (!isFloor1Clicked) {
+                    rectangle1Element.style.display = 'block';
+                    document.querySelectorAll('.product').forEach(function (product) {
+                        product.style.display = 'block';
+                    });
+                    document.querySelectorAll('.anchor').forEach(function (anchor) {
+                        anchor.style.display = 'block';
+                    });
+                    isFloor1Clicked = true;
+                } else {
+                    rectangle1Element.style.display = 'none';
+                    document.querySelectorAll('.product').forEach(function (product) {
+                        product.style.display = 'none';
+                    });
+                    document.querySelectorAll('.anchor').forEach(function (anchor) {
+                        anchor.style.display = 'none';
+                    });
+                    isFloor1Clicked = false;
+                }
+            });
+            floor2Button.addEventListener('click', function() {
+                if (!isFloor2Clicked) {
+                    rectangle2Element.style.display = 'block';
+                    document.querySelectorAll('.product').forEach(function (product) {
+                        product.style.display = 'block';
+                    });
+                    document.querySelectorAll('.anchor').forEach(function (anchor) {
+                        anchor.style.display = 'block';
+                    });
+                    isFloor2Clicked = true;
+                } else {
+                    rectangle2Element.style.display = 'none';
+                    document.querySelectorAll('.product').forEach(function (product) {
+                        product.style.display = 'none';
+                    });
+                    document.querySelectorAll('.anchor').forEach(function (anchor) {
+                        anchor.style.display = 'none';
+                    });
+                    isFloor2Clicked = false;
+                }
+            });
+            floor3Button.addEventListener('click', function() {
+                if (!isFloor3Clicked) {
+                    rectangle3Element.style.display = 'block';
+                    document.querySelectorAll('.product').forEach(function (product) {
+                        product.style.display = 'block';
+                    });
+                    document.querySelectorAll('.anchor').forEach(function (anchor) {
+                        anchor.style.display = 'block';
+                    });
+                    isFloor3Clicked = true;
+                } else {
+                    rectangle3Element.style.display = 'none';
+                    document.querySelectorAll('.product').forEach(function (product) {
+                        product.style.display = 'none';
+                    });
+                    document.querySelectorAll('.anchor').forEach(function (anchor) {
+                        anchor.style.display = 'none';
+                    });
+                    isFloor3Clicked = false;
+                }
+            });
+            var floor1ButtonContainer = document.getElementById('floor1ButtonContainer');
+            floor1ButtonContainer.innerHTML = ''; 
+            floor1ButtonContainer.appendChild(floor1Button);
+            var floor2ButtonContainer = document.getElementById('floor2ButtonContainer');
+            floor2ButtonContainer.innerHTML = ''; 
+            floor2ButtonContainer.appendChild(floor2Button);
+            var floor3ButtonContainer = document.getElementById('floor3ButtonContainer');
+            floor3ButtonContainer.innerHTML = ''; 
+            floor3ButtonContainer.appendChild(floor3Button);
+        });
+        function showAnchorDetails1(anchorId) {
+            db.ref('/Building 1/floor1/anchor/' + anchorId).once('value', function(snapshot) {
+                var data = snapshot.val();
+                if (data && data.coordinates) {
+                    var coordinates = data.coordinates;
+                    Swal.fire({
+                        title: 'Anchor informations',
+                        html: `
+                            <p><strong>X Coordinates:</strong> ${coordinates.x || 'N/A'}</p>
+                            <p><strong>Y Coordinates:</strong> ${coordinates.y || 'N/A'}</p>
+                        `,
+                        showCloseButton: true,
+                        showConfirmButton: false,
+                        backdrop: false,
+                        customClass: {
+                            popup: 'custom-popup'
+                        }
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Anchor informations',
+                        html: `
+                            <p>Anchor details not found.</p>
+                        `,
+                        showCloseButton: true,
+                        showConfirmButton: false,
+                        backdrop: false,
+                        customClass: {
+                            popup: 'custom-popup'
+                        }
+                    });
+                }
+            });
+        }
+
+        function showAnchorDetails2(anchorId) {
+            db.ref('/Building 1/floor2/anchor/' + anchorId).once('value', function(snapshot) {
+                var data = snapshot.val();
+                if (data && data.coordinates) {
+                    var coordinates = data.coordinates;
+                    Swal.fire({
+                        title: 'Anchor informations',
+                        html: `
+                            <p><strong>X Coordinates:</strong> ${coordinates.x || 'N/A'}</p>
+                            <p><strong>Y Coordinates:</strong> ${coordinates.y || 'N/A'}</p>
+                        `,
+                        showCloseButton: true,
+                        showConfirmButton: false,
+                        backdrop: false,
+                        customClass: {
+                            popup: 'custom-popup'
+                        }
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Anchor informations',
+                        html: `
+                            <p>Anchor details not found.</p>
+                        `,
+                        showCloseButton: true,
+                        showConfirmButton: false,
+                        backdrop: false,
+                        customClass: {
+                            popup: 'custom-popup'
+                        }
+                    });
+                }
+            });
+        }
+        function showAnchorDetails3(anchorId) {
+            db.ref('/Building 1/floor3/anchor/' + anchorId).once('value', function(snapshot) {
+                var data = snapshot.val();
+                if (data && data.coordinates) {
+                    var coordinates = data.coordinates;
+                    Swal.fire({
+                        title: 'Anchor informations',
+                        html: `
+                            <p><strong>X Coordinates:</strong> ${coordinates.x || 'N/A'}</p>
+                            <p><strong>Y Coordinates:</strong> ${coordinates.y || 'N/A'}</p>
+                        `,
+                        showCloseButton: true,
+                        showConfirmButton: false,
+                        backdrop: false,
+                        customClass: {
+                            popup: 'custom-popup'
+                        }
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Anchor informations',
+                        html: `
+                            <p>Anchor details not found.</p>
+                        `,
+                        showCloseButton: true,
+                        showConfirmButton: false,
+                        backdrop: false,
+                        customClass: {
+                            popup: 'custom-popup'
+                        }
+                    });
+                }
+            });
+        }
+        var isRectangle1Visible = false;
+        var isRectangle2Visible = false;        
+        var isRectangle3Visible = false;
+        document.getElementById('menuTraCuu').addEventListener('click', function () {
+            if (!isRectangle1Visible) {
+                rectangle1Element.style.display = 'block';
+                document.querySelectorAll('.product').forEach(function (product, index) {
+                    product.style.display = 'block';
+                    var productId = 'product' + (index + 1);
+                    db.ref('/Building 1/floor1/product').once('value', function (productSnapshot) {
+                        updateProductPosition(productSnapshot.child(productId), productId); // Fixed: Used correct snapshot object
+                    });
+                    product.addEventListener('click', function () {
+                        showProductDetails1(productId);
+                    });
+                });
+                document.querySelectorAll('.anchor').forEach(function (anchor, index) {
+                    anchor.style.display = 'block';
+                    var anchorId = 'anchor' + (index + 1);
+                    db.ref('/Building 1/floor1/anchor').once('value', function (anchorSnapshot) {
+                        updateAnchorPosition(anchorSnapshot.child(anchorId), anchorId); // Fixed: Used correct snapshot object
+                    });
+                });
+                isRectangle1Visible = true;
+            } else {
+                rectangle1Element.style.display = 'none';
+                document.querySelectorAll('.product').forEach(function (product) {
+                    product.style.display = 'none';
+                });
+                document.querySelectorAll('.anchor').forEach(function (anchor) {
+                    anchor.style.display = 'none';
+                });
+                isRectangle1Visible = false;
+            }
+        });
+
+        document.getElementById('menuTraCuu').addEventListener('click', function () {
+            if (!isRectangle2Visible) {
+                rectangle2Element.style.display = 'block';
+                document.querySelectorAll('.product').forEach(function (product, index) {
+                    product.style.display = 'block';
+                    var productId = 'product' + (index + 1);
+                    db.ref('/Building 1/floor2/product').once('value', function (productSnapshot) {
+                        updateProductPosition(productSnapshot.child(productId), productId); // Fixed: Used correct snapshot object
+                    });
+                    product.addEventListener('click', function () {
+                        showProductDetails2(productId);
+                    });
+                });
+                document.querySelectorAll('.anchor').forEach(function (anchor, index) {
+                    anchor.style.display = 'block';
+                    var anchorId = 'anchor' + (index + 1);
+                    db.ref('/Building 1/floor2/anchor').once('value', function (anchorSnapshot) {
+                        updateAnchorPosition(anchorSnapshot.child(anchorId), anchorId); // Fixed: Used correct snapshot object
+                    });
+                });
+                isRectangle2Visible = true;
+            } else {
+                rectangle2Element.style.display = 'none';
+                document.querySelectorAll('.product').forEach(function (product) {
+                    product.style.display = 'none';
+                });
+                document.querySelectorAll('.anchor').forEach(function (anchor) {
+                    anchor.style.display = 'none';
+                });
+                isRectangle2Visible = false;
+            }
+        });
+        document.getElementById('menuTraCuu').addEventListener('click', function () {
+            if (!isRectangle3Visible) {
+                rectangle3Element.style.display = 'block';
+                document.querySelectorAll('.product').forEach(function (product, index) {
+                    product.style.display = 'block';
+                    var productId = 'product' + (index + 1);
+                    db.ref('/Building 1/floor3/product').once('value', function (productSnapshot) {
+                        updateProductPosition(productSnapshot.child(productId), productId); // Fixed: Used correct snapshot object
+                    });
+                    product.addEventListener('click', function () {
+                        showProductDetails3(productId);
+                    });
+                });
+                document.querySelectorAll('.anchor').forEach(function (anchor, index) {
+                    anchor.style.display = 'block';
+                    var anchorId = 'anchor' + (index + 1);
+                    db.ref('/Building 1/floor3/anchor').once('value', function (anchorSnapshot) {
+                        updateAnchorPosition(anchorSnapshot.child(anchorId), anchorId); // Fixed: Used correct snapshot object
+                    });
+                });
+                isRectangle3Visible = true;
+            } else {
+                rectangle3Element.style.display = 'none';
+                document.querySelectorAll('.product').forEach(function (product) {
+                    product.style.display = 'none';
+                });
+                document.querySelectorAll('.anchor').forEach(function (anchor) {
+                    anchor.style.display = 'none';
+                });
+                isRectangle3Visible = false;
+            }
+        });
+
+        function updateAnchorPosition(anchorSnapshot, anchorId) {
+            var anchorElement = document.getElementById(anchorId);
+            var xCoordinate = anchorSnapshot.val().coordinates.x || 0;
+            var yCoordinate = anchorSnapshot.val().coordinates.y || 0;
+            anchorElement.style.left = xCoordinate + 'px';
+            anchorElement.style.top = yCoordinate + 'px';
+        }
+
+        function updateProductPosition(productSnapshot, productId) {
+            var productElement = document.getElementById(productId);
+            var xCoordinate = productSnapshot.val().coordinates.x || 0;
+            var yCoordinate = productSnapshot.val().coordinates.y || 0;
+            productElement.style.left = xCoordinate + 'px';
+            productElement.style.top = yCoordinate + 'px';
+        }
+        document.addEventListener('click', function (event) {
+            var targetElement = event.target;
+            if (targetElement.id !== 'menuTraCuu' && isRectangle1Visible) {
+                isRectangle1Visible = false;
+            }
+        });
+        document.addEventListener('click', function (event) {
+            var targetElement = event.target;
+            if (targetElement.id !== 'menuTraCuu' && isRectangle2Visible) {
+                isRectangle2Visible = false;
+            }
+        });
+        document.addEventListener('click', function (event) {
+            var targetElement = event.target;
+            if (targetElement.id !== 'menuTraCuu' && isRectangle3Visible) {
+                isRectangle3Visible = false;
+            }
+        });
+        document.addEventListener('click', function (event) {
+            var targetElement = event.target;
+            if (targetElement.id !== 'Floor 1 (${productCount}P/${anchorCount}A)' && isRectangle1Visible) {
+                isRectangle1Visible = false;
+            }
+        });
+        document.addEventListener('click', function (event) {
+            var targetElement = event.target;
+            if (targetElement.id !== 'Floor 2 (${productCount}P/${anchorCount}A)' && isRectangle2Visible) {
+                isRectangle2Visible = false;
+            }
+        });
+        document.addEventListener('click', function (event) {
+            var targetElement = event.target;
+            if (targetElement.id !== 'Floor 3 (${productCount}P/${anchorCount}A)' && isRectangle3Visible) {
+                isRectangle3Visible = false;
+            }
+        });
+        function showProductDetails1(productId) {
+            db.ref('/Building 1/floor1/product/' + productId + '/details').once('value', function(snapshot) {
+                var data = snapshot.val();
+                Swal.fire({
+                    title: 'Tag informations',
+                    html: `
+                        <p><strong>ID:</strong> ${data.ID || 'N/A'}</p>
+                        <p><strong>Building:</strong> ${data.building || 'N/A'}</p>
+                        <p><strong>Floor:</strong> ${data.floor || 'N/A'}</p>
+                        <p><strong>Tag:</strong> ${data.tag || 'N/A'}</p>
+                        <p><strong>Time:</strong> ${data.time || 'N/A'}</p>
+                    `,
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                    backdrop: false,
+                    customClass: {
+                        popup: 'custom-popup'
+                    }
+                });
+            });
+        }
+        function showProductDetails2(productId) {
+            db.ref('/Building 1/floor2/product/' + productId + '/details').once('value', function(snapshot) {
+                var data = snapshot.val();
+                Swal.fire({
+                    title: 'Tag informations',
+                    html: `
+                        <p><strong>ID:</strong> ${data.ID || 'N/A'}</p>
+                        <p><strong>Building:</strong> ${data.building || 'N/A'}</p>
+                        <p><strong>Floor:</strong> ${data.floor || 'N/A'}</p>
+                        <p><strong>Tag:</strong> ${data.tag || 'N/A'}</p>
+                        <p><strong>Time:</strong> ${data.time || 'N/A'}</p>
+                    `,
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                    backdrop: false,
+                    customClass: {
+                        popup: 'custom-popup'
+                    }
+                });
+            });
+        }
+        
+        
+        function showProductDetails3(productId) {
+            db.ref('/Building 1/floor3/product/' + productId + '/details').once('value', function(snapshot) {
+                var data = snapshot.val();
+                Swal.fire({
+                    title: 'Tag informations',
+                    html: `
+                        <p><strong>ID:</strong> ${data.ID || 'N/A'}</p>
+                        <p><strong>Building:</strong> ${data.building || 'N/A'}</p>
+                        <p><strong>Floor:</strong> ${data.floor || 'N/A'}</p>
+                        <p><strong>Tag:</strong> ${data.tag || 'N/A'}</p>
+                        <p><strong>Time:</strong> ${data.time || 'N/A'}</p>
+                    `,
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                    backdrop: false,
+                    customClass: {
+                        popup: 'custom-popup'
+                    }
+                });
+            });
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            db.ref('/Building 1/floor1/product').on('value', function (productSnapshot) {
+                productSnapshot.forEach(function (childSnapshot) {
+                    var productId = childSnapshot.key;
+                    var product = document.getElementById(productId);
+                    if (product) {
+                        updateproductPosition(childSnapshot, productId);
+                    }
+                });
+            });
+            db.ref('/Building 1/floor1/anchor').on('value', function (anchorSnapshot) {
+                anchorSnapshot.forEach(function (childSnapshot) {
+                    var anchorId = childSnapshot.key;
+                    var anchor = document.getElementById(anchorId);
+                    if (anchor) {
+                        updateAnchorPosition(childSnapshot, anchorId);
+                    }
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            db.ref('/Building 1/floor2/product').on('value', function (productSnapshot) {
+                productSnapshot.forEach(function (childSnapshot) {
+                    var productId = childSnapshot.key;
+                    var product = document.getElementById(productId);
+                    if (product) {
+                        updateproductPosition(childSnapshot, productId);
+                    }
+                });
+            });
+            db.ref('/Building 1/floor2/anchor').on('value', function (anchorSnapshot) {
+                anchorSnapshot.forEach(function (childSnapshot) {
+                    var anchorId = childSnapshot.key;
+                    var anchor = document.getElementById(anchorId);
+                    if (anchor) {
+                        updateAnchorPosition(childSnapshot, anchorId);
+                    }
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            db.ref('/Building 1/floor3/product').on('value', function (productSnapshot) {
+                productSnapshot.forEach(function (childSnapshot) {
+                    var productId = childSnapshot.key;
+                    var product = document.getElementById(productId);
+                    if (product) {
+                        updateproductPosition(childSnapshot, productId);
+                    }
+                });
+            });
+            db.ref('/Building 1/floor3/anchor').on('value', function (anchorSnapshot) {
+                anchorSnapshot.forEach(function (childSnapshot) {
+                    var anchorId = childSnapshot.key;
+                    var anchor = document.getElementById(anchorId);
+                    if (anchor) {
+                        updateAnchorPosition(childSnapshot, anchorId);
+                    }
+                });
+            });
+        });
+        document.querySelectorAll('.anchor').forEach(function (anchor, index) {
+            anchor.style.display = 'block';
+            var anchorId = 'anchor' + (index + 1);
+            anchor.addEventListener('click', function() {
+            showAnchorDetails1(anchorId);
+            });
+        });
+        document.querySelectorAll('.anchor').forEach(function (anchor, index) {
+            anchor.style.display = 'block';
+            var anchorId = 'anchor' + (index + 1);
+            anchor.addEventListener('click', function() {
+            showAnchorDetails2(anchorId);
+            });
+        });
+        document.querySelectorAll('.anchor').forEach(function (anchor, index) {
+            anchor.style.display = 'block';
+            var anchorId = 'anchor' + (index + 1);
+            anchor.addEventListener('click', function() {
+            showAnchorDetails3(anchorId);
+            });
+        });
+        function updateFloor1ButtonContent(productCount1, anchorCount1) {
+            var floor1Button = document.getElementById('floor1Button');
+            floor1Button.textContent = `Floor 1 (${productCount1}P/${anchorCount1}A)`;
+        }
+
+        function updateFloor2ButtonContent(productCount2, anchorCount2) {
+            var floor2Button = document.getElementById('floor2Button');
+            floor2Button.textContent = `Floor 2 (${productCount2}P/${anchorCount2}A)`;
+        }
+        function updateFloor3ButtonContent(productCount3, anchorCount3) {
+            var floor3Button = document.getElementById('floor3Button');
+            floor3Button.textContent = `Floor 3 (${productCount3}P/${anchorCount3}A)`;
+        }
+        function calculateProductAndAnchorCounts1() {
+            db.ref('/Building 1/floor1/product').once('value', function (productSnapshot) {
+                var productCount1 = productSnapshot.numChildren();
+                db.ref('/Building 1/floor1/anchor').once('value', function (anchorSnapshot) {
+                    var anchorCount1 = anchorSnapshot.numChildren();
+                    updateFloor1ButtonContent(productCount1, anchorCount1);
+                });
+            });
+        }
+
+        function calculateProductAndAnchorCounts2() {
+            db.ref('/Building 1/floor2/product').once('value', function(productSnapshot) {
+                var productCount2 = productSnapshot.numChildren();
+                db.ref('/Building 1/floor2/anchor').once('value', function(anchorSnapshot) {
+                    var anchorCount2 = anchorSnapshot.numChildren();
+                    updateFloor2ButtonContent(productCount2, anchorCount2);
+                });
+            });
+        }
+        function calculateProductAndAnchorCounts3() {
+            db.ref('/Building 1/floor3/product').once('value', function(productSnapshot) {
+                var productCount3 = productSnapshot.numChildren();
+                db.ref('/Building 1/floor3/anchor').once('value', function(anchorSnapshot) {
+                    var anchorCount3 = anchorSnapshot.numChildren();
+                    updateFloor3ButtonContent(productCount3, anchorCount3);
+                });
+            });
+        }
+        calculateProductAndAnchorCounts1();
+        calculateProductAndAnchorCounts2();        
+        calculateProductAndAnchorCounts3();
+        document.getElementById('floor1Button').addEventListener('click', function () {
+            db.ref('/Building 1/floor1/information').once('value', function (snapshot) {
+                var name = snapshot.val().name || 'N/A';
+                var address = snapshot.val().address || 'N/A';
+                db.ref('/Building 1/floor1/product').once('value', function (productSnapshot) {
+                    var productCount1 = productSnapshot.numChildren();
+                    db.ref('/Building 1/floor1/anchor').once('value', function (anchorSnapshot) {
+                        var anchorCount1 = anchorSnapshot.numChildren();
+                        displayFloor1Information(name, address, productCount1, anchorCount1);
+                    });
+                });
+            });
+        });
+
+        document.getElementById('floor2Button').addEventListener('click', function () {
+            db.ref('/Building 1/floor2/information').once('value', function (snapshot) {
+                var name = snapshot.val().name || 'N/A';
+                var address = snapshot.val().address || 'N/A';
+                db.ref('/Building 1/floor2/product').once('value', function (productSnapshot) {
+                    var productCount2 = productSnapshot.numChildren();
+                    db.ref('/Building 1/floor2/anchor').once('value', function (anchorSnapshot) {
+                        var anchorCount2 = anchorSnapshot.numChildren();
+                        displayFloor2Information(name, address, productCount2, anchorCount2);
+                    });
+                });
+            });
+        });
+        document.getElementById('floor3Button').addEventListener('click', function () {
+            db.ref('/Building 1/floor3/information').once('value', function (snapshot) {
+                var name = snapshot.val().name || 'N/A';
+                var address = snapshot.val().address || 'N/A';
+                db.ref('/Building 1/floor3/product').once('value', function (productSnapshot) {
+                    var productCount3 = productSnapshot.numChildren();
+                    db.ref('/Building 1/floor3/anchor').once('value', function (anchorSnapshot) {
+                        var anchorCount3 = anchorSnapshot.numChildren();
+                        displayFloor3Information(name, address, productCount3, anchorCount3);
+                    });
+                });
+            });
+        });
+
+        function displayFloor1Information(name, address, productCount1, anchorCount1) {
+            var floor1InfoContainer = document.getElementById('floor1InfoContainer');
+            var infoHTML = `
+                <div class="floor-info">
+                    <h3>Floor 1 Information</h3>
+                    <p><strong>Name:</strong> ${name}</p>
+                    <p><strong>Address:</strong> ${address}</p>
+                    <p><strong>Total Products:</strong> ${productCount1}</p>
+                    <p><strong>Total Anchors:</strong> ${anchorCount1}</p>
+                </div>
+            `;
+            floor1InfoContainer.innerHTML = infoHTML;
+        }
+        function displayFloor2Information(name, address, productCount2, anchorCount2) {
+            var floor2InfoContainer = document.getElementById('floor2InfoContainer');
+            var infoHTML = `
+                <div class="floor-info">
+                    <h3>Floor 2 Information</h3>
+                    <p><strong>Name:</strong> ${name}</p>
+                    <p><strong>Address:</strong> ${address}</p>
+                    <p><strong>Total Products:</strong> ${productCount2}</p>
+                    <p><strong>Total Anchors:</strong> ${anchorCount2}</p>
+                </div>
+            `;
+            floor2InfoContainer.innerHTML = infoHTML;
+        }
+        function displayFloor3Information(name, address, productCount3, anchorCount3) {
+            var floor3InfoContainer = document.getElementById('floor3InfoContainer');
+            var infoHTML = `
+                <div class="floor-info">
+                    <h3>Floor 3 Information</h3>
+                    <p><strong>Name:</strong> ${name}</p>
+                    <p><strong>Address:</strong> ${address}</p>
+                    <p><strong>Total Products:</strong> ${productCount3}</p>
+                    <p><strong>Total Anchors:</strong> ${anchorCount3}</p>
+                </div>
+            `;
+            floor3InfoContainer.innerHTML = infoHTML;
+        }
+        var isRectangle1Visible = false;
+        var isRectangle2Visible = false;
+        var isRectangle3Visible = false;
+
+        document.getElementById('floor1Button').addEventListener('click', function () {
+            isRectangle1Visible = false;
+            isRectangle2Visible = true;            
+            isRectangle3Visible = true;
+            // Hiển thị các thuộc tính của tầng 1
+            rectangle1Element.style.display = 'block';
+            floor1InfoContainer.style.display = 'block';
+            document.querySelectorAll('.product').forEach(function (product) {
+                product.style.display = 'block';
+            });
+            document.querySelectorAll('.anchor').forEach(function (anchor) {
+                anchor.style.display = 'block';
+            });
+            // Ẩn các thuộc tính của tầng 2
+            rectangle2Element.style.display = 'none';
+            floor2InfoContainer.style.display = 'none';
+            document.querySelectorAll('.product').forEach(function (product) {
+                product.style.display = 'none';
+            });
+            document.querySelectorAll('.anchor').forEach(function (anchor) {
+                anchor.style.display = 'none';
+            });
+            // Ẩn các thuộc tính của tầng 3
+            rectangle3Element.style.display = 'none';
+            floor3InfoContainer.style.display = 'none';
+            document.querySelectorAll('.product').forEach(function (product) {
+                product.style.display = 'none';
+            });
+            document.querySelectorAll('.anchor').forEach(function (anchor) {
+                anchor.style.display = 'none';
+            });s
+        });
+
+        document.getElementById('floor2Button').addEventListener('click', function () {
+            isRectangle1Visible = false;
+            isRectangle2Visible = true;            
+            isRectangle3Visible = true;
+            // Hiển thị các thuộc tính của tầng 2
+            rectangle2Element.style.display = 'block';
+            floor2InfoContainer.style.display = 'block';
+            document.querySelectorAll('.product').forEach(function (product) {
+                product.style.display = 'block';
+            });
+            document.querySelectorAll('.anchor').forEach(function (anchor) {
+                anchor.style.display = 'block';
+            });
+            // Ẩn các thuộc tính của tầng 1
+            rectangle1Element.style.display = 'none';
+            floor1InfoContainer.style.display = 'none';
+            document.querySelectorAll('.product').forEach(function (product) {
+                product.style.display = 'none';
+            });
+            document.querySelectorAll('.anchor').forEach(function (anchor) {
+                anchor.style.display = 'none';
+            });
+            // Ẩn các thuộc tính của tầng 3
+            rectangle3Element.style.display = 'none';
+            floor3InfoContainer.style.display = 'none';
+            document.querySelectorAll('.product').forEach(function (product) {
+                product.style.display = 'none';
+            });
+            document.querySelectorAll('.anchor').forEach(function (anchor) {
+                anchor.style.display = 'none';
+            });
+        });
+        document.getElementById('floor3Button').addEventListener('click', function () {
+            isRectangle1Visible = false;
+            isRectangle2Visible = true;            
+            isRectangle3Visible = true;
+            // Hiển thị các thuộc tính của tầng 3
+            rectangle3Element.style.display = 'block';
+            floor3InfoContainer.style.display = 'block';
+            document.querySelectorAll('.product').forEach(function (product) {
+                product.style.display = 'block';
+            });
+            document.querySelectorAll('.anchor').forEach(function (anchor) {
+                anchor.style.display = 'block';
+            });
+            // Ẩn các thuộc tính của tầng 1
+            rectangle1Element.style.display = 'none';
+            floor1InfoContainer.style.display = 'none';
+            document.querySelectorAll('.product').forEach(function (product) {
+                product.style.display = 'none';
+            });
+            document.querySelectorAll('.anchor').forEach(function (anchor) {
+                anchor.style.display = 'none';
+            });
+            // Ẩn các thuộc tính của tầng 2
+            rectangle2Element.style.display = 'none';
+            floor2InfoContainer.style.display = 'none';
+            document.querySelectorAll('.product').forEach(function (product) {
+                product.style.display = 'none';
+            });
+            document.querySelectorAll('.anchor').forEach(function (anchor) {
+                anchor.style.display = 'none';
+            });
+        });
+
+
+        //--------------------STATISTICS-------------------------
+                //Truy cập đến bảng trong menu statistics
+                var tableContainer = document.getElementById('tableContainer');
+        //Menu Statistics
+        document.getElementById('menuC').addEventListener('click', function () {
+            if (!isTableVisible) {
+                // Hiển thị bảng thống kê
+                showProductTable();
+                isTableVisible = true;
+            } else {
+                // Ẩn bảng thống kê
+                document.getElementById('tableContainer').style.display = 'none';
+                isTableVisible = false;
+            }
+
+            // Ẩn rectangle và product
+            rectangle1Element.style.display = 'none';
+            rectangle2Element.style.display = 'none';
+            rectangle3Element.style.display = 'none';
+            document.querySelectorAll('.product').forEach(function (product) {
+                product.style.display = 'none';
+            });
+
+            // Đặt trạng thái của rectangle là không hiển thị
+            isRectang1leVisible = false;
+            isRectang2leVisible = false;
+            isRectang3leVisible = false;
+
+            // Ẩn các anchor
+            const anchors = document.querySelectorAll('.anchor');
+            anchors.forEach(function (anchor) {
+                anchor.style.display = 'none';
+            });
+            document.getElementById('floor1Button').style.display = 'none';
+            document.getElementById('floor2Button').style.display = 'none';
+            document.getElementById('floor3Button').style.display = 'none';
+            floor1InfoContainer.style.display = 'none';
+            floor2InfoContainer.style.display = 'none';
+            floor3InfoContainer.style.display = 'none';
+        });
+        //Phần này để ẩn bảng thống kê khi click vào vùng bất kì
+        document.addEventListener('click', function (event) {
+            var targetElement = event.target;
+            // Kiểm tra xem người dùng có click vào nút "Thống kê các món hàng trong kho" hay không
+            if (targetElement.id !== 'menuC' && isTableVisible) {
+                // Ẩn bảng thống kê
+                document.getElementById('tableContainer').style.display = 'none';
+                isTableVisible = false;
+            }
+        });
+        //XUẤT THỐNG KÊ
+        // Thêm sự kiện cho nút "Xuất thống kê"
+        document.getElementById('exportButton').addEventListener('click', function () {
+            exportStatistics();
+        });
+
+        // Hàm xuất thống kê ra file TXT
+        function exportStatistics() {
+            var productTableBody = document.getElementById('productTableBody');
+            var dataToExport = '';
+
+            // Lặp qua từng hàng trong bảng thống kê và thu thập dữ liệu
+            for (var i = 0; i < productTableBody.rows.length; i++) {
+                var cells = productTableBody.rows[i].cells;
+                for (var j = 0; j < cells.length; j++) {
+                    dataToExport += cells[j].innerText + '\t'; // Sử dụng ký tự tab để tách dữ liệu
+                }
+                dataToExport += '\n'; // Xuống dòng sau mỗi hàng
+            }
+
+            // Tạo một đối tượng Blob từ chuỗi dữ liệu
+            var blob = new Blob([dataToExport], { type: 'text/plain' });
+
+            // Tạo một đường dẫn URL để tải xuống
+            var url = window.URL.createObjectURL(blob);
+
+            // Tạo một thẻ a để tạo sự kiện click và tải xuống
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = 'warehouse_statistics.txt'; // Tên file xuất thống kê
+            document.body.appendChild(a);
+            a.click();
+
+            // Xóa thẻ a sau khi đã tải xuống
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+        // Hàm hiển thị bảng thông tin món hàng trong menu Statistics
+        function showProductTable() {
+            // Hiển thị bảng thông tin món hàng
+            document.getElementById('tableContainer').style.display = 'block';
+
+            // Truy cập dữ liệu từ cả floor 2 và floor 3
+            var buildingRef = db.ref('/Building 1');
+            buildingRef.once('value', function (snapshot) {
+                var productTableBody = document.getElementById('productTableBody');
+                productTableBody.innerHTML = '';
+
+                // Lặp qua cả floor 2 và floor 3
+                ['floor1','floor2', 'floor3'].forEach(function (floor) {
+                    snapshot.child(floor + '/product').forEach(function (childSnapshot) {
+                        var data = childSnapshot.val();
+                        if (data && data.details) {
+                            var row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${data.details.ID || 'N/A'}</td>
+                                <td>${data.details.building || 'N/A'}</td>
+                                <td>${data.details.floor || 'N/A'}</td>
+                                <td>${data.details.tag || 'N/A'}</td>
+                                <td>${data.details.time || 'N/A'}</td>
+                            `;
+                            productTableBody.appendChild(row);
+                        }
+                    });
+                });
+            });
+        }
+
+
+
+        //--------------------SET ANCHOR POSISTION-------------------------
+            //Menu Set Anchor Posistion
+            document.getElementById('menuB').addEventListener('click', function () {
+            // Hiển thị dropdown danh sách anchor
+            Swal.fire({
+                title: 'Select Anchor',
+                input: 'select',
+                inputOptions: {
+                    'anchor1': 'Anchor 1',
+                    'anchor2': 'Anchor 2',
+                    'anchor3': 'Anchor 3',
+                    'anchor4': 'Anchor 4',
+                    'anchor5': 'Anchor 5',
+                    'anchor6': 'Anchor 6',
+                    'anchor7': 'Anchor 7',
+                    'anchor8': 'Anchor 8',
+                    'anchor9': 'Anchor 9',
+                    'anchor10': 'Anchor 10',
+                    'anchor11': 'Anchor 11',
+                    'anchor12': 'Anchor 12'
+                    // Thêm các anchor khác nếu cần
+                },
+                showCloseButton: true,
+                showConfirmButton: true,
+                confirmButtonText: 'Next',
+                preConfirm: (selectedanchor) => {
+                    // Kiểm tra xem có chọn anchor nào không
+                    if (!selectedanchor) {
+                        Swal.showValidationMessage('Please choose an Anchor');
+                    } else {
+                        // Gọi hàm để nhập tọa độ mới cho anchor đã chọn
+                        showCoordinateInput(selectedanchor);
+                    }
+                }
+            });            
+            
+            // Ẩn rectangle và product
+            rectangle1Element.style.display = 'none';
+            rectangle2Element.style.display = 'none';
+            rectangle3Element.style.display = 'none';
+            document.querySelectorAll('.product').forEach(function (product) {
+                product.style.display = 'none';
+            });
+
+            // Đặt trạng thái của rectangle là không hiển thị
+            isRectang1leVisible = false;
+            isRectang2leVisible = false;
+            isRectang3leVisible = false;
+
+            // Ẩn các anchor
+            const anchors = document.querySelectorAll('.anchor');
+            anchors.forEach(function (anchor) {
+                anchor.style.display = 'none';
+            });
+            document.getElementById('floor1Button').style.display = 'none';
+            document.getElementById('floor2Button').style.display = 'none';
+            document.getElementById('floor3Button').style.display = 'none';
+            floor1InfoContainer.style.display = 'none';
+            floor2InfoContainer.style.display = 'none';
+            floor3InfoContainer.style.display = 'none';
+        });
+        //Nhập tọa độ mới cho Anchor trong Menu Set Anchor Posistion
+        function showCoordinateInput(selectedanchor, floor) {
+            // Hiển thị hộp thoại nhập tọa độ
+            Swal.fire({
+                title: `Enter coordinates for anchor`,
+                html: `
+                    <label for="newXCoordinate">X Coordinates:</label>
+                    <input type="text" id="newXCoordinate" placeholder="Coordinates for X">
+
+                    <label for="newYCoordinate">Y Coordinates:</label>
+                    <input type="text" id="newYCoordinate" placeholder="Coordinates for Y">
+                `,
+                showCloseButton: true,
+                showConfirmButton: true,
+                confirmButtonText: 'Save',
+                preConfirm: () => {
+                    // Lấy giá trị tọa độ mới từ input
+                    const newXCoordinate = document.getElementById('newXCoordinate').value;
+                    const newYCoordinate = document.getElementById('newYCoordinate').value;
+
+                    // Kiểm tra xem tọa độ có hợp lệ không
+                    if (!newXCoordinate || !newYCoordinate) {
+                        Swal.showValidationMessage('Please enter full coordinates.');
+                    } else {
+                        // Cập nhật tọa độ mới lên Firebase cho anchor đã chọn
+                        updateanchorCoordinates(selectedanchor, newXCoordinate, newYCoordinate, floor);
+                    }
+                }
+            });
+        }    
+        // Cập nhật tọa độ mới cho Anchor trong Menu Set Anchor Posistion
+        function updateanchorCoordinates(selectedanchor, newX, newY, floor) {
+            // Xác định đường dẫn Firebase dựa trên tầng và anchor đã chọn
+            let firebasePath;
+            if (floor === 1) {
+                firebasePath = `/Building 1/floor1/anchor/${selectedanchor}/coordinates`;
+            } else if (floor === 2) {
+                firebasePath = `/Building 1/floor2/anchor/${selectedanchor}/coordinates`;
+            } else if (floor === 3) {
+                firebasePath = `/Building 1/floor3/anchor/${selectedanchor}/coordinates`;
+            }
+
+            // Cập nhật tọa độ mới lên Firebase
+            db.ref(firebasePath).set({
+                x: newX,
+                y: newY
+            })
+            .then(() => {
+                Swal.fire('Notice', 'Updated coordinates successfully!', 'success');
+            })
+            .catch((error) => {
+                console.error('Lỗi cập nhật tọa độ:', error);
+                Swal.fire('Notice', 'An error occurred while updating coordinates.', 'error');
+            });
+        }
+
+
+        //--------------------ABOUT US-------------------------
+
+        //Menu About Us
+        var isTableVisible = false;
+        document.getElementById('menuA').addEventListener('click', function () {
+            // Ẩn rectangle và product
+            rectangle1Element.style.display = 'none';
+            rectangle2Element.style.display = 'none';
+            rectangle3Element.style.display = 'none';
+            document.querySelectorAll('.product').forEach(function (product) {
+                product.style.display = 'none';
+            });
+
+            // Đặt trạng thái của rectangle là không hiển thị
+            isRectang1leVisible = false;
+            isRectang2leVisible = false;
+            isRectang3leVisible = false;
+
+            // Ẩn các anchor
+            const anchors = document.querySelectorAll('.anchor');
+            anchors.forEach(function (anchor) {
+                anchor.style.display = 'none';
+            });
+            document.getElementById('floor1Button').style.display = 'none';
+            document.getElementById('floor2Button').style.display = 'none';
+            document.getElementById('floor3Button').style.display = 'none';
+            floor1InfoContainer.style.display = 'none';
+            floor2InfoContainer.style.display = 'none';
+            floor3InfoContainer.style.display = 'none';
+        });
+
+    </script>
+</body>
+
+</html>
+
