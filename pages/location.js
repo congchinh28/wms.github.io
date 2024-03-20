@@ -9,6 +9,7 @@ const floor1 = {
   stage: "floor1",
 };
 
+
 const floors = document.getElementById("floors");
 const floorInfoContainer = document.getElementById("floorInfoContainer");
 const location = document.getElementById("location");

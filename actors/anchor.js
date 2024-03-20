@@ -1,7 +1,7 @@
 import db from "../assets/js/firebase.js";
 function showAnchorDetails(buildingId, floorId, anchorId) {
   const link = `/${buildingId}/${floorId}/anchor/${anchorId}`;
-//   const link = "/Building 1/floor1/anchor/anchor1";
+  //   const link = "/Building 1/floor1/anchor/anchor1";
   db.ref(link).once("value", function (snapshot) {
     var data = snapshot.val();
     if (data && data.coordinates) {

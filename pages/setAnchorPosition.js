@@ -1,6 +1,6 @@
 //--------------------SET ANCHOR POSISTION-------------------------
 //Menu Set Anchor Posistion
-document.getElementById("menuB").addEventListener("click", function () {
+document.getElementById("setAnchorPosition").addEventListener("click", function () {
     // Hiển thị dropdown danh sách anchor
     Swal.fire({
       title: "Select Anchor",

@@ -2,7 +2,7 @@
 
 //Menu About Us
 var isTableVisible = false;
-document.getElementById("menuA").addEventListener("click", function () {
+document.getElementById("aboutUs").addEventListener("click", function () {
   // Ẩn rectangle và product
   rectangleElement.style.display = "none";
   document.querySelectorAll(".product").forEach(function (product) {

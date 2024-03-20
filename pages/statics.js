@@ -4,7 +4,7 @@ import db from "../assets/js/firebase.js";
 // var tableContainer = document.getElementById("tableContainer");
 //Menu Statistics
 var isTableVisible = false;
-document.getElementById("menuC").addEventListener("click", function () {
+document.getElementById("statistics").addEventListener("click", function () {
   if (!isTableVisible) {
     // Hiển thị bảng thống kê
     showProductTable();
@@ -35,7 +35,7 @@ document.getElementById("menuC").addEventListener("click", function () {
 document.addEventListener("click", function (event) {
   var targetElement = event.target;
   // Kiểm tra xem người dùng có click vào nút "Thống kê các món hàng trong kho" hay không
-  if (targetElement.id !== "menuC" && isTableVisible) {
+  if (targetElement.id !== "statistics" && isTableVisible) {
     // Ẩn bảng thống kê
     document.getElementById("tableContainer").style.display = "none";
     isTableVisible = false;
