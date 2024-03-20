@@ -1,0 +1,340 @@
+html {
+    font-family: 'Roboto', sans-serif;
+    }
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    background-image: url('https://www.epilog.net/uploads/resitve/wms_ikona-small.png?1541415856625');
+    background-size: 20%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position-y: 60%;
+}
+
+header {
+    background-color: #77c5ff;
+    padding: 1px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+nav.header {
+    display: flex;
+    justify-content: center;
+    background-color: #004580;
+    padding: 0px;
+    position: fixed;
+    width: 100%; 
+    top: 90px;
+    left: 0;
+    right: 0;
+    z-index: 998;
+}
+nav.floor {
+    display: flex;
+    justify-content: center;
+    background-color: #004580;
+    padding: 0px;
+    position: fixed;
+    width: 100%; 
+    top: 130px;
+    left: 0;
+    right: 0;
+    z-index: 998;
+}
+
+
+.logo {
+    position: absolute;
+    top: 5px;
+    right: 30px;
+    width: 80px;
+    height: auto;
+    z-index: 999;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    font-size: 15px;
+
+}
+
+nav a:hover {
+    background-color: #999;
+}
+
+.bottom-text {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    color: rgb(66, 66, 70);
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: bold;
+    animation: slide 30s linear infinite;
+}
+
+nav a.active {
+    background-color: #004580;
+}
+
+@media only screen and (max-width: 600px) {
+    .logo {
+        width: 70px;
+    }
+
+    header {
+        font-size: 16px;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav a {
+        margin: 5px 0;
+    }
+}
+
+
+/*--------------------LOCATION-------------------------*/
+.custom-popup {
+    left: 35%; 
+    top: -9%
+}
+#floorButtonContainer {
+    position: fixed;
+    top: 20%;
+    left: 30%; /* Điều chỉnh vị trí bên trái của nút */
+    transform: translateY(-50%);
+    z-index: 9999; /* Đảm bảo nút "Tầng 1" hiển thị trên cùng */
+}
+#floor2ButtonContainer {
+    position: fixed;
+    top: 20%;
+    right: 30%; /* Điều chỉnh vị trí bên trái của nút */
+    transform: translateY(-50%);
+    z-index: 9999; /* Đảm bảo nút "Tầng 1" hiển thị trên cùng */
+}
+.stageButton {
+    padding: 10px;
+    background-color: #0d4b8d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#floor1Button {
+    padding: 10px;
+    background-color: #0d4b8d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#floor2Button {
+    padding: 10px;
+    background-color: #0d4b8d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#floor1Button:hover {
+    background-color: #77c5ff;
+}
+#floor2Button:hover {
+    background-color: #77c5ff;
+}
+#rectangle {
+    display: none;
+    position: absolute;
+    width: 775px;
+    height: 648px;
+    background: url('https://wcs.smartdraw.com/floor-plan/img/warehouse-design-example.png?bn=15100111907') no-repeat center center/cover;
+    left: 50%;
+    top: 58%;
+    transform: translate(-50%, -50%);
+}
+#rectangle2 {
+    display: none;
+    position: absolute;
+    width: 775px;
+    height: 648px;
+    background: url('https://i.pinimg.com/736x/e1/51/85/e15185a49a8a6d74e9ce085f2e37cb35.jpg') no-repeat center center/cover;
+    left: 50%;
+    top: 58%;
+    transform: translate(-50%, -50%);
+}
+
+.product {
+    display: none;
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    background: url('https://vietbox.vn/wp-content/uploads/2019/08/sp_5_thungcarton.png') no-repeat center center/contain;
+    cursor: pointer;
+}
+
+.anchor {
+    display: none;
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+/* CSS cho khung thông tin1 */
+.floor-info-container {
+    position: absolute;
+    top: 30%; /* Điều chỉnh vị trí tùy thuộc vào cụ thể trang của bạn */
+    right: 10%;
+    border: 1px solid #77c5ff;
+    padding: 10px;
+    background-color: #fff;
+    z-index: 999; /* Đảm bảo khung thông tin hiển thị trên các phần khác */
+}
+
+.floor-info {
+    margin: 0px;
+}
+/* CSS cho khung thông tin2 */
+.floor2-info-container {
+    position: absolute;
+    top: 30%; /* Điều chỉnh vị trí tùy thuộc vào cụ thể trang của bạn */
+    right: 10%;
+    border: 1px solid #77c5ff;
+    padding: 10px;
+    background-color: #fff;
+    z-index: 999; /* Đảm bảo khung thông tin hiển thị trên các phần khác */
+}
+
+.floor2-info {
+    margin: 0px;
+}
+
+/*--------------------STATISTICS-------------------------*/
+.centered-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: auto;
+}
+
+.product:hover {
+    border: 2px solid #004580;
+}
+
+#productTable {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#productTable th,
+#productTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#productTable th {
+    background-color: #f2f2f2;
+}
+
+#exportButton {
+    background-color: #004580;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 30px
+}
+
+#exportButton:hover {
+    background-color: #004580;
+}
+
+#productTable {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 140px;
+    background-color: #fff;
+}
+
+#productTable th,
+#productTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#productTable th {
+    background-color: #f2f2f2;
+    border-top: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    color: #333;
+    text-align: center;
+    padding: 10px;
+}
+
+#productTable td {
+    text-align: center;
+    padding: 10px;
+}
+
+#productTable th,
+#productTable td {
+    padding: 10px;
+    /* Tăng khoảng cách giữa nội dung và đường biên của ô */
+}
+
+#productTable td:hover {
+    background-color: #f5f5f5;
+    /* Màu nền khi di chuột qua */
+}
+
+
+.export-button {
+    background-color: #004580;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.export-button:hover {
+    background-color: #004580;
+}
+
+/*--------------------ABOUT US-------------------------*/
+
+
+/*--------------------SET ANCHOR POSITION-------------------------*/
+
+
+
