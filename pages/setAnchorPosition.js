@@ -1,45 +1,21 @@
 //--------------------SET ANCHOR POSISTION-------------------------
-//Menu Set Anchor Posistion
-document.getElementById("setAnchorPosition").addEventListener("click", function () {
-    // Hiển thị dropdown danh sách anchor
-    Swal.fire({
-      title: "Select Anchor",
-      input: "select",
-      inputOptions: {
-        anchor1: "Anchor 1",
-        anchor2: "Anchor 2",
-        anchor3: "Anchor 3",
-        anchor4: "Anchor 4",
-        // Thêm các anchor khác nếu cần
-      },
-      showCloseButton: true,
-      showConfirmButton: true,
-      confirmButtonText: "Next",
-      preConfirm: (selectedanchor) => {
-        // Kiểm tra xem có chọn anchor nào không
-        if (!selectedanchor) {
-          Swal.showValidationMessage("Please choose an Anchor");
-        } else {
-          // Gọi hàm để nhập tọa độ mới cho anchor đã chọn
-          showCoordinateInput(selectedanchor);
-        }
-      },
-    });
-  
-    // Ẩn rectangle và product
-    rectangleElement.style.display = "none";
-    document.querySelectorAll(".product").forEach(function (product) {
-      product.style.display = "none";
-    });
-  
-    // Đặt trạng thái của rectangle là không hiển thị
-    isRectangleVisible = false;
-  
-    // Ẩn các anchor
-    const anchors = document.querySelectorAll(".anchor");
-    anchors.forEach(function (anchor) {
-      anchor.style.display = "none";
-    });
-    document.getElementById("floor1Button").style.display = "none";
-  });
+
+import { setAnchorPosition } from "../actors/anchor.js";
+import { showCoordinateInput } from "../assets/js/helpers.js";
+
+const anchorsBuilding = {    
+    anchor1: "Anchor 1",
+    anchor2: "Anchor 2",
+    anchor3: "Anchor 3",
+    anchor4: "Anchor 4",
+    anchor5: "Anchor 5",
+    anchor6: "Anchor 6",
+    anchor7: "Anchor 7",
+    anchor8: "Anchor 8",
+    anchor9: "Anchor 9",
+    anchor10: "Anchor 10",
+    anchor11: "Anchor 11",
+    anchor12: "Anchor 12",
+}
+setAnchorPosition('rectangle', anchorsBuilding)
   

@@ -1,3 +1,4 @@
+import { floor } from "../actors/floor.js";
 import db from "../assets/js/firebase.js";
 //--------------------STATISTICS-------------------------
 //Truy cập đến bảng trong menu statistics
@@ -82,24 +83,27 @@ function exportStatistics() {
 function showProductTable() {
   // Hiển thị bảng thông tin món hàng
   document.getElementById("tableContainer").style.display = "block";
+  var productTableBody = document.getElementById("productTableBody");
+  productTableBody.innerHTML = "";
 
-  db.ref("/Building 1/floor1/product").once("value", function (snapshot) {
-    var productTableBody = document.getElementById("productTableBody");
-    productTableBody.innerHTML = "";
+  const floors = ["floor1", "floor2", "floor3"];
+  floors.map((floor) => {
+    db.ref(`/Building 1/${floor}/product`).once("value", function (snapshot) {
 
-    snapshot.forEach(function (childSnapshot) {
-      var data = childSnapshot.val();
-      if (data && data.details) {
-        var row = document.createElement("tr");
-        row.innerHTML = `
-                    <td>${data.details.ID || "N/A"}</td>
-                    <td>${data.details.building || "N/A"}</td>
-                    <td>${data.details.floor || "N/A"}</td>
-                    <td>${data.details.tag || "N/A"}</td>
-                    <td>${data.details.time || "N/A"}</td>
-                `;
-        productTableBody.appendChild(row);
-      }
+      snapshot.forEach(function (childSnapshot) {
+        var data = childSnapshot.val();
+        if (data && data.details) {
+          var row = document.createElement("tr");
+          row.innerHTML = `
+        <td>${data.details.ID || "N/A"}</td>
+        <td>${data.details.building || "N/A"}</td>
+        <td>${data.details.floor || "N/A"}</td>
+        <td>${data.details.tag || "N/A"}</td>
+        <td>${data.details.time || "N/A"}</td>
+        `;
+          productTableBody.appendChild(row);
+        }
+      });
     });
   });
 }

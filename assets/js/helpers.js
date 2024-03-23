@@ -54,12 +54,14 @@ function updateanchorCoordinates(selectedanchor, newX, newY) {
 //Dùng để hiển thị Anchors và Products
 //reuse
 function updatePosition(snapshot, id) {
-  var element = document.getElementById(id);
-  var x = snapshot.val().coordinates.x || 0;
-  var y = snapshot.val().coordinates.y || 0;
+  if(snapshot.val()){
 
+    var element = document.getElementById(id);
+    var x = snapshot.val().coordinates.x || 0;
+    var y = snapshot.val().coordinates.y || 0;
   element.style.left = x + "px";
   element.style.top = y + "px";
+  }
 }
 
 export { showCoordinateInput, updatePosition };

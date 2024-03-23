@@ -20,10 +20,6 @@ function displayFloorInformation(name, address, productCount, anchorCount) {
   // Thêm nội dung vào khung thông tin
   floorInfoContainer.innerHTML = infoHTML;
 }
-
-//Theo dõi trạng thái cái phần tử trên trang Web
-// var isElementsVisible = false;
-
 //--------------------LOCATION-------------------------
 
 //Truy cập đến map trong menutracuus
@@ -102,14 +98,15 @@ const floor = (rectangle, stage) => {
   });
   //Theo dõi trạng thái của Button floor 1
   //Hiển thị product trên Map
-  document.querySelectorAll(".product").forEach(function (product, index) {
+  document.querySelectorAll(".product").forEach(function (product, index)  {
     product.style.display = "block";
     var productId = "product" + (index + 1);
 
-    db.ref(`/Building 1/${stage}/product`).once(
+       db.ref(`/Building 1/${stage}/product`).once(
       "value",
       function (productSnapshot) {
-        updatePosition(productSnapshot.child(productId).val(), product.id);
+        if (productSnapshot.child(productId).val())
+          updatePosition(productSnapshot.child(productId), product.id);
       }
     );
 
@@ -125,7 +122,8 @@ const floor = (rectangle, stage) => {
     db.ref(`/Building 1/${stage}/anchor`).once(
       "value",
       function (anchorSnapshot) {
-        updatePosition(anchorSnapshot.child(anchorId).val(), anchor.id);
+        if (anchorSnapshot.child(anchorId).val())
+        updatePosition(anchorSnapshot.child(anchorId), anchor.id);
       }
     );
   });
@@ -138,7 +136,6 @@ const floor = (rectangle, stage) => {
     anchor.style.display = "none";
   });
 
-
   //Tải dữ liệu của Products và Anchors từ Firebase
   document.addEventListener("DOMContentLoaded", function () {
     // Duyệt qua dữ liệu trong 'product'
@@ -148,7 +145,7 @@ const floor = (rectangle, stage) => {
         productSnapshot.forEach(function (childSnapshot) {
           var productId = childSnapshot.key;
           var product = document.getElementById(productId);
-          if (product) {
+          if (product && childSnapshot) {
             updatePosition(childSnapshot, productId);
           }
         });
@@ -181,8 +178,11 @@ const floor = (rectangle, stage) => {
   });
 
   // Cập nhật Nội dung của Nút Floor 1
+
+  // const stageElement = document.getElementById(stage);
+  const floorName = stage.charAt(stage.length - 1);
   function updateStageButtonContent(productCount, anchorCount) {
-    stageButton.textContent = `Floor 1 (${productCount}P/${anchorCount}A)`;
+    stageButton.textContent = `Floor ${floorName} (${productCount}P/${anchorCount}A)`;
   }
 
   // Hàm tính tổng số lượng sản phẩm và anchor của tầng 1
@@ -213,6 +213,5 @@ const floor = (rectangle, stage) => {
 
   // Gọi hàm để tính và cập nhật tổng số lượng sản phẩm và anchor khi trang được tải
   calculateProductAndAnchorCounts();
-
 };
 export { floor };

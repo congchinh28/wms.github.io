@@ -6,8 +6,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: #fff;
-    background-image: url('https://www.epilog.net/uploads/resitve/wms_ikona-small.png?1541415856625');
-    background-size: 20%; 
+    background-image: url('https://images.ctfassets.net/aguk64kkrmhj/64VigtnNY9zO2YJhAY05RS/dfc4827f1847dca96e4b629620f779e8/dotwms.png?fm=webp&q=75');
+    background-size: 50%; 
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -42,14 +42,14 @@ nav.header {
 nav.floor {
     display: flex;
     justify-content: center;
-    background-color: #004580;
+    background-color: #77c5ff;
     padding: 0px;
     position: fixed;
     width: 100%; 
-    top: 130px;
+    top: 125px;
     left: 0;
     right: 0;
-    z-index: 998;
+    z-index: 997;
 }
 
 
@@ -181,6 +181,16 @@ nav a.active {
     width: 775px;
     height: 648px;
     background: url('https://i.pinimg.com/736x/e1/51/85/e15185a49a8a6d74e9ce085f2e37cb35.jpg') no-repeat center center/cover;
+    left: 50%;
+    top: 58%;
+    transform: translate(-50%, -50%);
+}
+#rectangle3 {
+    display: none;
+    position: absolute;
+    width: 775px;
+    height: 648px;
+    background: url('https://conceptdraw.com/a64c3/p1/preview/640/pict--warehouse-equipment-layout-warehouse-layout-floor-plan.png--diagram-flowchart-example.png') no-repeat center center/cover;
     left: 50%;
     top: 58%;
     transform: translate(-50%, -50%);

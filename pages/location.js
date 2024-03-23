@@ -1,12 +1,18 @@
 import { floor } from "../actors/floor.js";
-//Theo dõi trạng thái cái phần tử trên trang Web
-// var isElementsVisible = false;
 
 //--------------------LOCATION-------------------------
 const PRE_STAGE_BUTTON_ID = "stageButton";
 const floor1 = {
   rectangle: "rectangle",
   stage: "floor1",
+};
+const floor2 = {
+  rectangle: "rectangle2",
+  stage: "floor2",
+};
+const floor3 = {
+  rectangle: "rectangle3",
+  stage: "floor3",
 };
 
 
@@ -19,6 +25,8 @@ const rectangleElement = document.getElementById(floor1.rectangle);
 floors.style.display = "none";
 
 floor(floor1.rectangle, floor1.stage);
+floor(floor2.rectangle, floor2.stage);
+floor(floor3.rectangle, floor3.stage);
 
 location.addEventListener("click", function () {
   if (showLocation) {
@@ -39,3 +47,4 @@ location.addEventListener("click", function () {
   }
 
 });
+
