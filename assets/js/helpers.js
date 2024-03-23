@@ -42,7 +42,7 @@ function updateanchorCoordinates(selectedanchor, newX, newY) {
       Swal.fire("Notice", "Updated coordinates successfully!", "success");
     })
     .catch((error) => {
-      console.error("Lỗi cập nhật tọa độ:", error);
+      console.error("Error updating coordinates:", error);
       Swal.fire(
         "Notice",
         "An error occurred while updating coordinates.",
