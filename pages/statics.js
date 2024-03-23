@@ -17,20 +17,19 @@ document.getElementById("statistics").addEventListener("click", function () {
   }
 
   // Ẩn rectangle và product
+  const rectangleElement = document.getElementById(rectangle)
+
   rectangleElement.style.display = "none";
   document.querySelectorAll(".product").forEach(function (product) {
     product.style.display = "none";
   });
-
-  // Đặt trạng thái của rectangle là không hiển thị
-  isRectangleVisible = false;
 
   // Ẩn các anchor
   const anchors = document.querySelectorAll(".anchor");
   anchors.forEach(function (anchor) {
     anchor.style.display = "none";
   });
-  document.getElementById("floor1Button").style.display = "none";
+  floorInfoContainer.style.display = 'none';
 });
 //Phần này để ẩn bảng thống kê khi click vào vùng bất kì
 document.addEventListener("click", function (event) {

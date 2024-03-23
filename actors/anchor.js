@@ -75,6 +75,7 @@ function setAnchorPosition(rectangle, anchorsBuilding) {
     anchors.forEach(function (anchor) {
       anchor.style.display = "none";
     });
+    floorInfoContainer.style.display = 'none';
   });
 }
 
