@@ -128,7 +128,7 @@ const floor = (rectangle, stage) => {
     );
   });
   //Khi bắt đầu, các phần tử rectangle, product, anchor ẩn đi.
-  rectangleElement.style.display = "none";
+  // rectangleElement.style.display = "none";
   document.querySelectorAll(".product").forEach(function (product) {
     product.style.display = "none";
   });
