@@ -6,8 +6,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: #fff;
-    background-image: url('/assets/images/bgImage.webp');
-    background-size: 50%;
+    background-image: url('/assets/images/wmsBackground.png');
+    background-size: 30%;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
