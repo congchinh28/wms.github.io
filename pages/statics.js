@@ -62,23 +62,27 @@ function showProductTable() {
   var productTableBody = document.getElementById("productTableBody");
   productTableBody.innerHTML = "";
 
+  const buildings = ["Building 1", "Building 2"];
   const floors = ["floor1", "floor2", "floor3"];
-  floors.map((floor) => {
-    db.ref(`/Building 1/${floor}/product`).once("value", function (snapshot) {
-      snapshot.forEach(function (childSnapshot) {
-        var data = childSnapshot.val();
-        if (data && data.details) {
-          var row = document.createElement("tr");
-          row.innerHTML = `
-        <td>${data.details.ID || "N/A"}</td>
-        <td>${data.details.building || "N/A"}</td>
-        <td>${data.details.floor || "N/A"}</td>
-        <td>${data.details.tag || "N/A"}</td>
-        <td>${data.details.time || "N/A"}</td>
-        `;
-          productTableBody.appendChild(row);
-        }
-      });
+  
+  buildings.map((building) => { 
+    floors.map((floor) => {
+      db.ref(`/${building}/${floor}/product`).once("value", function (snapshot) {
+        snapshot.forEach(function (childSnapshot) {
+          var data = childSnapshot.val();
+          if (data && data.details) {
+            var row = document.createElement("tr");
+            row.innerHTML = `
+          <td>${data.details.ID || "N/A"}</td>
+          <td>${data.details.building || "N/A"}</td>
+          <td>${data.details.floor || "N/A"}</td>
+          <td>${data.details.tag || "N/A"}</td>
+          <td>${data.details.time || "N/A"}</td>
+          `;
+            productTableBody.appendChild(row);
+          }
+        });
+      })
     });
   });
 }
