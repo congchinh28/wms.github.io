@@ -1,13 +1,13 @@
 html {
     font-family: 'Roboto', sans-serif;
-    }
+}
 
 body {
     margin: 0;
     padding: 0;
     background-color: #fff;
     background-image: url('https://images.ctfassets.net/aguk64kkrmhj/64VigtnNY9zO2YJhAY05RS/dfc4827f1847dca96e4b629620f779e8/dotwms.png?fm=webp&q=75');
-    background-size: 50%; 
+    background-size: 50%;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -21,31 +21,40 @@ header {
     color: white;
     font-size: 18px;
     font-weight: bold;
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     left: 0;
     right: 0;
 }
+
+.title {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
 
 nav.header {
     display: flex;
     justify-content: center;
     background-color: #004580;
     padding: 0px;
-    position: fixed;
-    width: 100%; 
+    /* position: fixed; */
+    width: 100%;
     top: 90px;
     left: 0;
     right: 0;
     z-index: 998;
 }
+
 nav.floor {
     display: flex;
     justify-content: center;
     background-color: #77c5ff;
     padding: 0px;
-    position: fixed;
-    width: 100%; 
+    /* position: fixed; */
+    width: 100%;
     top: 125px;
     left: 0;
     right: 0;
@@ -54,9 +63,6 @@ nav.floor {
 
 
 .logo {
-    position: absolute;
-    top: 5px;
-    right: 30px;
     width: 80px;
     height: auto;
     z-index: 999;
@@ -78,7 +84,7 @@ nav a:hover {
 }
 
 .bottom-text {
-    position: fixed;
+    /* position: fixed; */
     bottom: 0;
     left: 0;
     width: 100%;
@@ -96,7 +102,7 @@ nav a.active {
     background-color: #004580;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
     .logo {
         width: 70px;
     }
@@ -112,28 +118,43 @@ nav a.active {
     nav a {
         margin: 5px 0;
     }
+
+    .stageButton {
+        width: -webkit-fill-available;
+    }
+
+    .logo {
+        width: 60px;
+    }
 }
 
 
 /*--------------------LOCATION-------------------------*/
 .custom-popup {
-    left: 35%; 
+    left: 35%;
     top: -9%
 }
+
 #floorButtonContainer {
-    position: fixed;
+    /* position: fixed; */
     top: 20%;
-    left: 30%; /* Điều chỉnh vị trí bên trái của nút */
+    left: 30%;
+    /* Điều chỉnh vị trí bên trái của nút */
     transform: translateY(-50%);
-    z-index: 9999; /* Đảm bảo nút "Tầng 1" hiển thị trên cùng */
+    z-index: 9999;
+    /* Đảm bảo nút "Tầng 1" hiển thị trên cùng */
 }
+
 #floor2ButtonContainer {
-    position: fixed;
+    /* position: fixed; */
     top: 20%;
-    right: 30%; /* Điều chỉnh vị trí bên trái của nút */
+    right: 30%;
+    /* Điều chỉnh vị trí bên trái của nút */
     transform: translateY(-50%);
-    z-index: 9999; /* Đảm bảo nút "Tầng 1" hiển thị trên cùng */
+    z-index: 9999;
+    /* Đảm bảo nút "Tầng 1" hiển thị trên cùng */
 }
+
 .stageButton {
     padding: 10px;
     background-color: #0d4b8d;
@@ -142,6 +163,7 @@ nav a.active {
     border-radius: 5px;
     cursor: pointer;
 }
+
 #floor1Button {
     padding: 10px;
     background-color: #0d4b8d;
@@ -150,6 +172,7 @@ nav a.active {
     border-radius: 5px;
     cursor: pointer;
 }
+
 #floor2Button {
     padding: 10px;
     background-color: #0d4b8d;
@@ -162,38 +185,38 @@ nav a.active {
 #floor1Button:hover {
     background-color: #77c5ff;
 }
+
 #floor2Button:hover {
     background-color: #77c5ff;
 }
-#rectangle {
+
+.map {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.rectangle {
     display: none;
-    position: absolute;
+    /* position: absolute; */
+    position: relative;
     width: 775px;
     height: 648px;
     background: url('https://wcs.smartdraw.com/floor-plan/img/warehouse-design-example.png?bn=15100111907') no-repeat center center/cover;
-    left: 50%;
-    top: 58%;
-    transform: translate(-50%, -50%);
 }
+
+#rectangle1 {
+    background: url('https://wcs.smartdraw.com/floor-plan/img/warehouse-design-example.png?bn=15100111907') no-repeat center center/cover;
+}
+
 #rectangle2 {
-    display: none;
-    position: absolute;
-    width: 775px;
-    height: 648px;
     background: url('https://i.pinimg.com/736x/e1/51/85/e15185a49a8a6d74e9ce085f2e37cb35.jpg') no-repeat center center/cover;
-    left: 50%;
-    top: 58%;
-    transform: translate(-50%, -50%);
 }
+
 #rectangle3 {
-    display: none;
-    position: absolute;
-    width: 775px;
-    height: 648px;
     background: url('https://conceptdraw.com/a64c3/p1/preview/640/pict--warehouse-equipment-layout-warehouse-layout-floor-plan.png--diagram-flowchart-example.png') no-repeat center center/cover;
-    left: 50%;
-    top: 58%;
-    transform: translate(-50%, -50%);
 }
 
 .product {
@@ -215,27 +238,34 @@ nav a.active {
 
 /* CSS cho khung thông tin1 */
 .floor-info-container {
-    position: absolute;
-    top: 30%; /* Điều chỉnh vị trí tùy thuộc vào cụ thể trang của bạn */
+    display: none;
+    position: sticky;
+    top: 30%;
+    /* Điều chỉnh vị trí tùy thuộc vào cụ thể trang của bạn */
     right: 10%;
     border: 1px solid #77c5ff;
     padding: 10px;
+    margin: 1rem;
     background-color: #fff;
-    z-index: 999; /* Đảm bảo khung thông tin hiển thị trên các phần khác */
+    z-index: 999;
+    /* Đảm bảo khung thông tin hiển thị trên các phần khác */
 }
 
 .floor-info {
     margin: 0px;
 }
+
 /* CSS cho khung thông tin2 */
 .floor2-info-container {
-    position: absolute;
-    top: 30%; /* Điều chỉnh vị trí tùy thuộc vào cụ thể trang của bạn */
+    position: sticky;
+    top: 30%;
+    /* Điều chỉnh vị trí tùy thuộc vào cụ thể trang của bạn */
     right: 10%;
     border: 1px solid #77c5ff;
     padding: 10px;
     background-color: #fff;
-    z-index: 999; /* Đảm bảo khung thông tin hiển thị trên các phần khác */
+    z-index: 999;
+    /* Đảm bảo khung thông tin hiển thị trên các phần khác */
 }
 
 .floor2-info {
@@ -345,6 +375,3 @@ nav a.active {
 
 
 /*--------------------SET ANCHOR POSITION-------------------------*/
-
-
-

@@ -4,8 +4,22 @@ import { updatePosition } from "../assets/js/helpers.js";
 import { showAnchorDetails } from "./anchor.js";
 import { showProductDetails } from "./product.js";
 
-function displayFloorInformation(name, address, productCount, anchorCount) {
-  const floorInfoContainer = document.getElementById("floorInfoContainer");
+const mapRectangleFloors = {
+  floor1: "rectangle1",
+  floor2: "rectangle2",
+  floor3: "rectangle3",
+};
+
+function displayFloorInformation(
+  name,
+  address,
+  productCount,
+  anchorCount,
+  floorName
+) {
+  const floorInfoContainer = document.getElementById(
+    `floorInfoContainer${floorName}`
+  );
   // Xây dựng nội dung thông tin
   var infoHTML = `
               <div class="floor-info">
@@ -23,13 +37,16 @@ function displayFloorInformation(name, address, productCount, anchorCount) {
 //--------------------LOCATION-------------------------
 
 //Truy cập đến map trong menutracuus
-const floor = (rectangle, stage) => {
+const floor = (building, rectangle, stage) => {
+  const floorName = stage.charAt(stage.length - 1);
   const thisFloor = stage;
   const stageButton = document.createElement("button");
   const rectangleElement = document.getElementById(rectangle);
   const currentButton = document.getElementById(stageButton.id);
   const floors = document.getElementById("floors");
-  const floorInfoContainer = document.getElementById("floorInfoContainer");
+  const floorInfoContainer = document.getElementById(
+    `floorInfoContainer${floorName}`
+  );
   if (!currentButton) floors.appendChild(stageButton);
 
   var showStage = true;
@@ -40,8 +57,23 @@ const floor = (rectangle, stage) => {
 
   stageButton.addEventListener("click", function () {
     if (showStage) {
+      // tim tat ca cac floors con lai
+      const anotherFloors = document.getElementsByClassName("rectangle");
+      for (let element of anotherFloors) {
+        if (element.id !== rectangleElement.id) {
+          element.style.display = "none";
+        }
+      }
+      const floorInfoContainers = document.getElementsByClassName(
+        "floor-info-container"
+      );
+      for (let element of floorInfoContainers) {
+        if (element.id !== floorInfoContainer) {
+          element.style.display = "none";
+        }
+      }
       // Hiển thị các phần tử khi click vào nút "Tầng 1"
-      rectangleElement.style.display = "block";
+      rectangleElement.style.display = "flex";
       floorInfoContainer.style.display = "block";
       document.querySelectorAll(".product").forEach(function (product) {
         product.style.display = "block";
@@ -56,38 +88,39 @@ const floor = (rectangle, stage) => {
       // Nếu click vào nút "Tầng 1" trước đó, ấn vào nút lần nữa sẽ ẩn đi các phần tử
       rectangleElement.style.display = "none";
       floorInfoContainer.style.display = "none";
-      document.querySelectorAll(".product").forEach(function (product) {
-        product.style.display = "none";
-      });
-      document.querySelectorAll(".anchor").forEach(function (anchor) {
-        anchor.style.display = "none";
-      });
+      // document.querySelectorAll(".product").forEach(function (product) {
+      //   product.style.display = "none";
+      // });
+      // document.querySelectorAll(".anchor").forEach(function (anchor) {
+      //   anchor.style.display = "none";
+      // });
 
       // Cập nhật trạng thái đã click vào nút "Tầng 1"
       showStage = true;
     }
     // Truy cập dữ liệu tên và địa chỉ từ Firebase
-    db.ref(`/Building 1/${stage}/information`).once(
+    db.ref(`/${building}/${stage}/information`).once(
       "value",
       function (snapshot) {
         var name = snapshot.val().name || "N/A";
         var address = snapshot.val().address || "N/A";
 
         // Tính tổng số lượng sản phẩm từ Firebase
-        db.ref(`/Building 1/${stage}/product`).once(
+        db.ref(`/${building}/${stage}/product`).once(
           "value",
           function (productSnapshot) {
             var productCount = productSnapshot.numChildren();
 
             // Tính tổng số lượng anchor từ Firebase
-            db.ref(`/Building 1/${stage}/anchor`).once(
+            db.ref(`/${building}/${stage}/anchor`).once(
               "value",
               function (anchorSnapshot) {
                 displayFloorInformation(
                   name,
                   address,
                   productCount,
-                  anchorSnapshot.numChildren()
+                  anchorSnapshot.numChildren(),
+                  floorName
                 );
               }
             );
@@ -98,35 +131,50 @@ const floor = (rectangle, stage) => {
   });
   //Theo dõi trạng thái của Button floor 1
   //Hiển thị product trên Map
-  document.querySelectorAll(".product").forEach(function (product, index)  {
+  document.querySelectorAll(".product").forEach(function (product, index) {
     product.style.display = "block";
     var productId = "product" + (index + 1);
 
-       db.ref(`/Building 1/${stage}/product`).once(
+    db.ref(`/${building}/${stage}/product`).once(
       "value",
       function (productSnapshot) {
         if (productSnapshot.child(productId).val())
           updatePosition(productSnapshot.child(productId), product.id);
       }
     );
-
-    product.addEventListener("click", function () {
-      showProductDetails("Building 1", stage, productId);
-    });
   });
+
+  document
+    .querySelectorAll(`#${mapRectangleFloors[stage]} > .product`)
+    .forEach(function (product, index) {
+      // product.style.display = "block";
+      product.addEventListener("click", function () {
+        showProductDetails(building, stage, product.id);
+      });
+    });
+
   //Hiển thị anchor trên map
   document.querySelectorAll(".anchor").forEach(function (anchor, index) {
     anchor.style.display = "block";
     var anchorId = "anchor" + (index + 1);
 
-    db.ref(`/Building 1/${stage}/anchor`).once(
+    db.ref(`/${building}/${stage}/anchor`).once(
       "value",
       function (anchorSnapshot) {
         if (anchorSnapshot.child(anchorId).val())
-        updatePosition(anchorSnapshot.child(anchorId), anchor.id);
+          updatePosition(anchorSnapshot.child(anchorId), anchor.id);
       }
     );
   });
+  document
+    .querySelectorAll(`#${mapRectangleFloors[stage]} > .anchor`)
+    .forEach(function (anchor, index) {
+      // anchor.style.display = "block";
+      anchor.addEventListener("click", function () {
+        showAnchorDetails(building, stage, anchor.id);
+      });
+    });
+
   //Khi bắt đầu, các phần tử rectangle, product, anchor ẩn đi.
   // rectangleElement.style.display = "none";
   document.querySelectorAll(".product").forEach(function (product) {
@@ -139,7 +187,7 @@ const floor = (rectangle, stage) => {
   //Tải dữ liệu của Products và Anchors từ Firebase
   document.addEventListener("DOMContentLoaded", function () {
     // Duyệt qua dữ liệu trong 'product'
-    db.ref(`/Building 1/${stage}/product`).on(
+    db.ref(`/${building}/${stage}/product`).on(
       "value",
       function (productSnapshot) {
         productSnapshot.forEach(function (childSnapshot) {
@@ -153,7 +201,7 @@ const floor = (rectangle, stage) => {
     );
 
     // Duyệt qua dữ liệu trong 'anchor'
-    db.ref(`/Building 1/${stage}/anchor`).on(
+    db.ref(`/${building}/${stage}/anchor`).on(
       "value",
       function (anchorSnapshot) {
         anchorSnapshot.forEach(function (childSnapshot) {
@@ -167,20 +215,10 @@ const floor = (rectangle, stage) => {
     );
   });
 
-  //Hiển thị anchors và thêm sự kiện khi click vào nó
-  document.querySelectorAll(".anchor").forEach(function (anchor, index) {
-    anchor.style.display = "block";
-    var anchorId = "anchor" + (index + 1);
-
-    anchor.addEventListener("click", function () {
-      showAnchorDetails("Building 1", stage, anchorId);
-    });
-  });
-
   // Cập nhật Nội dung của Nút Floor 1
 
   // const stageElement = document.getElementById(stage);
-  const floorName = stage.charAt(stage.length - 1);
+
   function updateStageButtonContent(productCount, anchorCount) {
     stageButton.textContent = `Floor ${floorName} (${productCount}P/${anchorCount}A)`;
   }
@@ -191,7 +229,7 @@ const floor = (rectangle, stage) => {
     var anchorCount = 0;
 
     // Tính tổng số lượng sản phẩm
-    db.ref(`/Building 1/${stage}/product`).once(
+    db.ref(`/${building}/${stage}/product`).once(
       "value",
       function (productSnapshot) {
         productCount = productSnapshot.numChildren();
@@ -201,7 +239,7 @@ const floor = (rectangle, stage) => {
     );
 
     // Tính tổng số lượng anchor
-    db.ref(`/Building 1/${stage}/anchor`).once(
+    db.ref(`/${building}/${stage}/anchor`).once(
       "value",
       function (anchorSnapshot) {
         anchorCount = anchorSnapshot.numChildren();

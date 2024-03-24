@@ -1,6 +1,8 @@
 import db from "../assets/js/firebase.js";
 function showProductDetails(buildingId, floorId, productId) {
-  db.ref(`/${buildingId}/${floorId}/product/${productId}/details`).once(
+  const link = `/${buildingId}/${floorId}/product/${productId}/details`;
+  console.log("link", link)
+  db.ref(link).once(
     "value",
     function (snapshot) {
       var data = snapshot.val();

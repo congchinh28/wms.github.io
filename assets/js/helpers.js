@@ -8,7 +8,7 @@ function showCoordinateInput(selectedanchor) {
     html: `
               <label for="newXCoordinate">X Coordinates:</label>
               <input type="text" id="newXCoordinate" placeholder="Coordinates for X">
-  
+              <br/>
               <label for="newYCoordinate">Y Coordinates:</label>
               <input type="text" id="newYCoordinate" placeholder="Coordinates for Y">
           `,

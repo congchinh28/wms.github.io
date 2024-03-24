@@ -1,9 +1,11 @@
 import { floor } from "../actors/floor.js";
 
 //--------------------LOCATION-------------------------
-const PRE_STAGE_BUTTON_ID = "stageButton";
+
+var building = "Building 1";
+
 const floor1 = {
-  rectangle: "rectangle",
+  rectangle: "rectangle1",
   stage: "floor1",
 };
 const floor2 = {
@@ -15,18 +17,19 @@ const floor3 = {
   stage: "floor3",
 };
 
-
 const floors = document.getElementById("floors");
-const floorInfoContainer = document.getElementById("floorInfoContainer");
+const floorInfoContainers = document.getElementsByClassName(
+  "floor-info-container"
+);
 const location = document.getElementById("location");
 var showLocation = true;
 const rectangleElement = document.getElementById(floor1.rectangle);
 
 floors.style.display = "none";
 
-floor(floor1.rectangle, floor1.stage);
-floor(floor2.rectangle, floor2.stage);
-floor(floor3.rectangle, floor3.stage);
+floor(building, floor1.rectangle, floor1.stage);
+floor(building, floor2.rectangle, floor2.stage);
+floor(building, floor3.rectangle, floor3.stage);
 
 location.addEventListener("click", function () {
   if (showLocation) {
@@ -35,8 +38,10 @@ location.addEventListener("click", function () {
   } else {
     floors.style.display = "none";
     rectangleElement.style.display = "none";
-    floorInfoContainer.style.display = "none";
-    
+    for (let element of floorInfoContainers) {
+      element.style.display = "none";
+    }
+
     document.querySelectorAll(".product").forEach(function (product) {
       product.style.display = "none";
     });
@@ -45,6 +50,4 @@ location.addEventListener("click", function () {
     });
     showLocation = true;
   }
-
 });
-

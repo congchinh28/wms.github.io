@@ -1,127 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <!--Tiêu đề trang web-->
     <title>Warehouse Management System</title>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/vi/thumb/b/bf/Logo_HUET.svg/1200px-Logo_HUET.svg.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://upload.wikimedia.org/wikipedia/vi/thumb/b/bf/Logo_HUET.svg/1200px-Logo_HUET.svg.png"
+      type="image/x-icon"
+    />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
+
     <!--Phần Style-->
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
 
-</head>
-
-<body>
-    <!--Logo-->
-    <img src="https://upload.wikimedia.org/wikipedia/vi/thumb/b/bf/Logo_HUET.svg/1200px-Logo_HUET.svg.png" alt="Logo"
-        class="logo">
-
+  <body>
     <header>
+      <div class="title">
         <h1>WAREHOUSE MANAGEMENT SYSTEM</h1>
-    </header>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/vi/thumb/b/bf/Logo_HUET.svg/1200px-Logo_HUET.svg.png"
+          alt="Logo"
+          class="logo"
+        />
+      </div>
 
-    <!-- Menu của tôi -->
-    <nav class="header">
+      <!-- Menu của tôi -->
+      <nav class="header">
         <a href="#" id="location">LOCATION</a>
         <a href="#" id="setAnchorPosition">SET ANCHOR POSITION</a>
         <a href="#" id="statistics">STATISTICS</a>
         <a href="#" id="aboutUs">ABOUT US</a>
-    </nav>
-    <nav id="floors" class="floor">
-    </nav>   
-
+      </nav>
+      <nav id="buildings" class="floor"></nav>
+      <nav id="floors" class="floor"></nav>
+      <!--Logo-->
+    </header>
+    <!-- CONTENT -->
     <!-- Bảng Thông tin Món hàng trong menu Statistics -->
-    <div id="tableContainer" class="centered-table" style="display: none;">
-        <table id="productTable">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Building</th>
-                    <th>Floor</th>
-                    <th>Tag</th>
-                    <th>Time</th>
-                </tr>
-            </thead>
-            <tbody id="productTableBody"></tbody>
-        </table>
-        <!-- Thêm nút "Xuất thống kê" -->
-        <button id="exportButton" class="export-button">Export Statistics</button>
-    </div> 
-    
-    <!--Footer-->
-    <div class="bottom-text">Graduation Thesis _ Ware House Management System </div>
+    <div id="tableContainer" class="centered-table" style="display: none">
+      <table id="productTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Building</th>
+            <th>Floor</th>
+            <th>Tag</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody id="productTableBody"></tbody>
+      </table>
+      <!-- Thêm nút "Xuất thống kê" -->
+      <button id="exportButton" class="export-button">Export Statistics</button>
+    </div>
 
-    
     <!--Phần này để hiển thị anchor dưới dạng image-->
-    <div id="rectangle">
+    <div class = "map">
+      <div id="rectangle1" class="rectangle">
         <div id="product1" class="product"></div>
         <div id="product2" class="product"></div>
         <div id="product3" class="product"></div>
-        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
-        alt="anchor 1" class="anchor" id="anchor1">
-        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
-        alt="anchor 2" class="anchor" id="anchor2">
-        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
-        alt="anchor 3" class="anchor" id="anchor3">
-        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
-        alt="anchor 4" class="anchor" id="anchor4">
-    </div>
+        <img
+          src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+          alt="anchor 1"
+          class="anchor"
+          id="anchor1"
+        />
+        <img
+          src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+          alt="anchor 2"
+          class="anchor"
+          id="anchor2"
+        />
+        <img
+          src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+          alt="anchor 3"
+          class="anchor"
+          id="anchor3"
+        />
+        <img
+          src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+          alt="anchor 4"
+          class="anchor"
+          id="anchor4"
+        />
+      </div>
+      <div id="floorInfoContainer1" class="floor-info-container"></div>
 
-    <div id="rectangle2">
+      <div id="rectangle2" class="rectangle">
         <div id="product4" class="product"></div>
         <div id="product5" class="product"></div>
         <div id="product6" class="product"></div>
-        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
-        alt="anchor 5" class="anchor" id="anchor5">
-        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
-        alt="anchor 6" class="anchor" id="anchor6">
-        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
-        alt="anchor 7" class="anchor" id="anchor7">
-        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
-        alt="anchor 8" class="anchor" id="anchor8">
-    </div>
-    <div id="rectangle3">
+        <img
+          src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+          alt="anchor 5"
+          class="anchor"
+          id="anchor5"
+        />
+        <img
+          src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+          alt="anchor 6"
+          class="anchor"
+          id="anchor6"
+        />
+        <img
+          src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+          alt="anchor 7"
+          class="anchor"
+          id="anchor7"
+        />
+        <img
+          src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+          alt="anchor 8"
+          class="anchor"
+          id="anchor8"
+        />
+      </div>
+      <div id="floorInfoContainer2" class="floor-info-container"></div>
+
+      <div id="rectangle3" class="rectangle">
         <div id="product7" class="product"></div>
         <div id="product8" class="product"></div>
         <div id="product9" class="product"></div>
-        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
-        alt="anchor 9" class="anchor" id="anchor9">
-        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
-        alt="anchor 10" class="anchor" id="anchor10">
-        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
-        alt="anchor 11" class="anchor" id="anchor11">
-        <img src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
-        alt="anchor 12" class="anchor" id="anchor12">
+        <img
+          src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+          alt="anchor 9"
+          class="anchor"
+          id="anchor9"
+        />
+        <img
+          src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+          alt="anchor 10"
+          class="anchor"
+          id="anchor10"
+        />
+        <img
+          src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+          alt="anchor 11"
+          class="anchor"
+          id="anchor11"
+        />
+        <img
+          src="https://toppng.com/uploads/preview/instagram-icon-png-download-white-logo-free-social-instagram-logo-vector-2017-1156285509326avakqhwk.png"
+          alt="anchor 12"
+          class="anchor"
+          id="anchor12"
+        />
+      </div>
+      <div id="floorInfoContainer3" class="floor-info-container"></div>
+
     </div>
 
     <!--Phần này để nhập tọa độ cho anchor-->
-    <div id="anchorDetails" style="display: none;">
-        <label for="xCoordinate">X Coordinates:</label>
-        <input type="text" id="xCoordinate" placeholder="Enter X coordinates">
-    
-        <label for="yCoordinate">Y Coordinates:</label>
-        <input type="text" id="yCoordinate" placeholder="Enter Y coordinates">
-    
-        <button id="saveCoordinates">Lưu</button>
+    <div id="anchorDetails" style="display: none">
+      <label for="xCoordinate">X Coordinates:</label>
+      <input type="text" id="xCoordinate" placeholder="Enter X coordinates" />
+
+      <label for="yCoordinate">Y Coordinates:</label>
+      <input type="text" id="yCoordinate" placeholder="Enter Y coordinates" />
+
+      <button id="saveCoordinates">Lưu</button>
     </div>
-    
-    <div id="floorInfoContainer" class="floor-info-container">
-        <!-- Nội dung thông tin sẽ được thêm vào đây bằng JavaScript -->
+
+
+      <!-- Nội dung thông tin sẽ được thêm vào đây bằng JavaScript -->
     </div>
     <!--Tải hai tệp JavaScript từ Firebase SDK-->
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
 
-    <script src="./assets/js/firebase.js" type='module'></script>
-    <script src="./pages/statics.js" type='module'></script>
-    <script src="./pages/setAnchorPosition.js" type='module'></script>
-    <script src="./pages/location.js" type='module'></script>
-    
+    <script src="./assets/js/firebase.js" type="module"></script>
+    <script src="./pages/statics.js" type="module"></script>
+    <script src="./pages/setAnchorPosition.js" type="module"></script>
+    <script src="./pages/location.js" type="module"></script>
 
-</body>
+    <!--Footer-->
+    <div class="bottom-text">
+      Graduation Thesis _ Ware House Management System
+    </div>
+  </body>
 </html>
-

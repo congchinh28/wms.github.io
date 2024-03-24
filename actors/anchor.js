@@ -2,7 +2,7 @@ import db from "../assets/js/firebase.js";
 import { showCoordinateInput } from "../assets/js/helpers.js";
 function showAnchorDetails(buildingId, floorId, anchorId) {
   const link = `/${buildingId}/${floorId}/anchor/${anchorId}`;
-  //   const link = "/Building 1/floor1/anchor/anchor1";
+  console.log("link", link)
   db.ref(link).once("value", function (snapshot) {
     var data = snapshot.val();
     if (data && data.coordinates) {
@@ -10,13 +10,13 @@ function showAnchorDetails(buildingId, floorId, anchorId) {
       Swal.fire({
         title: "Anchor informations",
         html: `
-                      <p><strong>X Coordinates:</strong> ${
-                        coordinates.x || "N/A"
-                      }</p>
-                      <p><strong>Y Coordinates:</strong> ${
-                        coordinates.y || "N/A"
-                      }</p>
-                  `,
+          <p><strong>X Coordinates:</strong> ${
+            coordinates.x || "N/A"
+          }</p>
+          <p><strong>Y Coordinates:</strong> ${
+            coordinates.y || "N/A"
+          }</p>
+        `,
         showCloseButton: true,
         showConfirmButton: false,
         backdrop: false,
