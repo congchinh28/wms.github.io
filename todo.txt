@@ -4,3 +4,4 @@
 - Location đang lỗi khi Building 1 > Building 2 > Building 1 thì Building 1 đang hiển thị product details của Building 2
 - làm menu about us
 - Thêm hover address, total floor ở nút building
+- Deploy không lên hình
