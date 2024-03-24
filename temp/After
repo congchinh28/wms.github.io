@@ -83,7 +83,7 @@
         // Hàm hiển thị bảng thông tin món hàng trong menu Statistics
         function showProductTable() {
             // Hiển thị bảng thông tin món hàng
-            document.getElementById('tableContainer').style.display = 'block';
+            document.getElementById('tableContainer').style.display = 'flex';
 
             db.ref('/Building 1/floor1/product').once('value', function (snapshot) {
                 var productTableBody = document.getElementById('productTableBody');

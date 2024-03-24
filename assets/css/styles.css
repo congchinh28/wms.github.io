@@ -6,7 +6,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #fff;
-    background-image: url('https://images.ctfassets.net/aguk64kkrmhj/64VigtnNY9zO2YJhAY05RS/dfc4827f1847dca96e4b629620f779e8/dotwms.png?fm=webp&q=75');
+    background-image: url('/assets/images/bgImage.webp');
     background-size: 50%;
     background-position: center;
     background-repeat: no-repeat;
@@ -48,7 +48,8 @@ nav.header {
     z-index: 998;
 }
 
-nav.floor {
+nav.floor,
+nav.buildings {
     display: flex;
     justify-content: center;
     background-color: #77c5ff;
@@ -155,7 +156,8 @@ nav a.active {
     /* Đảm bảo nút "Tầng 1" hiển thị trên cùng */
 }
 
-.stageButton {
+.stageButton,
+.buildingButton {
     padding: 10px;
     background-color: #0d4b8d;
     color: #fff;
@@ -204,19 +206,19 @@ nav a.active {
     position: relative;
     width: 775px;
     height: 648px;
-    background: url('https://wcs.smartdraw.com/floor-plan/img/warehouse-design-example.png?bn=15100111907') no-repeat center center/cover;
+    background: url('/assets/images/map1.png') no-repeat center center/cover;
 }
 
 #rectangle1 {
-    background: url('https://wcs.smartdraw.com/floor-plan/img/warehouse-design-example.png?bn=15100111907') no-repeat center center/cover;
+    background: url('/assets/images/map1.png') no-repeat center center/cover;
 }
 
 #rectangle2 {
-    background: url('https://i.pinimg.com/736x/e1/51/85/e15185a49a8a6d74e9ce085f2e37cb35.jpg') no-repeat center center/cover;
+    background: url('/assets/images/map2.jpg') no-repeat center center/cover;
 }
 
 #rectangle3 {
-    background: url('https://conceptdraw.com/a64c3/p1/preview/640/pict--warehouse-equipment-layout-warehouse-layout-floor-plan.png--diagram-flowchart-example.png') no-repeat center center/cover;
+    background: url('/assets/images/map3.png') no-repeat center center/cover;
 }
 
 .product {
@@ -224,7 +226,7 @@ nav a.active {
     position: absolute;
     width: 55px;
     height: 55px;
-    background: url('https://vietbox.vn/wp-content/uploads/2019/08/sp_5_thungcarton.png') no-repeat center center/contain;
+    background: url('/assets/images/product.png') no-repeat center center/contain;
     cursor: pointer;
 }
 
@@ -275,21 +277,17 @@ nav a.active {
 /*--------------------STATISTICS-------------------------*/
 .centered-table {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    flex-direction: column;
+    align-content: flex-end;
+    align-items: flex-end;
     overflow: auto;
+    margin: 40px;
 }
 
 .product:hover {
     border: 2px solid #004580;
 }
 
-#productTable {
-    width: 80%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
 
 #productTable th,
 #productTable td {
@@ -318,9 +316,8 @@ nav a.active {
 }
 
 #productTable {
-    width: 80%;
+    width: 100%;
     border-collapse: collapse;
-    margin-top: 140px;
     background-color: #fff;
 }
 

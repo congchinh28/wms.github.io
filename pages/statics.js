@@ -1,11 +1,12 @@
-import { floor } from "../actors/floor.js";
 import db from "../assets/js/firebase.js";
+import { hideLocation } from "./location.js";
 //--------------------STATISTICS-------------------------
 //Truy cập đến bảng trong menu statistics
 // var tableContainer = document.getElementById("tableContainer");
 //Menu Statistics
 var isTableVisible = false;
 document.getElementById("statistics").addEventListener("click", function () {
+  hideLocation();
   if (!isTableVisible) {
     // Hiển thị bảng thống kê
     showProductTable();
@@ -15,32 +16,8 @@ document.getElementById("statistics").addEventListener("click", function () {
     document.getElementById("tableContainer").style.display = "none";
     isTableVisible = false;
   }
-
-  // Ẩn rectangle và product
-  const rectangleElement = document.getElementById(rectangle)
-
-  rectangleElement.style.display = "none";
-  document.querySelectorAll(".product").forEach(function (product) {
-    product.style.display = "none";
-  });
-
-  // Ẩn các anchor
-  const anchors = document.querySelectorAll(".anchor");
-  anchors.forEach(function (anchor) {
-    anchor.style.display = "none";
-  });
-  floorInfoContainer.style.display = 'none';
 });
-//Phần này để ẩn bảng thống kê khi click vào vùng bất kì
-document.addEventListener("click", function (event) {
-  var targetElement = event.target;
-  // Kiểm tra xem người dùng có click vào nút "Thống kê các món hàng trong kho" hay không
-  if (targetElement.id !== "statistics" && isTableVisible) {
-    // Ẩn bảng thống kê
-    document.getElementById("tableContainer").style.display = "none";
-    isTableVisible = false;
-  }
-});
+
 //XUẤT THỐNG KÊ
 // Thêm sự kiện cho nút "Xuất thống kê"
 document.getElementById("exportButton").addEventListener("click", function () {
@@ -81,14 +58,13 @@ function exportStatistics() {
 // Hàm hiển thị bảng thông tin món hàng trong menu Statistics
 function showProductTable() {
   // Hiển thị bảng thông tin món hàng
-  document.getElementById("tableContainer").style.display = "block";
+  document.getElementById("tableContainer").style.display = "flex";
   var productTableBody = document.getElementById("productTableBody");
   productTableBody.innerHTML = "";
 
   const floors = ["floor1", "floor2", "floor3"];
   floors.map((floor) => {
     db.ref(`/Building 1/${floor}/product`).once("value", function (snapshot) {
-
       snapshot.forEach(function (childSnapshot) {
         var data = childSnapshot.val();
         if (data && data.details) {
@@ -106,3 +82,8 @@ function showProductTable() {
     });
   });
 }
+const hideStatics = () => {
+  document.getElementById("tableContainer").style.display = "none";
+};
+
+export { hideStatics };

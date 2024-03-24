@@ -1,5 +1,6 @@
 import db from "../assets/js/firebase.js";
 import { showCoordinateInput } from "../assets/js/helpers.js";
+
 function showAnchorDetails(buildingId, floorId, anchorId) {
   const link = `/${buildingId}/${floorId}/anchor/${anchorId}`;
   console.log("link", link)
@@ -60,22 +61,7 @@ function setAnchorPosition(rectangle, anchorsBuilding) {
         }
       },
     });
-  
-    // Ẩn rectangle và product
-    const rectangleElement = document.getElementById(rectangle)
 
-    rectangleElement.style.display = "none";
-    document.querySelectorAll(".product").forEach(function (product) {
-      product.style.display = "none";
-    });
-  
-  
-    // Ẩn các anchor
-    const anchors = document.querySelectorAll(".anchor");
-    anchors.forEach(function (anchor) {
-      anchor.style.display = "none";
-    });
-    floorInfoContainer.style.display = 'none';
   });
 }
 

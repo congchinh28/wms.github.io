@@ -17,5 +17,6 @@ const anchorsBuilding = {
     anchor11: "Anchor 11",
     anchor12: "Anchor 12",
 }
+
 setAnchorPosition('rectangle', anchorsBuilding)
   

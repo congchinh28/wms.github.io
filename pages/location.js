@@ -1,53 +1,36 @@
-import { floor } from "../actors/floor.js";
+import { building, hideBuildings } from "../actors/building.js";
+import { hideAllInFloors } from "../actors/floor.js";
+import { hideStatics } from "./statics.js";
 
 //--------------------LOCATION-------------------------
 
-var building = "Building 1";
+var building1 = "Building 1";
+var building2 = "Building 2";
 
-const floor1 = {
-  rectangle: "rectangle1",
-  stage: "floor1",
-};
-const floor2 = {
-  rectangle: "rectangle2",
-  stage: "floor2",
-};
-const floor3 = {
-  rectangle: "rectangle3",
-  stage: "floor3",
-};
-
-const floors = document.getElementById("floors");
-const floorInfoContainers = document.getElementsByClassName(
-  "floor-info-container"
-);
+const buildings = document.getElementById("buildings");
 const location = document.getElementById("location");
 var showLocation = true;
-const rectangleElement = document.getElementById(floor1.rectangle);
 
-floors.style.display = "none";
-
-floor(building, floor1.rectangle, floor1.stage);
-floor(building, floor2.rectangle, floor2.stage);
-floor(building, floor3.rectangle, floor3.stage);
+buildings.style.display = "none";
 
 location.addEventListener("click", function () {
+  hideStatics();
   if (showLocation) {
-    floors.style.display = "block";
+    buildings.style.display = "block";
     showLocation = false;
   } else {
-    floors.style.display = "none";
-    rectangleElement.style.display = "none";
-    for (let element of floorInfoContainers) {
-      element.style.display = "none";
-    }
-
-    document.querySelectorAll(".product").forEach(function (product) {
-      product.style.display = "none";
-    });
-    document.querySelectorAll(".anchor").forEach(function (anchor) {
-      anchor.style.display = "none";
-    });
+    buildings.style.display = "none";
+    hideAllInFloors();
     showLocation = true;
   }
 });
+
+hideAllInFloors();
+building(building1);
+building(building2);
+
+const hideLocation = () => {
+  hideAllInFloors();
+  hideBuildings();
+};
+export { hideLocation };

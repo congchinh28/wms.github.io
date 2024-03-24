@@ -10,6 +10,14 @@ const mapRectangleFloors = {
   floor3: "rectangle3",
 };
 
+const floors = document.getElementById("floors");
+const maps = document.getElementsByClassName("map");
+const floorInfoContainers = document.getElementsByClassName(
+  "floor-info-container"
+);
+const rectangles = document.getElementsByClassName("rectangle"
+);
+
 function displayFloorInformation(
   name,
   address,
@@ -39,7 +47,7 @@ function displayFloorInformation(
 //Truy cập đến map trong menutracuus
 const floor = (building, rectangle, stage) => {
   const floorName = stage.charAt(stage.length - 1);
-  const thisFloor = stage;
+  // const thisFloor = stage;
   const stageButton = document.createElement("button");
   const rectangleElement = document.getElementById(rectangle);
   const currentButton = document.getElementById(stageButton.id);
@@ -51,7 +59,7 @@ const floor = (building, rectangle, stage) => {
 
   var showStage = true;
 
-  stageButton.textContent = thisFloor;
+  // stageButton.textContent = thisFloor;
   stageButton.setAttribute("class", "stageButton");
   stageButton.id = "stageButton" + stage;
 
@@ -64,9 +72,6 @@ const floor = (building, rectangle, stage) => {
           element.style.display = "none";
         }
       }
-      const floorInfoContainers = document.getElementsByClassName(
-        "floor-info-container"
-      );
       for (let element of floorInfoContainers) {
         if (element.id !== floorInfoContainer) {
           element.style.display = "none";
@@ -252,4 +257,23 @@ const floor = (building, rectangle, stage) => {
   // Gọi hàm để tính và cập nhật tổng số lượng sản phẩm và anchor khi trang được tải
   calculateProductAndAnchorCounts();
 };
-export { floor };
+
+const hideAllInFloors = () => {
+  floors.style.display = "none";
+  for (let element of maps) {
+    element.style.display = "none";
+  }
+  for (let element of floorInfoContainers) {
+    element.style.display = "none";
+  }
+  for (let element of rectangles) {
+    element.style.display = "none";
+  }
+  document.querySelectorAll(".product").forEach(function (product) {
+    product.style.display = "none";
+  });
+  document.querySelectorAll(".anchor").forEach(function (anchor) {
+    anchor.style.display = "none";
+  });
+};
+export { floor, hideAllInFloors };
