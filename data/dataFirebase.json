@@ -1,0 +1,669 @@
+{
+  "Building 1": {
+    "floor1": {
+      "anchor": {
+        "anchor1": {
+          "coordinates": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "anchor2": {
+          "coordinates": {
+            "x": 745,
+            "y": 0
+          }
+        },
+        "anchor3": {
+          "coordinates": {
+            "x": 0,
+            "y": 605
+          }
+        },
+        "anchor4": {
+          "coordinates": {
+            "x": 745,
+            "y": 605
+          }
+        }
+      },
+      "information": {
+        "address": "144 Xuan Thuy, Cau Giay, Ha Noi",
+        "name": "Floor 1, G2 Building, UET - VNU"
+      },
+      "product": {
+        "product1": {
+          "coordinates": {
+            "x": 12,
+            "y": 130
+          },
+          "details": {
+            "ID": "Fairy tales",
+            "building": "G2-UET",
+            "floor": 1,
+            "tag": "Books",
+            "time": "2024-03-07"
+          }
+        },
+        "product2": {
+          "coordinates": {
+            "x": 310,
+            "y": 210
+          },
+          "details": {
+            "ID": "Adruino UNO",
+            "building": "G2-UET",
+            "floor": 1,
+            "tag": "Electronics",
+            "time": "2024-03-08"
+          }
+        },
+        "product3": {
+          "coordinates": {
+            "x": 12,
+            "y": 311
+          },
+          "details": {
+            "ID": "Asus Laptop",
+            "building": "G2-UET",
+            "floor": 1,
+            "tag": "Electronics",
+            "time": "2024-03-09"
+          }
+        }
+      }
+    },
+    "floor2": {
+      "anchor": {
+        "anchor5": {
+          "coordinates": {
+            "x": 0,
+            "y": 60
+          }
+        },
+        "anchor6": {
+          "coordinates": {
+            "x": 745,
+            "y": 60
+          }
+        },
+        "anchor7": {
+          "coordinates": {
+            "x": 0,
+            "y": 510
+          }
+        },
+        "anchor8": {
+          "coordinates": {
+            "x": 745,
+            "y": 510
+          }
+        }
+      },
+      "information": {
+        "address": "144 Xuan Thuy, Cau Giay, Ha Noi",
+        "name": "Floor1, G2 Building, UET - VNU"
+      },
+      "product": {
+        "product4": {
+          "coordinates": {
+            "x": 100,
+            "y": 150
+          },
+          "details": {
+            "ID": "keyboard",
+            "building": "G2-UET",
+            "floor": 2,
+            "tag": "electronics",
+            "time": "2024-03-12"
+          }
+        },
+        "product5": {
+          "coordinates": {
+            "x": 200,
+            "y": 200
+          },
+          "details": {
+            "ID": "mouse",
+            "building": "G2-UET",
+            "floor": 2,
+            "tag": "electronics",
+            "time": "2024-07-06"
+          }
+        },
+        "product6": {
+          "coordinates": {
+            "x": 300,
+            "y": 300
+          },
+          "details": {
+            "ID": "monitor",
+            "building": "G2-UET",
+            "floor": 2,
+            "tag": "electronics",
+            "time": "2023-03-06"
+          }
+        }
+      }
+    },
+    "floor3": {
+      "anchor": {
+        "anchor10": {
+          "coordinates": {
+            "x": 745,
+            "y": 0
+          }
+        },
+        "anchor11": {
+          "coordinates": {
+            "x": 0,
+            "y": 605
+          }
+        },
+        "anchor12": {
+          "coordinates": {
+            "x": 745,
+            "y": 605
+          }
+        },
+        "anchor9": {
+          "coordinates": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "information": {
+        "address": "144 Xuan Thuy, Cau Giay, Ha Noi",
+        "name": "Floor1, G2 Building, UET - VNU"
+      },
+      "product": {
+        "product7": {
+          "coordinates": {
+            "x": 100,
+            "y": 50
+          },
+          "details": {
+            "ID": "jean",
+            "building": "G2-UET",
+            "floor": 3,
+            "tag": "clothes",
+            "time": "2022-03-06"
+          }
+        },
+        "product8": {
+          "coordinates": {
+            "x": 310,
+            "y": 210
+          },
+          "details": {
+            "ID": "jacket",
+            "building": "G2-UET",
+            "floor": 3,
+            "tag": "clothes",
+            "time": "2021-03-06"
+          }
+        },
+        "product9": {
+          "coordinates": {
+            "x": 12,
+            "y": 311
+          },
+          "details": {
+            "ID": "t-shirt",
+            "building": "G2-UET",
+            "floor": 3,
+            "tag": "clothes",
+            "time": "2024-03-06"
+          }
+        }
+      }
+    }
+  },
+  "Building 2": {
+    "floor1": {
+      "anchor": {
+        "anchor1": {
+          "coordinates": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "anchor2": {
+          "coordinates": {
+            "x": 745,
+            "y": 0
+          }
+        },
+        "anchor3": {
+          "coordinates": {
+            "x": 0,
+            "y": 605
+          }
+        },
+        "anchor4": {
+          "coordinates": {
+            "x": 745,
+            "y": 605
+          }
+        }
+      },
+      "information": {
+        "address": "272 Vo Chi Cong, Tay Ho, Ha Noi",
+        "name": "Floor1, Lotte Mall West Lake Ha Noi"
+      },
+      "product": {
+        "product1": {
+          "coordinates": {
+            "x": 12,
+            "y": 130
+          },
+          "details": {
+            "ID": "cake",
+            "building": "Lotte Mall West Lake Ha Noi",
+            "floor": 1,
+            "tag": "foods",
+            "time": "2024-03-09"
+          }
+        },
+        "product2": {
+          "coordinates": {
+            "x": 310,
+            "y": 210
+          },
+          "details": {
+            "ID": "candy",
+            "building": "Lotte Mall West Lake Ha Noi",
+            "floor": 1,
+            "tag": "foods",
+            "time": "2024-03-08"
+          }
+        },
+        "product3": {
+          "coordinates": {
+            "x": 12,
+            "y": 311
+          },
+          "details": {
+            "ID": "meat",
+            "building": "Lotte Mall West Lake Ha Noi",
+            "floor": 1,
+            "tag": "foods",
+            "time": "2021-04-06"
+          }
+        }
+      }
+    },
+    "floor2": {
+      "anchor": {
+        "anchor5": {
+          "coordinates": {
+            "x": 0,
+            "y": 60
+          }
+        },
+        "anchor6": {
+          "coordinates": {
+            "x": 745,
+            "y": 0
+          }
+        },
+        "anchor7": {
+          "coordinates": {
+            "x": 0,
+            "y": 510
+          }
+        },
+        "anchor8": {
+          "coordinates": {
+            "x": 745,
+            "y": 510
+          }
+        }
+      },
+      "information": {
+        "address": "272 Vo Chi Cong, Tay Ho, Ha Noi",
+        "name": "Floor1, Lotte Mall West Lake Ha Noi"
+      },
+      "product": {
+        "product4": {
+          "coordinates": {
+            "x": 100,
+            "y": 150
+          },
+          "details": {
+            "ID": "apple",
+            "building": "Lotte Mall West Lake Ha Noi",
+            "floor": 2,
+            "tag": "fruits",
+            "time": "2024-01-06"
+          }
+        },
+        "product5": {
+          "coordinates": {
+            "x": 200,
+            "y": 200
+          },
+          "details": {
+            "ID": "mango",
+            "building": "Lotte Mall West Lake Ha Noi",
+            "floor": 2,
+            "tag": "fruits",
+            "time": "2024-01-07"
+          }
+        },
+        "product6": {
+          "coordinates": {
+            "x": 300,
+            "y": 300
+          },
+          "details": {
+            "ID": "banana",
+            "building": "Lotte Mall West Lake Ha Noi",
+            "floor": 2,
+            "tag": "fruits",
+            "time": "2024-03-06"
+          }
+        }
+      }
+    },
+    "floor3": {
+      "anchor": {
+        "anchor10": {
+          "coordinates": {
+            "x": 745,
+            "y": 0
+          }
+        },
+        "anchor11": {
+          "coordinates": {
+            "x": 0,
+            "y": 605
+          }
+        },
+        "anchor12": {
+          "coordinates": {
+            "x": 745,
+            "y": 605
+          }
+        },
+        "anchor9": {
+          "coordinates": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "information": {
+        "address": "272 Vo Chi Cong, Tay Ho, Ha Noi",
+        "name": "Floor1, Lotte Mall West Lake Ha Noi"
+      },
+      "product": {
+        "product7": {
+          "coordinates": {
+            "x": 100,
+            "y": 50
+          },
+          "details": {
+            "ID": "15 Promax",
+            "building": "Lotte Mall West Lake Ha Noi",
+            "floor": 3,
+            "tag": "Iphone",
+            "time": "2024-03-06"
+          }
+        },
+        "product8": {
+          "coordinates": {
+            "x": 310,
+            "y": 210
+          },
+          "details": {
+            "ID": "Pro M3",
+            "building": "Lotte Mall West Lake Ha Noi",
+            "floor": 3,
+            "tag": "Macbook",
+            "time": "2024-03-06"
+          }
+        },
+        "product9": {
+          "coordinates": {
+            "x": 12,
+            "y": 311
+          },
+          "details": {
+            "ID": "Serial 4",
+            "building": "Lotte Mall West Lake Ha Noi",
+            "floor": 3,
+            "tag": "Apple Watch",
+            "time": "2024-03-06"
+          }
+        }
+      }
+    }
+  },
+  "Building 3": {
+    "floor1": {
+      "anchor": [
+        null,
+        {
+          "coordinates": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "coordinates": {
+            "x": 745,
+            "y": 0
+          }
+        },
+        {
+          "coordinates": {
+            "x": 0,
+            "y": 605
+          }
+        },
+        {
+          "coordinates": {
+            "x": 745,
+            "y": 605
+          }
+        }
+      ],
+      "information": {
+        "address": "144 Xuan Thuy, Cau Giay, Ha Noi",
+        "name": "Floor1, G2 Building, UET - VNU"
+      },
+      "product": [
+        null,
+        {
+          "coordinates": {
+            "x": 0,
+            "y": 0
+          },
+          "details": {
+            "ID": "Fairy tales",
+            "building": "G2",
+            "floor": 1,
+            "tag": "Books",
+            "time": "2024-03-06"
+          }
+        },
+        {
+          "coordinates": {
+            "x": 310,
+            "y": 210
+          },
+          "details": {
+            "ID": "Adruino UNO",
+            "building": "G2",
+            "floor": 1,
+            "tag": "Electronics",
+            "time": "2024-03-06"
+          }
+        },
+        {
+          "coordinates": {
+            "x": 12,
+            "y": 311
+          },
+          "details": {
+            "ID": "Fairy tales",
+            "building": "G2",
+            "floor": 1,
+            "tag": "Books",
+            "time": "2024-03-06"
+          }
+        }
+      ]
+    },
+    "floor2": {
+      "anchor": [
+        null,
+        {
+          "coordinates": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "coordinates": {
+            "x": 745,
+            "y": 0
+          }
+        },
+        {
+          "coordinates": {
+            "x": 0,
+            "y": 605
+          }
+        },
+        {
+          "coordinates": {
+            "x": 745,
+            "y": 605
+          }
+        }
+      ],
+      "information": {
+        "address": "144 Xuan Thuy, Cau Giay, Ha Noi",
+        "name": "Floor1, G2 Building, UET - VNU"
+      },
+      "product": {
+        "4": {
+          "coordinates": {
+            "x": 0,
+            "y": 0
+          },
+          "details": {
+            "ID": "Fairy tales",
+            "building": "G2",
+            "floor": 1,
+            "tag": "Books",
+            "time": "2024-03-06"
+          }
+        },
+        "5": {
+          "coordinates": {
+            "x": 310,
+            "y": 210
+          },
+          "details": {
+            "ID": "Fairy tales",
+            "building": "G2",
+            "floor": 1,
+            "tag": "Books",
+            "time": "2024-03-06"
+          }
+        },
+        "6": {
+          "coordinates": {
+            "x": 12,
+            "y": 311
+          },
+          "details": {
+            "ID": "Fairy tales",
+            "building": "G2",
+            "floor": 1,
+            "tag": "Books",
+            "time": "2024-03-06"
+          }
+        }
+      }
+    },
+    "floor3": {
+      "anchor": [
+        null,
+        {
+          "coordinates": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "coordinates": {
+            "x": 745,
+            "y": 0
+          }
+        },
+        {
+          "coordinates": {
+            "x": 0,
+            "y": 605
+          }
+        },
+        {
+          "coordinates": {
+            "x": 745,
+            "y": 605
+          }
+        }
+      ],
+      "information": {
+        "address": "144 Xuan Thuy, Cau Giay, Ha Noi",
+        "name": "Floor1, G2 Building, UET - VNU"
+      },
+      "product": {
+        "7": {
+          "coordinates": {
+            "x": 0,
+            "y": 0
+          },
+          "details": {
+            "ID": "Fairy tales",
+            "building": "G2",
+            "floor": 1,
+            "tag": "Books",
+            "time": "2024-03-06"
+          }
+        },
+        "8": {
+          "coordinates": {
+            "x": 310,
+            "y": 210
+          },
+          "details": {
+            "ID": "Fairy tales",
+            "building": "G2",
+            "floor": 1,
+            "tag": "Books",
+            "time": "2024-03-06"
+          }
+        },
+        "9": {
+          "coordinates": {
+            "x": 12,
+            "y": 311
+          },
+          "details": {
+            "ID": "Fairy tales",
+            "building": "G2",
+            "floor": 1,
+            "tag": "Books",
+            "time": "2024-03-06"
+          }
+        }
+      }
+    }
+  }
+}

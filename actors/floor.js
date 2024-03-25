@@ -62,6 +62,29 @@ const floor = (building, rectangle, stage) => {
   // stageButton.textContent = thisFloor;
   stageButton.setAttribute("class", "stageButton");
   stageButton.id = "stageButton" + stage;
+  document.addEventListener('DOMContentLoaded', function () {
+    // Duyệt qua dữ liệu trong 'product'
+    db.ref(`/${building}/${stage}/product`).on('value', function (productSnapshot) {
+        productSnapshot.forEach(function (childSnapshot) {
+            var productId = childSnapshot.key;
+            var product = document.getElementById(productId);
+            if (product) {
+                updateproductPosition(childSnapshot, productId);
+            }
+        });
+    });
+
+    // Duyệt qua dữ liệu trong 'anchor'
+    db.ref(`/${building}/${stage}/anchor`).on('value', function (anchorSnapshot) {
+        anchorSnapshot.forEach(function (childSnapshot) {
+            var anchorId = childSnapshot.key;
+            var anchor = document.getElementById(anchorId);
+            if (anchor) {
+                updateAnchorPosition(childSnapshot, anchorId);
+            }
+        });
+    });
+});
 
   stageButton.addEventListener("click", function () {
     if (showStage) {
