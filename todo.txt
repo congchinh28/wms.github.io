@@ -1,4 +1,3 @@
-- Stastistics chưa hiển thị hết tất cả products - Đã fix thêm building map nhưng không hiển thị trường building chính xác o building 2
 - Khi thay đổi dữ liệu trên firebase thì trên web không realtime mà phải reload
 - Set anchor thừa biến rectangle, set anchor nên có drop down cho Building
 - Location đang lỗi khi Building 1 > Building 2 > Building 1 thì Building 1 đang hiển thị product details của Building 2
