@@ -49,6 +49,7 @@ const floor = (building, rectangle, stage) => {
   const floorName = stage.charAt(stage.length - 1);
   // const thisFloor = stage;
   const stageButton = document.createElement("button");
+  stageButton.style.marginRight = "1%";
   const rectangleElement = document.getElementById(rectangle);
   const currentButton = document.getElementById(stageButton.id);
   const floors = document.getElementById("floors");
