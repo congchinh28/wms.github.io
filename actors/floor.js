@@ -1,22 +1,15 @@
 // ############## Firebase end
 import db from "../assets/js/firebase.js";
-import { updatePosition } from "../assets/js/helpers.js";
+import { MAP_RECTANGLE_FLOORS, updatePosition } from "../assets/js/helpers.js";
 import { showAnchorDetails } from "./anchor.js";
 import { showProductDetails } from "./product.js";
-
-const mapRectangleFloors = {
-  floor1: "rectangle1",
-  floor2: "rectangle2",
-  floor3: "rectangle3",
-};
 
 const floors = document.getElementById("floors");
 const maps = document.getElementsByClassName("map");
 const floorInfoContainers = document.getElementsByClassName(
   "floor-info-container"
 );
-const rectangles = document.getElementsByClassName("rectangle"
-);
+const rectangles = document.getElementsByClassName("rectangle");
 
 function displayFloorInformation(
   name,
@@ -60,32 +53,9 @@ const floor = (building, rectangle, stage) => {
 
   var showStage = true;
 
-  // stageButton.textContent = thisFloor;
   stageButton.setAttribute("class", "stageButton");
   stageButton.id = "stageButton" + stage;
-  document.addEventListener('DOMContentLoaded', function () {
-    // Duyệt qua dữ liệu trong 'product'
-    db.ref(`/${building}/${stage}/product`).on('value', function (productSnapshot) {
-        productSnapshot.forEach(function (childSnapshot) {
-            var productId = childSnapshot.key;
-            var product = document.getElementById(productId);
-            if (product) {
-                updateproductPosition(childSnapshot, productId);
-            }
-        });
-    });
 
-    // Duyệt qua dữ liệu trong 'anchor'
-    db.ref(`/${building}/${stage}/anchor`).on('value', function (anchorSnapshot) {
-        anchorSnapshot.forEach(function (childSnapshot) {
-            var anchorId = childSnapshot.key;
-            var anchor = document.getElementById(anchorId);
-            if (anchor) {
-                updateAnchorPosition(childSnapshot, anchorId);
-            }
-        });
-    });
-});
 
   stageButton.addEventListener("click", function () {
     if (showStage) {
@@ -174,7 +144,7 @@ const floor = (building, rectangle, stage) => {
   });
 
   document
-    .querySelectorAll(`#${mapRectangleFloors[stage]} > .product`)
+    .querySelectorAll(`#${MAP_RECTANGLE_FLOORS[stage]} > .product`)
     .forEach(function (product, index) {
       // product.style.display = "block";
       product.addEventListener("click", function () {
@@ -196,7 +166,7 @@ const floor = (building, rectangle, stage) => {
     );
   });
   document
-    .querySelectorAll(`#${mapRectangleFloors[stage]} > .anchor`)
+    .querySelectorAll(`#${MAP_RECTANGLE_FLOORS[stage]} > .anchor`)
     .forEach(function (anchor, index) {
       // anchor.style.display = "block";
       anchor.addEventListener("click", function () {

@@ -1,5 +1,2 @@
-- Khi thay đổi dữ liệu trên firebase thì trên web không realtime mà phải reload
-- Set anchor thừa biến rectangle, set anchor nên có drop down cho Building
 - Location đang lỗi khi Building 1 > Building 2 > Building 1 thì Building 1 đang hiển thị product details của Building 2
 - Thêm hover address, total floor ở nút building
-- Helper đang chỉ set cho Building 1
