@@ -7,11 +7,11 @@ body {
     padding: 0;
     background-color: #fff;
     background-image: url('https://github.com/congchinh28/wms.github.io/blob/main/assets/images/wmsBackground.png?raw=true');
-    background-size: 30%;
+    background-size: 20%;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position-y: 60%;
+    background-position-y: 50%;
 }
 
 header {
@@ -85,7 +85,7 @@ nav a:hover {
 }
 
 .bottom-text {
-    position: fixed; 
+    /* position: fixed;  */
     bottom: 0;
     left: 0;
     width: 100%;
@@ -93,7 +93,7 @@ nav a:hover {
     color: rgb(66, 66, 70);
     text-align: center;
     padding: 10px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-style: italic;
     font-weight: bold;
     animation: slide 30s linear infinite;
@@ -401,3 +401,4 @@ nav a.active {
   }
 
 /*--------------------SET ANCHOR POSITION-------------------------*/
+/*----------------------------------------------------------------*/
