@@ -369,6 +369,35 @@ nav a.active {
 }
 
 /*--------------------ABOUT US-------------------------*/
+  h1 {
+    color: #333;
+    margin: 0;
+  }
 
+  .imgAboutUs {
+    width: 570px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  .image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+  }
 
 /*--------------------SET ANCHOR POSITION-------------------------*/

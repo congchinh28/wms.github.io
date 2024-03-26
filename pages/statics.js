@@ -1,12 +1,16 @@
 import db from "../assets/js/firebase.js";
 import { hideLocation } from "./location.js";
+import { hideAboutUs } from "./aboutUs.js";
 //--------------------STATISTICS-------------------------
 //Truy cập đến bảng trong menu statistics
 // var tableContainer = document.getElementById("tableContainer");
 //Menu Statistics
 var isTableVisible = false;
 document.getElementById("statistics").addEventListener("click", function () {
+
   hideLocation();
+  hideAboutUs ();
+  
   if (!isTableVisible) {
     // Hiển thị bảng thống kê
     showProductTable();

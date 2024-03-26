@@ -1,6 +1,7 @@
 import { building, hideBuildings } from "../actors/building.js";
 import { hideAllInFloors } from "../actors/floor.js";
 import { hideStatics } from "./statics.js";
+import { hideAboutUs } from "./aboutUs.js";
 
 //--------------------LOCATION-------------------------
 
@@ -14,7 +15,11 @@ var showLocation = true;
 buildings.style.display = "none";
 
 location.addEventListener("click", function () {
+
   hideStatics();
+  hideAboutUs();
+
+  
   if (showLocation) {
     buildings.style.display = "block";
     showLocation = false;
