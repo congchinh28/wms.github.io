@@ -86,7 +86,6 @@ function updateanchorCoordinates(selectedBuilding, selectedanchor, newX, newY) {
       Swal.fire("Notice", "Updated coordinates successfully!", "success");
     })
     .catch((error) => {
-      console.error("Error updating coordinates:", error);
       Swal.fire(
         "Notice",
         "An error occurred while updating coordinates.",
@@ -112,7 +111,6 @@ const updatePositionRealTime = (building, floor) => {
   db.ref(`/${building}/${floor}/product`).on(
     "value",
     function (productSnapshot) {
-      console.log("realtime");
       productSnapshot.forEach(function (childSnapshot) {
         var productId = childSnapshot.key;
         var product = document.getElementById(productId);

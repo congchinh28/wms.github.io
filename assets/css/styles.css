@@ -6,8 +6,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: #fff;
-    background-image: url('https://github.com/congchinh28/wms.github.io/blob/main/assets/images/wmsBackground.png?raw=true');
-    background-size: 20%;
+    background-image: url('https://b3436359.smushcdn.com/3436359/wp-content/uploads/2023/07/AdobeStock_601570879-scaled.jpeg?lossy=2&strip=1&webp=1');
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -15,7 +15,7 @@ body {
 }
 
 header {
-    background-color: #77c5ff;
+    background-color: #fff;
     padding: 1px;
     text-align: center;
     color: white;
@@ -37,8 +37,8 @@ header {
 
 nav.header {
     display: flex;
-    justify-content: center;
-    background-color: #004580;
+    justify-content: flex-start;
+    background-color: transparent;
     padding: 0px;
     /* position: fixed; */
     width: 100%;
@@ -46,6 +46,7 @@ nav.header {
     left: 0;
     right: 0;
     z-index: 998;
+    align-items: center;
 }
 
 nav.floor,
@@ -64,19 +65,19 @@ nav.buildings {
 
 
 .logo {
-    width: 80px;
+    width: 150px;
     height: auto;
     z-index: 999;
 }
 
 nav a {
-    color: white;
+    color: #000;
     text-decoration: none;
     padding: 10px 20px;
     margin: 0 10px;
     border-radius: 10px;
     transition: background-color 0.3s;
-    font-size: 15px;
+    font-size: 17px;
 
 }
 
@@ -90,10 +91,10 @@ nav a:hover {
     left: 0;
     width: 100%;
     background-color: transparent;
-    color: rgb(66, 66, 70);
+    color: rgb(255, 255, 255);
     text-align: center;
     padding: 10px;
-    font-size: 1rem;
+    font-size: 0,8rem;
     font-style: italic;
     font-weight: bold;
     animation: slide 30s linear infinite;
@@ -281,7 +282,7 @@ nav a.active {
     align-content: flex-end;
     align-items: flex-end;
     overflow: auto;
-    margin: 40px;
+    margin: 0px;
 }
 
 .product:hover {
@@ -292,7 +293,7 @@ nav a.active {
 #productTable th,
 #productTable td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 0px;
     text-align: left;
 }
 

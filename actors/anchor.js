@@ -3,7 +3,6 @@ import { showCoordinateInput } from "../assets/js/helpers.js";
 
 function showAnchorDetails(buildingId, floorId, anchorId) {
   const link = `/${buildingId}/${floorId}/anchor/${anchorId}`;
-  console.log("link", link);
   db.ref(link).once("value", function (snapshot) {
     var data = snapshot.val();
     if (data && data.coordinates) {
