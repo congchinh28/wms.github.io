@@ -126,9 +126,10 @@ nav a.active {
     }
 
     .logo {
-        width: 100px;
-        height: 30px;
+        width: 80px;
+        /* height: 30px;
         margin-top: 13px;
+        margin-left: 50px; */
     }
     .topnav a:not(:first-child) {display: none;}
     .topnav a.icon {
@@ -430,7 +431,7 @@ nav a.active {
   display: block;
   color: #000;
   text-align: center;
-  padding: 14px 16px;
+  /* padding: 14px 16px; */
   text-decoration: none;
   font-size: 17px;
 }
