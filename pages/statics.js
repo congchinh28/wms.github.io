@@ -1,6 +1,7 @@
 import db from "../assets/js/firebase.js";
 import { hideLocation } from "./location.js";
 import { hideAboutUs } from "./aboutUs.js";
+import { hideManuals } from "./manuals.js";
 //--------------------STATISTICS-------------------------
 //Truy cập đến bảng trong menu statistics
 // var tableContainer = document.getElementById("tableContainer");
@@ -9,7 +10,8 @@ var isTableVisible = false;
 document.getElementById("statistics").addEventListener("click", function () {
 
   hideLocation();
-  hideAboutUs ();
+  hideAboutUs ();  
+  hideManuals();
   
   if (!isTableVisible) {
     // Hiển thị bảng thống kê

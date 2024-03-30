@@ -2,12 +2,14 @@
 
 import { hideStatics } from "./statics.js";
 import { hideLocation } from "./location.js";
+import { hideManuals } from "./manuals.js";
 
 //Menu About Us
 var isAboutUsVisible = false;
 document.getElementById("aboutUs").addEventListener("click", function () {
   hideLocation();
   hideStatics();
+  hideManuals();
   document.querySelectorAll(".product").forEach(function (product) {
     product.style.display = "none";
   });
