@@ -11,6 +11,7 @@
       href="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/logoUet.png?raw=true"
       type="image/x-icon"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!--Phần Style-->
@@ -29,7 +30,7 @@
       </div>
 
       <!-- Menu của tôi -->
-      <nav class="header">
+      <nav class="topnav" id="myTopnav">
         <img
           src="assets\images\wmsBackground (2).png"
           alt="Logo"
@@ -39,6 +40,9 @@
         <a href="#" id="setAnchorPosition">SET ANCHOR POSITION</a>
         <a href="#" id="statistics">STATISTICS</a>
         <a href="#" id="aboutUs">ABOUT US</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
       </nav>
       <nav id="buildings" class="building"></nav>
       <nav id="floors" class="floor"></nav>
@@ -224,7 +228,16 @@
     
     <!-- updating -->
     <script src="./assets/js/helpers.js" type="module"></script>
-
+    <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+    </script>
 
     <!--Footer-->
     <div class="bottom-text">
