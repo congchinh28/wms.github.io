@@ -1,4 +1,6 @@
-- Location đang lỗi khi Building 1 > Building 2 > Building 1 thì Building 1 đang hiển thị product details của Building 2
-- Thêm hover address, total floor ở nút building
 https://www.vardells.co.uk/wp-content/uploads/2022/01/WMS-Real-Time-Data-Image-scaled.jpg
 https://b3436359.smushcdn.com/3436359/wp-content/uploads/2023/07/AdobeStock_601570879-scaled.jpeg?lossy=2&strip=1&webp=1
+
+- Responsive cả hệ thống
+- Location > Buildings > Floors sử dụng dropDown
+- Căn giữa menu theo chiều dọc
