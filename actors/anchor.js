@@ -54,13 +54,13 @@ function setAnchorPosition(Buildings, anchors) {
           } else {
             // Hiển thị dropdown danh sách anchor
             Swal.fire({
-              title: "Select anchor",
+              title: "Select Anchors",
               input: "select",
               inputOptions: anchors,
               showCloseButton: true,
               showConfirmButton: true,
               confirmButtonText: "Next",
-              inputPlaceholder: "select a anchor",
+              inputPlaceholder: "Select a anchor",
               preConfirm: (selectedanchor) => {
                 // Kiểm tra xem có chọn anchor nào không
                 if (!selectedanchor) {
