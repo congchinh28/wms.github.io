@@ -140,7 +140,7 @@ nav a.active {
     .topnav.responsive .icon {
         position: absolute;
         right: 0;
-        top: 0;
+        top: 0; 
     }
     .topnav.responsive a {
         float: none;
@@ -152,8 +152,8 @@ nav a.active {
 
 /*--------------------LOCATION-------------------------*/
 .custom-popup {
-    left: 35%;
-    top: -9%
+    left: 36%;
+    top: -25%
 }
 
 #floorButtonContainer {
