@@ -145,4 +145,15 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Không cần thiết nếu bạn không muốn thêm hiệu ứng cho header khi dính
+window.addEventListener('scroll', function() {
+    var header = document.getElementById("myTopnav");
+    if (window.pageYOffset > 0) {
+        header.classList.add('sticky');
+    } else {
+        header.classList.remove('sticky');
+    }
+});
+
+
 export { showCoordinateInput, updatePosition };

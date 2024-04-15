@@ -33,7 +33,7 @@ const building = (building) => {
 
   buildingbutton.setAttribute("class", "buildingButton");
   buildingbutton.id = building;
-  buildingbutton.style.marginRight = "2%";
+  buildingbutton.style.marginRight = "1%";
 
 
   if (!currentButton) buildings.appendChild(buildingbutton);

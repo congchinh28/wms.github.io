@@ -1,269 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!--Tiêu đề trang web-->
-    <title>Warehouse Management System</title>
-    <meta charset="UTF-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      href="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/logoUet.png?raw=true"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<head>
+  <!--Tiêu đề trang web-->
+  <title>Warehouse Management System</title>
+  <meta charset="UTF-8" />
 
-    <!--Phần Style-->
-    <link rel="stylesheet" href="./assets/css/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/logoUet.png?raw=true"
+    type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!--Phần Style-->
+  <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
 
-  <body>
-    <header>
-      <!-- Menu của tôi -->
-      <nav class="topnav" id="myTopnav">
-        <a href="index.html">
-          <img
-          src="assets\images\wmsBackground (2).png"
-          alt="Logo"
-          class="logo"
-        />
-        </a>      
-    
-        <a href="#" id="location">LOCATION</a>
-        <a href="#" id="setAnchorPosition">SET ANCHOR POSITION</a>
-        <a href="#" id="statistics">STATISTICS</a>        
-        <a href="#" id="manuals">MANUALS</a>
-        <a href="#" id="aboutUs">ABOUT US</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-          <i class="fa fa-bars"></i>
+<body>
+  <header>
+    <!-- Menu của tôi -->
+    <nav class="topnav" id="myTopnav">
+      <a href="index.html">
+        <img src="assets\images\wmsBackground (2).png" alt="Logo" class="logo" />
         </a>
+      <a href="#" id="location">LOCATION</a>
+      <a href="#" id="setAnchorPosition">SET ANCHOR POSITION</a>
+      <a href="#" id="statistics">STATISTICS</a>
+      <a href="#" id="manuals">MANUALS</a>
+      <a href="#" id="aboutUs">ABOUT US</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
       </nav>
       <nav id="buildings" class="building"></nav>
       <nav id="floors" class="floor"></nav>
       <!--Logo-->
-    </header>
-    <!-- CONTENT -->
-    <!-- Bảng Thông tin Món hàng trong menu Statistics -->
-    <div id="tableContainer" class="centered-table" style="display: none">
-      <table id="productTable">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Building</th>
-            <th>Floor</th>
-            <th>Tag</th>
-            <th>Time</th>
-          </tr>
-        </thead>
-        <tbody id="productTableBody"></tbody>
-      </table>
-      <!-- Thêm nút "Xuất thống kê" -->
-      <button id="exportButton" class="export-button">Export Statistics</button>
-    </div>
+      </header>
+      <!-- CONTENT -->
+      <!-- Bảng Thông tin Món hàng trong menu Statistics -->
+      <div id="tableContainer" class="centered-table" style="display: none">
+        <table id="productTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Building</th>
+              <th>Floor</th>
+              <th>Tag</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="productTableBody"></tbody>
+        </table>
+        <!-- Thêm nút "Xuất thống kê" -->
+        <button id="exportButton" class="export-button">Export Statistics</button>
+      </div>
 
-    <!--Phần này để hiển thị anchor dưới dạng image-->
-    <div class = "map">
+  <!--Phần này để hiển thị anchor dưới dạng image-->
+  <div class="map">
+    <div class="mapres">
       <div id="rectangle1" class="rectangle">
         <div id="product1" class="product"></div>
         <div id="product2" class="product"></div>
         <div id="product3" class="product"></div>
-        <img
-          src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true"
-          alt="anchor 1"
-          class="anchor"
-          id="anchor1"
-        />
-        <img
-          src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true"
-          alt="anchor 2"
-          class="anchor"
-          id="anchor2"
-        />
-        <img
-          src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true"
-          alt="anchor 3"
-          class="anchor"
-          id="anchor3"
-        />
-        <img
-          src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true"
-          alt="anchor 4"
-          class="anchor"
-          id="anchor4"
-        />
+        <img src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true" alt="anchor 1"
+          class="anchor" id="anchor1" />
+        <img src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true" alt="anchor 2"
+          class="anchor" id="anchor2" />
+        <img src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true" alt="anchor 3"
+          class="anchor" id="anchor3" />
+        <img src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true" alt="anchor 4"
+          class="anchor" id="anchor4" />
       </div>
-      <div id="floorInfoContainer1" class="floor-info-container"></div>
-
       <div id="rectangle2" class="rectangle">
         <div id="product4" class="product"></div>
         <div id="product5" class="product"></div>
         <div id="product6" class="product"></div>
-        <img
-          src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true"
-          alt="anchor 5"
-          class="anchor"
-          id="anchor5"
-        />
-        <img
-          src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true"
-          alt="anchor 6"
-          class="anchor"
-          id="anchor6"
-        />
-        <img
-          src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true"
-          alt="anchor 7"
-          class="anchor"
-          id="anchor7"
-        />
-        <img
-          src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true"
-          alt="anchor 8"
-          class="anchor"
-          id="anchor8"
-        />
+        <img src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true" alt="anchor 5"
+          class="anchor" id="anchor5" />
+        <img src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true" alt="anchor 6"
+          class="anchor" id="anchor6" />
+        <img src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true" alt="anchor 7"
+          class="anchor" id="anchor7" />
+        <img src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true" alt="anchor 8"
+          class="anchor" id="anchor8" />
       </div>
-      <div id="floorInfoContainer2" class="floor-info-container"></div>
-
       <div id="rectangle3" class="rectangle">
         <div id="product7" class="product"></div>
         <div id="product8" class="product"></div>
         <div id="product9" class="product"></div>
-        <img
-          src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true"
-          alt="anchor 9"
-          class="anchor"
-          id="anchor9"
-        />
-        <img
-          src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true"
-          alt="anchor 10"
-          class="anchor"
-          id="anchor10"
-        />
-        <img
-          src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true"
-          alt="anchor 11"
-          class="anchor"
-          id="anchor11"
-        />
-        <img
-          src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true"
-          alt="anchor 12"
-          class="anchor"
-          id="anchor12"
-        />
-      </div>
-      <div id="floorInfoContainer3" class="floor-info-container"></div>
+        <img src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true" alt="anchor 9"
+          class="anchor" id="anchor9" />
+        <img src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true" alt="anchor 10"
+          class="anchor" id="anchor10" />
+        <img src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true" alt="anchor 11"
+          class="anchor" id="anchor11" />
+        <img src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/anchorIcon.png?raw=true" alt="anchor 12"
+          class="anchor" id="anchor12" />
+        </div>
+        </div>
+    <div id="floorInfoContainer1" class="floor-info-container"></div>
+    <div id="floorInfoContainer2" class="floor-info-container"></div>
+    <div id="floorInfoContainer3" class="floor-info-container"></div>
+  </div>
 
-    </div>
 
-    <!--Phần này để nhập tọa độ cho anchor-->
-    <div id="anchorDetails" style="display: none">
-      <label for="xCoordinate">X Coordinates:</label>
-      <input type="text" id="xCoordinate" placeholder="Enter X coordinates" />
+  <!--Phần này để nhập tọa độ cho anchor-->
+  <div id="anchorDetails" style="display: none">
+    <label for="xCoordinate">X Coordinates:</label>
+    <input type="text" id="xCoordinate" placeholder="Enter X coordinates" />
 
-      <label for="yCoordinate">Y Coordinates:</label>
-      <input type="text" id="yCoordinate" placeholder="Enter Y coordinates" />
+    <label for="yCoordinate">Y Coordinates:</label>
+    <input type="text" id="yCoordinate" placeholder="Enter Y coordinates" />
 
-      <button id="saveCoordinates">Lưu</button>
+    <button id="saveCoordinates">Lưu</button>
     </div>
 
 
 
-    <div id="contentAboutUs" class="content" style="display: none">
-      <h1>About Us</h1>
-      <p>
-        Welcome to Warehouse Management, your reliable solution for efficient warehouse operations. 
-        We specialize in providing advanced tools and technologies to streamline your inventory 
-        management processes and optimize your supply chain.
-      </p>
-      <img src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/aboutUsImg1.jpg?raw=true" 
-      alt="About Image"
-      class = "image-container"
-      />
-      <h2>Our Mission</h2>
-        <p>At Warehouse Management, our mission is to empower businesses with cutting-edge warehouse management solutions. 
-            We strive to enhance efficiency, accuracy, and productivity while reducing costs and minimizing errors. 
-            Our goal is to become your trusted partner in optimizing your warehouse operations.</p>
+  <div id="contentAboutUs" class="content" style="display: none">
+    <h1>About Us</h1>
+    <p>
+      Welcome to Warehouse Management, your reliable solution for efficient warehouse operations.
+      We specialize in providing advanced tools and technologies to streamline your inventory
+      management processes and optimize your supply chain.
+    </p>
+    <img src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/aboutUsImg1.jpg?raw=true"
+      alt="About Image" class="image-container" />
+    <h2>Our Mission</h2>
+    <p>At Warehouse Management, our mission is to empower businesses with cutting-edge warehouse management solutions.
+      We strive to enhance efficiency, accuracy, and productivity while reducing costs and minimizing errors.
+      Our goal is to become your trusted partner in optimizing your warehouse operations.</p>
 
-        <h2>Why Choose Us?</h2>
-        <ul>
-            <li>Advanced inventory tracking and management system</li>
-            <li>Real-time analytics and reporting</li>
-            <li>Intuitive user interface for easy navigation</li>
-            <li>Seamless integration with existing systems</li>
-            <li>Scalable solution to accommodate your business growth</li>
-            <li>Dedicated customer support and assistance</li>
-        </ul>
+    <h2>Why Choose Us?</h2>
+    <ul>
+      <li>Advanced inventory tracking and management system</li>
+      <li>Real-time analytics and reporting</li>
+      <li>Intuitive user interface for easy navigation</li>
+      <li>Seamless integration with existing systems</li>
+      <li>Scalable solution to accommodate your business growth</li>
+      <li>Dedicated customer support and assistance</li>
+    </ul>
 
-       <h2>Contact Us</h2>
-        <p>Have questions or want to learn more about our services? Feel free to reach out to our team. We're here to help!</p>
-        <p><strong>Email:</strong> phamcongchinh.work@gmail.com</p>
-        <p><strong>Phone:</strong> +84 969895373</p>
-        <p><strong>Address:</strong> VNU University of Engineering and Technology - 144 Xuan Thuy, Cau Giay, Ha Noi</p>
+    <h2>Contact Us</h2>
+    <p>Have questions or want to learn more about our services? Feel free to reach out to our team. We're here to help!
+    </p>
+    <p><strong>Email:</strong> phamcongchinh.work@gmail.com</p>
+    <p><strong>Phone:</strong> +84 969895373</p>
+    <p><strong>Address:</strong> VNU University of Engineering and Technology - 144 Xuan Thuy, Cau Giay, Ha Noi</p>
     </div>
 
-    <div id="contentManuals" class="content" style="display: none">
-      <h1>Manuals</h1>
-      <p>
-        Welcome to Warehouse Management, Here is the manual for using our software.
-      </p>
-      <img src="assets\images\home.png"
-      class = "image-container"
-      />
-      <h2>Location</h2>
-        <p>In this section, users can view the real-time location of tags and anchors. 
-          When tags or anchors move, our system will move as well. When using, you need 
-          to select the Location menu, then select the building and floor you want to observe.</p>
-          <img src="assets\images\location1.png"
-          class = "image-container"
-          />
-          <img src="assets\images\location2.png"
-          class = "image-container"
-          />
-      <h2>Set anchor position</h2>
-        <p>Technicians after installing or adjusting the position of Anchors, can set a new actual 
-          position on our software by selecting the menu "Set Anchor Position" then selecting Building 
-          > Selecting the appropriate Anchor.</p>
-          <img src="assets\images\setanchor1.png"
-          class = "image-container"
-          />
-          <img src="assets\images\setanchor2.png"
-          class = "image-container"
-          />
-      <h2>Statistics</h2>
-        <p>In this section, users can review the overall statistics of items such as ID, Building, Floor, 
-          Card, Time of each item. At the same time, you can export statistics to this txt file</p>
-          <img src="assets\images\sta1.png"
-          class = "image-container"
-          />
-          <img src="assets\images\sta2.png"
-          class = "image-container"
-          />
-      </div>
-
-
-
-
-
-      <!-- Nội dung thông tin sẽ được thêm vào đây bằng JavaScript -->
+  <div id="contentManuals" class="content" style="display: none">
+    <h1>Manuals</h1>
+    <p>
+      Welcome to Warehouse Management, Here is the manual for using our software.
+    </p>
+    <img src="assets\images\home.png" class="image-container" />
+    <h2>Location</h2>
+    <p>In this section, users can view the real-time location of tags and anchors.
+      When tags or anchors move, our system will move as well. When using, you need
+      to select the Location menu, then select the building and floor you want to observe.</p>
+    <img src="assets\images\location1.png" class="image-container" />
+    <img src="assets\images\location2.png" class="image-container" />
+    <h2>Set anchor position</h2>
+    <p>Technicians after installing or adjusting the position of Anchors, can set a new actual
+      position on our software by selecting the menu "Set Anchor Position" then selecting Building
+      > Selecting the appropriate Anchor.</p>
+    <img src="assets\images\setanchor1.png" class="image-container" />
+    <img src="assets\images\setanchor2.png" class="image-container" />
+    <h2>Statistics</h2>
+    <p>In this section, users can review the overall statistics of items such as ID, Building, Floor,
+      Card, Time of each item. At the same time, you can export statistics to this txt file</p>
+    <img src="assets\images\sta1.png" class="image-container" />
+    <img src="assets\images\sta2.png" class="image-container" />
     </div>
-    <!--Tải hai tệp JavaScript từ Firebase SDK-->
-    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
 
-    <script src="./assets/js/firebase.js" type="module"></script>
-    <script src="./pages/statics.js" type="module"></script>
-    <script src="./pages/setAnchorPosition.js" type="module"></script>
-    <script src="./pages/location.js" type="module"></script>
-    <script src="./pages/aboutUs.js" type="module"></script>
-    <script src="./pages/manuals.js" type="module"></script>
-    
-    <!-- updating -->
-    <script src="./assets/js/helpers.js" type="module"></script>
-    <script>
+
+
+
+
+  <!-- Nội dung thông tin sẽ được thêm vào đây bằng JavaScript -->
+  </div>
+  <!--Tải hai tệp JavaScript từ Firebase SDK-->
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+
+  <script src="./assets/js/firebase.js" type="module"></script>
+  <script src="./pages/statics.js" type="module"></script>
+  <script src="./pages/setAnchorPosition.js" type="module"></script>
+  <script src="./pages/location.js" type="module"></script>
+  <script src="./pages/aboutUs.js" type="module"></script>
+  <script src="./pages/manuals.js" type="module"></script>
+  
+  <!-- updating -->
+  <script src="./assets/js/helpers.js" type="module"></script>
+  <script>
     function myFunction() {
       var x = document.getElementById("myTopnav");
       if (x.className === "topnav") {
@@ -272,11 +202,12 @@
         x.className = "topnav";
       }
     }
-    </script>
+  </script>
 
-    <!--Footer-->
-    <div class="bottom-text">
-      Graduation Thesis _ Ware House Management System
-    </div>
+  <!--Footer-->
+  <div class="bottom-text">
+    Graduation Thesis _ Ware House Management System
+  </div>
   </body>
+
 </html>
