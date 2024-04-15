@@ -154,15 +154,20 @@ nav a.active {
         text-align: left;
     }
     .mapres {
+        position: relative; 
         width: 100%; /* hoặc kích thước mong muốn */
-        overflow-x: auto; /* hoặc scroll nếu bạn muốn luôn hiển thị thanh cuộn ngang */
-        white-space: nowrap; /* Đảm bảo các phần tử con không xuống dòng */
+        height: 371px;
     }
     .anchor, .product, .rectangle  {
         display: inline-block; /* Đảm bảo các ảnh nằm cạnh nhau */
         vertical-align: top; /* Đảm bảo các ảnh nằm ở cùng một dòng */
 
     }
+    .rectangle {
+        transform: scale(0.55); /* Thay đổi kích thước div con */
+        transform-origin: top left; /* Điểm mà transform được áp dụng */
+        position: absolute; /* Định vị tuyệt đối để di chuyển div con */
+        }
 }
 
 

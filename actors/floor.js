@@ -6,10 +6,10 @@ import { showProductDetails } from "./product.js";
 
 const floors = document.getElementById("floors");
 const maps = document.getElementsByClassName("map");
+const rectangles = document.getElementsByClassName("rectangle");
 const floorInfoContainers = document.getElementsByClassName(
   "floor-info-container"
 );
-const rectangles = document.getElementsByClassName("rectangle");
 
 function displayFloorInformation(
   name,
