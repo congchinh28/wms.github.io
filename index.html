@@ -14,15 +14,13 @@
 
   <!--Phần Style-->
   <link rel="stylesheet" href="./assets/css/styles.css" />
-  </head>
+</head>
 
 <body>
   <header>
     <!-- Menu của tôi -->
     <nav class="topnav" id="myTopnav">
-      <a href="index.html">
-        <img src="assets\images\wmsBackground (2).png" alt="Logo" class="logo" />
-        </a>
+      <img src="assets\images\wmsBackground (2).png" alt="Logo" class="logo" />
       <a href="#" id="location">LOCATION</a>
       <a href="#" id="setAnchorPosition">SET ANCHOR POSITION</a>
       <a href="#" id="statistics">STATISTICS</a>
@@ -31,29 +29,29 @@
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
       </a>
-      </nav>
-      <nav id="buildings" class="building"></nav>
-      <nav id="floors" class="floor"></nav>
-      <!--Logo-->
-      </header>
-      <!-- CONTENT -->
-      <!-- Bảng Thông tin Món hàng trong menu Statistics -->
-      <div id="tableContainer" class="centered-table" style="display: none">
-        <table id="productTable">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Building</th>
-              <th>Floor</th>
-              <th>Tag</th>
-              <th>Time</th>
-            </tr>
-          </thead>
-          <tbody id="productTableBody"></tbody>
-        </table>
-        <!-- Thêm nút "Xuất thống kê" -->
-        <button id="exportButton" class="export-button">Export Statistics</button>
-      </div>
+    </nav>
+    <nav id="buildings" class="building"></nav>
+    <nav id="floors" class="floor"></nav>
+    <!--Logo-->
+    </header>
+    <!-- CONTENT -->
+    <!-- Bảng Thông tin Món hàng trong menu Statistics -->
+    <div id="tableContainer" class="centered-table" style="display: none">
+      <table id="productTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Building</th>
+            <th>Floor</th>
+            <th>Tag</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody id="productTableBody"></tbody>
+      </table>
+      <!-- Thêm nút "Xuất thống kê" -->
+      <button id="exportButton" class="export-button">Export Statistics</button>
+    </div>
 
   <!--Phần này để hiển thị anchor dưới dạng image-->
   <div class="map">
@@ -113,7 +111,7 @@
     <input type="text" id="yCoordinate" placeholder="Enter Y coordinates" />
 
     <button id="saveCoordinates">Lưu</button>
-    </div>
+  </div>
 
 
 
@@ -147,46 +145,32 @@
     <p><strong>Email:</strong> phamcongchinh.work@gmail.com</p>
     <p><strong>Phone:</strong> +84 969895373</p>
     <p><strong>Address:</strong> VNU University of Engineering and Technology - 144 Xuan Thuy, Cau Giay, Ha Noi</p>
-    </div>
+  </div>
 
-    <div id="contentManuals" class="content" style="display: none">
-      <h1>Manuals</h1>
-      <p>
-        Welcome to Warehouse Management, Here is the manual for using our software.
-      </p>
-      <img src="assets\images\home.png"
-      class = "image-container"
-      />
-      <h2>Location</h2>
-        <p>In this section, users can view the real-time location of tags and anchors. 
-          When tags or anchors move, our system will move as well. When using, you need 
-          to select the Location menu, then select the building and floor you want to observe.</p>
-          <img src="assets\images\location1.png"
-          class = "image-container"
-          />
-          <img src="assets\images\location2.png"
-          class = "image-container"
-          />
-      <h2>Set anchor position</h2>
-        <p>Technicians after installing or adjusting the position of Anchors, can set a new actual 
-          position on our software by selecting the menu "Set Anchor Position" then selecting Building 
-          > Selecting the appropriate Anchor.</p>
-          <img src="assets\images\setanchor1.png"
-          class = "image-container"
-          />
-          <img src="assets\images\setanchor2.png"
-          class = "image-container"
-          />
-      <h2>Statistics</h2>
-        <p>In this section, users can review the overall statistics of items such as ID, Building, Floor, 
-          Card, Time of each item. At the same time, you can export statistics to this txt file</p>
-          <img src="assets\images\sta1.png"
-          class = "image-container"
-          />
-          <img src="assets\images\sta2.png"
-          class = "image-container"
-          />
-      </div>
+  <div id="contentManuals" class="content" style="display: none">
+    <h1>Manuals</h1>
+    <p>
+      Welcome to Warehouse Management, Here is the manual for using our software.
+    </p>
+    <img src="assets\images\home.png" class="image-container" />
+    <h2>Location</h2>
+    <p>In this section, users can view the real-time location of tags and anchors.
+      When tags or anchors move, our system will move as well. When using, you need
+      to select the Location menu, then select the building and floor you want to observe.</p>
+    <img src="assets\images\location1.png" class="image-container" />
+    <img src="assets\images\location2.png" class="image-container" />
+    <h2>Set anchor position</h2>
+    <p>Technicians after installing or adjusting the position of Anchors, can set a new actual
+      position on our software by selecting the menu "Set Anchor Position" then selecting Building
+      > Selecting the appropriate Anchor.</p>
+    <img src="assets\images\setanchor1.png" class="image-container" />
+    <img src="assets\images\setanchor2.png" class="image-container" />
+    <h2>Statistics</h2>
+    <p>In this section, users can review the overall statistics of items such as ID, Building, Floor,
+      Card, Time of each item. At the same time, you can export statistics to this txt file</p>
+    <img src="assets\images\sta1.png" class="image-container" />
+    <img src="assets\images\sta2.png" class="image-container" />
+    </div>
 
   <!-- Nội dung thông tin sẽ được thêm vào đây bằng JavaScript -->
   </div>
@@ -200,7 +184,7 @@
   <script src="./pages/location.js" type="module"></script>
   <script src="./pages/aboutUs.js" type="module"></script>
   <script src="./pages/manuals.js" type="module"></script>
-  
+
   <!-- updating -->
   <script src="./assets/js/helpers.js" type="module"></script>
   <script>
@@ -218,6 +202,6 @@
   <div class="bottom-text">
     Graduation Thesis _ Ware House Management System
   </div>
-  </body>
+</body>
 
 </html>
