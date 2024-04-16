@@ -109,9 +109,6 @@ nav a.active {
 }
 
 @media only screen and (max-width: 1000px) {
-    .logo {
-        width: 70px;
-    }
 
     header {
         font-size: 16px;
@@ -131,15 +128,13 @@ nav a.active {
 
     .logo {
         width: 80px;
-        /* height: 30px;
-        margin-top: 13px;
-        margin-left: 50px; */
     }
     .topnav {
         display:  block !important;
         width: 100%;
     }
     .topnav a:not(:first-child) {display: none;}
+    .topnav a:first-child {padding-top: 50px }
     .topnav a.icon {
         float: right;
         display: block;
@@ -148,6 +143,11 @@ nav a.active {
     .topnav.responsive .icon {
         position: absolute;
         right: 0;
+        top: 0; 
+    }
+    .topnav .logo {
+        position: absolute;
+        left: 0;
         top: 0; 
     }
     .topnav.responsive a {
