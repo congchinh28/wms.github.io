@@ -71,6 +71,13 @@ nav.buildings {
     z-index: 999;
     margin: 20px 0 ;
     padding: 0 0 0 50px;
+    float: left;
+    display: block;
+    color: #000;
+    text-align: center;
+    /* padding: 14px 16px; */
+    text-decoration: none;
+    font-size: 17px;
 }
 
 nav a {
@@ -133,8 +140,8 @@ nav a.active {
         display:  block !important;
         width: 100%;
     }
+    .topnav #location {margin-top: 50px; }
     .topnav a:not(:first-child) {display: none;}
-    .topnav a:first-child {padding-top: 50px }
     .topnav a.icon {
         float: right;
         display: block;
