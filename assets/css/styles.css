@@ -7,7 +7,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #fff;
-    background-image: url('https://b3436359.smushcdn.com/3436359/wp-content/uploads/2023/07/AdobeStock_601570879-scaled.jpeg?lossy=2&strip=1&webp=1');
+    background-image: url('/assets/images/bgrHome.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -275,19 +275,19 @@ nav a.active {
     position: relative;
     width: 775px;
     height: 648px;
-    background: url('https://github.com/congchinh28/wms.github.io/blob/main/assets/images/map1.png?raw=true') no-repeat center center/cover;
+    background: url('/assets/images/map1.png') no-repeat center center/cover;
 }
 
 #rectangle1 {
-    background: url('https://github.com/congchinh28/wms.github.io/blob/main/assets/images/map1.png?raw=true') no-repeat center center/cover;
+    background: url('/assets/images/map1.png') no-repeat center center/cover;
 }
 
 #rectangle2 {
-    background: url('https://github.com/congchinh28/wms.github.io/blob/main/assets/images/map2.jpg?raw=true') no-repeat center center/cover;
+    background: url('/assets/images/map2.jpg') no-repeat center center/cover;
 }
 
 #rectangle3 {
-    background: url('https://github.com/congchinh28/wms.github.io/blob/main/assets/images/map3.png?raw=true') no-repeat center center/cover;
+    background: url('/assets/images/map3.png') no-repeat center center/cover;
 }
 
 .product {
@@ -295,7 +295,7 @@ nav a.active {
     position: absolute;
     width: 55px;
     height: 55px;
-    background: url('https://github.com/congchinh28/wms.github.io/blob/main/assets/images/product.png?raw=true') no-repeat center center/contain;
+    background: url('/assets/images/product.png') no-repeat center center/contain;
     cursor: pointer;
 }
 
