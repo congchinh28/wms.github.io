@@ -190,11 +190,18 @@ nav a.active {
         position: absolute; /* Định vị tuyệt đối để di chuyển div con */
         }
 }
+@media only screen and (max-width: 1266px) {
+    .custom-popup {
+        position: relative;
+        left: 0% !important;
+        top: 0% !important;
+    }
+}
 
 /*--------------------LOCATION-------------------------*/
 .custom-popup {
     left: 36%;
-    top: -25%
+    top: -24%
 }
 
 #floorButtonContainer {
