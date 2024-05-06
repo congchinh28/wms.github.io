@@ -468,7 +468,7 @@ nav a.active {
     overflow: hidden;
     display: flex;
     align-items: center;
-    background-color: red;
+    background-color: #fff;
     border-bottom: #797979 1px solid;
   }
 .sticky {
