@@ -13,6 +13,9 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <!--Phần Style-->
+  <!-- <style>
+    
+  </style> -->
   <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
 
@@ -20,7 +23,7 @@
   <header>
     <!-- Menu của tôi -->
     <nav class="topnav" id="myTopnav">
-      <img src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/wmsBackground%20(2).png?raw=true" alt="Logo" class="logo" />
+      <img src="https://github.com/congchinh28/wms.github.io/blob/main/assets/images/wmsBackground%20(2).png?raw=true" alt="Logo" class="logo" onclick="refreshPage()" />
       <a href="#" id="location">LOCATION</a>
       <a href="#" id="setAnchorPosition">SET ANCHOR POSITION</a>
       <a href="#" id="statistics">STATISTICS</a>
@@ -195,6 +198,10 @@
       } else {
         x.className = "topnav";
       }
+    }
+
+    function refreshPage() {
+      location.reload();
     }
   </script>
 

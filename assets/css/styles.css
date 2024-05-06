@@ -509,3 +509,7 @@ nav a.active {
   display: none;
   color: black;
 }
+.logo:hover {
+    transform: scale(1.1); /* Thay đổi kích thước khi hover */
+    transition: transform 0.3s ease; /* Hiệu ứng chuyển động mượt mà */
+}
