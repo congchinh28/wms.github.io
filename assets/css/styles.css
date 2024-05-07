@@ -191,6 +191,19 @@ nav a.active {
         position: absolute; /* Định vị tuyệt đối để di chuyển div con */
         }
 }
+/* 14plus */
+@media only screen and (max-width: 430px) {
+    .mapres {
+        position: relative; 
+        width: 100%; /* hoặc kích thước mong muốn */
+        height: 371px;
+    }
+    .rectangle {
+        transform: scale(0.555); /* Thay đổi kích thước div con */
+        transform-origin: top left; /* Điểm mà transform được áp dụng */
+        position: absolute; /* Định vị tuyệt đối để di chuyển div con */
+        }
+}
 /* xsmax */
 @media only screen and (max-width: 414px) {
     .mapres {
