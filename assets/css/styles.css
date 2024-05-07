@@ -183,11 +183,11 @@ nav a.active {
     .mapres {
         position: relative; 
         width: 100%; /* hoặc kích thước mong muốn */
-        height: 371px;
+        height: 630px;
     }
     .rectangle {
-        transform: scale(0.59); /* Thay đổi kích thước div con */
-        transform-origin: top; /* Điểm mà transform được áp dụng */
+        transform: scale(0.9); /* Thay đổi kích thước div con */
+        transform-origin: right; /* Điểm mà transform được áp dụng */
         position: absolute; /* Định vị tuyệt đối để di chuyển div con */
         }
 }
