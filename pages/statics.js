@@ -84,6 +84,9 @@ function showProductTable() {
           <td>${data.details.floor || "N/A"}</td>
           <td>${data.details.tag || "N/A"}</td>
           <td>${data.details.time || "N/A"}</td>
+          <td>${data.details.timeOut || "N/A"}</td>
+          <td>${data.details.staff || "N/A"}</td>
+          <td>${data.details.customer || "N/A"}</td>
           `;
             productTableBody.appendChild(row);
           }

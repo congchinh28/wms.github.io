@@ -14,7 +14,10 @@ function showProductDetails(buildingId, floorId, productId) {
         <p><strong>Building:</strong> ${data.building || "N/A"}</p>
         <p><strong>Floor:</strong> ${data.floor || "N/A"}</p>
         <p><strong>Tag:</strong> ${data.tag || "N/A"}</p>
-        <p><strong>Time:</strong> ${data.time || "N/A"}</p>
+        <p><strong>Date in:</strong> ${data.time || "N/A"}</p>
+        <p><strong>Date out:</strong> ${data.timeOut || "N/A"}</p>
+        <p><strong>Staff:</strong> ${data.staff || "N/A"}</p>
+        <p><strong>Customer:</strong> ${data.customer || "N/A"}</p>
         `,
           showCloseButton: true,
           showConfirmButton: false,

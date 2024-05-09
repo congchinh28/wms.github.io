@@ -43,7 +43,10 @@
             "building": "G2-UET",
             "floor": 1,
             "tag": "Books",
-            "time": "2024-03-07"
+            "time": "2024-03-07",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         },
         "product2": {
@@ -56,7 +59,10 @@
             "building": "G2-UET",
             "floor": 1,
             "tag": "Electronics",
-            "time": "2024-03-08"
+            "time": "2024-03-08",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         },
         "product3": {
@@ -69,7 +75,10 @@
             "building": "G2-UET",
             "floor": 1,
             "tag": "Electronics",
-            "time": "2024-03-09"
+            "time": "2024-03-09",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         }
       }
@@ -116,7 +125,10 @@
             "building": "G2-UET",
             "floor": 2,
             "tag": "electronics",
-            "time": "2024-03-12"
+            "time": "2024-03-12",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         },
         "product5": {
@@ -129,7 +141,10 @@
             "building": "G2-UET",
             "floor": 2,
             "tag": "electronics",
-            "time": "2024-07-06"
+            "time": "2024-07-06",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         },
         "product6": {
@@ -142,7 +157,10 @@
             "building": "G2-UET",
             "floor": 2,
             "tag": "electronics",
-            "time": "2023-03-06"
+            "time": "2023-03-06",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         }
       }
@@ -189,7 +207,10 @@
             "building": "G2-UET",
             "floor": 3,
             "tag": "clothes",
-            "time": "2022-03-06"
+            "time": "2022-03-06",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         },
         "product8": {
@@ -202,7 +223,10 @@
             "building": "G2-UET",
             "floor": 3,
             "tag": "clothes",
-            "time": "2021-03-06"
+            "time": "2021-03-06",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         },
         "product9": {
@@ -215,7 +239,10 @@
             "building": "G2-UET",
             "floor": 3,
             "tag": "clothes",
-            "time": "2024-03-06"
+            "time": "2024-03-06",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         }
       }
@@ -265,7 +292,10 @@
             "building": "Lotte Mall West Lake Ha Noi",
             "floor": 1,
             "tag": "foods",
-            "time": "2024-03-09"
+            "time": "2024-03-09",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         },
         "product2": {
@@ -278,7 +308,10 @@
             "building": "Lotte Mall West Lake Ha Noi",
             "floor": 1,
             "tag": "foods",
-            "time": "2024-03-08"
+            "time": "2024-03-08",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         },
         "product3": {
@@ -291,7 +324,10 @@
             "building": "Lotte Mall West Lake Ha Noi",
             "floor": 1,
             "tag": "foods",
-            "time": "2021-04-06"
+            "time": "2021-04-06",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         }
       }
@@ -338,7 +374,10 @@
             "building": "Lotte Mall West Lake Ha Noi",
             "floor": 2,
             "tag": "fruits",
-            "time": "2024-01-06"
+            "time": "2024-01-06",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         },
         "product5": {
@@ -351,7 +390,10 @@
             "building": "Lotte Mall West Lake Ha Noi",
             "floor": 2,
             "tag": "fruits",
-            "time": "2024-01-07"
+            "time": "2024-01-07",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         },
         "product6": {
@@ -364,7 +406,10 @@
             "building": "Lotte Mall West Lake Ha Noi",
             "floor": 2,
             "tag": "fruits",
-            "time": "2024-03-06"
+            "time": "2024-03-06",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         }
       }
@@ -411,7 +456,10 @@
             "building": "Lotte Mall West Lake Ha Noi",
             "floor": 3,
             "tag": "Iphone",
-            "time": "2024-03-06"
+            "time": "2024-03-06",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         },
         "product8": {
@@ -424,7 +472,10 @@
             "building": "Lotte Mall West Lake Ha Noi",
             "floor": 3,
             "tag": "Macbook",
-            "time": "2024-03-06"
+            "time": "2024-03-06",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         },
         "product9": {
@@ -437,7 +488,10 @@
             "building": "Lotte Mall West Lake Ha Noi",
             "floor": 3,
             "tag": "Apple Watch",
-            "time": "2024-03-06"
+            "time": "2024-03-06",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         }
       }
@@ -488,7 +542,10 @@
             "building": "G2",
             "floor": 1,
             "tag": "Books",
-            "time": "2024-03-06"
+            "time": "2024-03-06",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         },
         {
@@ -501,7 +558,10 @@
             "building": "G2",
             "floor": 1,
             "tag": "Electronics",
-            "time": "2024-03-06"
+            "time": "2024-03-06",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         },
         {
@@ -514,7 +574,10 @@
             "building": "G2",
             "floor": 1,
             "tag": "Books",
-            "time": "2024-03-06"
+            "time": "2024-03-06",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         }
       ]
@@ -562,7 +625,10 @@
             "building": "G2",
             "floor": 1,
             "tag": "Books",
-            "time": "2024-03-06"
+            "time": "2024-03-06",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         },
         "5": {
@@ -575,7 +641,10 @@
             "building": "G2",
             "floor": 1,
             "tag": "Books",
-            "time": "2024-03-06"
+            "time": "2024-03-06",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         },
         "6": {
@@ -588,7 +657,10 @@
             "building": "G2",
             "floor": 1,
             "tag": "Books",
-            "time": "2024-03-06"
+            "time": "2024-03-06",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         }
       }
@@ -636,7 +708,10 @@
             "building": "G2",
             "floor": 1,
             "tag": "Books",
-            "time": "2024-03-06"
+            "time": "2024-03-06",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         },
         "8": {
@@ -649,7 +724,10 @@
             "building": "G2",
             "floor": 1,
             "tag": "Books",
-            "time": "2024-03-06"
+            "time": "2024-03-06",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         },
         "9": {
@@ -662,7 +740,10 @@
             "building": "G2",
             "floor": 1,
             "tag": "Books",
-            "time": "2024-03-06"
+            "time": "2024-03-06",
+            "timeOut": "2024-06-07",
+            "staff": "Lee Min Ho",
+            "customer": "G-Dragon"
           }
         }
       }
