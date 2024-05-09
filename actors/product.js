@@ -44,4 +44,135 @@ function showProductDetails(buildingId, floorId, productId) {
   );
 }
 
-export { showProductDetails };
+
+function setProductDetails(Buildings, products) {
+  document
+    .getElementById("setProductDetails")
+    .addEventListener("click", function () {
+      Swal.fire({
+        title: "Select Buildings",
+        input: "select",
+        inputOptions: Buildings,
+        showCloseButton: true,
+        showConfirmButton: true,
+        confirmButtonText: "Next",
+        preConfirm: (building) => {
+          if (!building) {
+            Swal.showValidationMessage("Please choose a building");
+          } else {
+            // Hiển thị dropdown danh sách product
+            Swal.fire({
+              title: "Select Products",
+              input: "select",
+              inputOptions: products,
+              showCloseButton: true,
+              showConfirmButton: true,
+              confirmButtonText: "Next",
+              inputPlaceholder: "Select a product",
+              preConfirm: (selectedproduct) => {
+                // Kiểm tra xem có chọn anchor nào không
+                if (!selectedproduct) {
+                  Swal.showValidationMessage("Please choose a Product");
+                } else {
+                  // Gọi hàm để nhập tọa độ mới cho anchor đã chọn
+                  showDetailsInput(building, selectedproduct);
+                }
+              },
+            });
+          }
+        },
+      });
+    });
+}
+function showDetailsInput(selectedBuilding, selectedproduct) {
+  // Hiển thị hộp thoại nhập tọa độ
+  Swal.fire({
+    title: `Enter coordinates for anchor`,
+    html: `
+              <label for="newID">ID:</label>
+              <input type="text" id="newID" placeholder="ID for Product">
+              <br/>
+              <label for="newBuilding">Building:</label>
+              <input type="text" id="newBuilding" placeholder="Name of Building">
+              <br/>
+              <label for="newFloor">Floor:</label>
+              <input type="text" id="newFloor" placeholder="Floor of Product">
+              <br/>
+              <label for="newTag">Tag:</label>
+              <input type="text" id="newTag" placeholder="Tag for Product">
+              <br/>
+              <label for="newTime">Date in:</label>
+              <input type="text" id="newTime" placeholder="New Date in">
+              <br/>
+              <label for="newTimeOut">Date out:</label>
+              <input type="text" id="newTimeOut" placeholder="New Date out">
+              <br/>
+              <label for="newStaff">Staff:</label>
+              <input type="text" id="newStaff" placeholder="Name of Staff">
+              <br/>              
+              <label for="newCustomer">Customer:</label>
+              <input type="text" id="newCustomer" placeholder="Name of Customer">
+          `,
+    showCloseButton: true,
+    showConfirmButton: true,
+    confirmButtonText: "Save",
+    preConfirm: () => {
+      // Lấy giá trị tọa độ mới từ input
+      const newID = document.getElementById("newID").value;
+      const newBuilding = document.getElementById("newBuilding").value;
+      const newFloor = document.getElementById("newFloor").value;
+      const newTag = document.getElementById("newTag").value;
+      const newTime = document.getElementById("newTime").value;
+      const newTimeOut = document.getElementById("newTimeOut").value;
+      const newStaff = document.getElementById("newStaff").value;
+      const newCustomer = document.getElementById("newCustomer").value;
+
+      // Kiểm tra xem tọa độ có hợp lệ không
+      if (!newID || !newBuilding || !newFloor || !newTag || !newTime || !newTimeOut || !newStaff || !newCustomer) {
+        Swal.showValidationMessage("Please enter full coordinates.");
+      } else {
+        // Cập nhật tọa độ mới lên Firebase cho anchor đã chọn
+        updateProductDetails(
+          selectedBuilding,
+          selectedproduct,
+          newID,
+          newBuilding,
+          newFloor,
+          newTag,
+          newTime,
+          newTimeOut,
+          newStaff,
+          newCustomer
+        );
+      }
+    },
+  });
+}
+function updateProductDetails(selectedBuilding, selectedproduct, newID, newBuilding, newFloor, newTag, newTime, newTimeOut, newStaff, newCustomer) {
+  // Cập nhật tọa độ mới lên Firebase
+  db.ref(`/${selectedBuilding}/${selectedproduct}/details`)
+    .set({
+      ID: newID,
+      building: newBuilding,
+      customer: newCustomer,
+      floor: newFloor,
+      staff: newStaff,
+      tag: newTag,
+      time: newTime,
+      timeOut: newTimeOut
+    })
+    .then(() => {
+      Swal.fire("Notice", "Updated coordinates successfully!", "success");
+    })
+    .catch((error) => {
+      Swal.fire(
+        "Notice",
+        "An error occurred while updating coordinates.",
+        "error"
+      );
+    });
+}
+
+
+
+export { showProductDetails, setProductDetails };

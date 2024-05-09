@@ -38,6 +38,23 @@ export const ANCHOR_PATH = {
     "floor3/anchor/anchor12": "Floor 3 -  Anchor 4",
   },
 };
+export const PRODUCT_PATH = {
+  floor1: {
+    "floor1/product/product1": "Floor 1 - Product 1",
+    "floor1/product/product2": "Floor 1 - Product 2",
+    "floor1/product/product3": "Floor 1 - Product 3"
+  },
+  floor2: {
+    "floor2/product/product4": "Floor 1 - Product 1",
+    "floor2/product/product5": "Floor 1 - Product 2",
+    "floor2/product/product6": "Floor 1 - Product 3"
+  },
+  floor3: {
+    "floor3/product/product7": "Floor 1 - Product 1",
+    "floor4/product/product8": "Floor 1 - Product 2",
+    "floor3/product/product9": "Floor 1 - Product 3"
+  },
+};
 
 //Nhập tọa độ mới cho Anchor trong Menu Set Anchor Posistion
 function showCoordinateInput(selectedBuilding, selectedanchor) {
