@@ -12,6 +12,7 @@ function showAnchorDetails(buildingId, floorId, anchorId) {
         html: `
           <p><strong>X Coordinates:</strong> ${coordinates.x || "N/A"}</p>
           <p><strong>Y Coordinates:</strong> ${coordinates.y || "N/A"}</p>
+          <p><strong>Z Coordinates:</strong> ${coordinates.z || "N/A"}</p>
         `,
         showCloseButton: true,
         showConfirmButton: false,

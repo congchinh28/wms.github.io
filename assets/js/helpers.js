@@ -50,6 +50,9 @@ function showCoordinateInput(selectedBuilding, selectedanchor) {
               <br/>
               <label for="newYCoordinate">Y Coordinates:</label>
               <input type="text" id="newYCoordinate" placeholder="Coordinates for Y">
+              <br/>
+              <label for="newZCoordinate">Z Coordinates:</label>
+              <input type="text" id="newZCoordinate" placeholder="Coordinates for Z">
           `,
     showCloseButton: true,
     showConfirmButton: true,
@@ -58,6 +61,7 @@ function showCoordinateInput(selectedBuilding, selectedanchor) {
       // Lấy giá trị tọa độ mới từ input
       const newXCoordinate = document.getElementById("newXCoordinate").value;
       const newYCoordinate = document.getElementById("newYCoordinate").value;
+      const newZCoordinate = document.getElementById("newZCoordinate").value;
 
       // Kiểm tra xem tọa độ có hợp lệ không
       if (!newXCoordinate || !newYCoordinate) {
@@ -68,19 +72,21 @@ function showCoordinateInput(selectedBuilding, selectedanchor) {
           selectedBuilding,
           selectedanchor,
           newXCoordinate,
-          newYCoordinate
+          newYCoordinate,
+          newZCoordinate
         );
       }
     },
   });
 }
 // Cập nhật tọa độ mới cho Anchor trong Menu Set Anchor Posistion
-function updateanchorCoordinates(selectedBuilding, selectedanchor, newX, newY) {
+function updateanchorCoordinates(selectedBuilding, selectedanchor, newX, newY, newZ) {
   // Cập nhật tọa độ mới lên Firebase
   db.ref(`/${selectedBuilding}/${selectedanchor}/coordinates`)
     .set({
       x: newX,
       y: newY,
+      z: newZ
     })
     .then(() => {
       Swal.fire("Notice", "Updated coordinates successfully!", "success");
@@ -101,6 +107,7 @@ function updatePosition(snapshot, id) {
     var element = document.getElementById(id);
     var x = snapshot.val().coordinates.x || 0;
     var y = snapshot.val().coordinates.y || 0;
+    var z = snapshot.val().coordinates.z || 0;
     element.style.left = x + "px";
     element.style.top = y + "px";
   }
