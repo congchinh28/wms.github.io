@@ -10,14 +10,16 @@ function showProductDetails(buildingId, floorId, productId) {
         Swal.fire({
           title: "Tag informations",
           html: `
-        <p><strong>ID:</strong> ${data.ID || "N/A"}</p>
-        <p><strong>Building:</strong> ${data.building || "N/A"}</p>
-        <p><strong>Floor:</strong> ${data.floor || "N/A"}</p>
-        <p><strong>Tag:</strong> ${data.tag || "N/A"}</p>
-        <p><strong>Date in:</strong> ${data.time || "N/A"}</p>
-        <p><strong>Date out:</strong> ${data.timeOut || "N/A"}</p>
-        <p><strong>Staff:</strong> ${data.staff || "N/A"}</p>
-        <p><strong>Customer:</strong> ${data.customer || "N/A"}</p>
+            <div style="text-align: left; margin-left: 32%;">
+              <p><strong>ID:</strong> ${data.ID || "N/A"}</p>
+              <p><strong>Building:</strong> ${data.building || "N/A"}</p>
+              <p><strong>Floor:</strong> ${data.floor || "N/A"}</p>
+              <p><strong>Tag:</strong> ${data.tag || "N/A"}</p>
+              <p><strong>Date in:</strong> ${data.time || "N/A"}</p>
+              <p><strong>Date out:</strong> ${data.timeOut || "N/A"}</p>
+              <p><strong>Staff:</strong> ${data.staff || "N/A"}</p>
+              <p><strong>Customer:</strong> ${data.customer || "N/A"}</p>
+            </div>
         `,
           showCloseButton: true,
           showConfirmButton: false,
@@ -87,31 +89,33 @@ function setProductDetails(Buildings, products) {
 function showDetailsInput(selectedBuilding, selectedproduct) {
   // Hiển thị hộp thoại nhập tọa độ
   Swal.fire({
-    title: `Enter coordinates for anchor`,
+    title: `Enter details for product`,
     html: `
-              <label for="newID">ID:</label>
-              <input type="text" id="newID" placeholder="ID for Product">
-              <br/>
-              <label for="newBuilding">Building:</label>
-              <input type="text" id="newBuilding" placeholder="Name of Building">
-              <br/>
-              <label for="newFloor">Floor:</label>
-              <input type="text" id="newFloor" placeholder="Floor of Product">
-              <br/>
-              <label for="newTag">Tag:</label>
-              <input type="text" id="newTag" placeholder="Tag for Product">
-              <br/>
-              <label for="newTime">Date in:</label>
-              <input type="text" id="newTime" placeholder="New Date in">
-              <br/>
-              <label for="newTimeOut">Date out:</label>
-              <input type="text" id="newTimeOut" placeholder="New Date out">
-              <br/>
-              <label for="newStaff">Staff:</label>
-              <input type="text" id="newStaff" placeholder="Name of Staff">
-              <br/>              
-              <label for="newCustomer">Customer:</label>
-              <input type="text" id="newCustomer" placeholder="Name of Customer">
+              <div style="text-align: left; margin-left: 20%;">
+                  <label for="newID">ID:</label>
+                  <input type="text" id="newID" placeholder="ID for Product">
+                  <br/>
+                  <label for="newBuilding">Building:</label>
+                  <input type="text" id="newBuilding" placeholder="Name of Building">
+                  <br/>
+                  <label for="newFloor">Floor:</label>
+                  <input type="text" id="newFloor" placeholder="Floor of Product">
+                  <br/>
+                  <label for="newTag">Tag:</label>
+                  <input type="text" id="newTag" placeholder="Tag for Product">
+                  <br/>
+                  <label for="newTime">Date in:</label>
+                  <input type="text" id="newTime" placeholder="New Date in">
+                  <br/>
+                  <label for="newTimeOut">Date out:</label>
+                  <input type="text" id="newTimeOut" placeholder="New Date out">
+                  <br/>
+                  <label for="newStaff">Staff:</label>
+                  <input type="text" id="newStaff" placeholder="Name of Staff">
+                  <br/>              
+                  <label for="newCustomer">Customer:</label>
+                  <input type="text" id="newCustomer" placeholder="Name of Customer">
+              </div>
           `,
     showCloseButton: true,
     showConfirmButton: true,
