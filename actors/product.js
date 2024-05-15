@@ -1,4 +1,6 @@
 import db from "../assets/js/firebase.js";
+import { hideLocation } from "../pages/location.js";
+
 function showProductDetails(buildingId, floorId, productId) {
   const link = `/${buildingId}/${floorId}/product/${productId}/details`;
   console.log("link", link)
@@ -51,6 +53,7 @@ function setProductDetails(Buildings, products) {
   document
     .getElementById("setProductDetails")
     .addEventListener("click", function () {
+      hideLocation()
       Swal.fire({
         title: "Select Buildings",
         input: "select",
