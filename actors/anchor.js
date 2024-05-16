@@ -11,12 +11,24 @@ function showAnchorDetails(buildingId, floorId, anchorId) {
     var data = snapshot.val();
     if (data && data.coordinates) {
       var coordinates = data.coordinates;
+
+      // Chuyển đổi từ pixel sang mét
+      const pixelsToMeters = (pixels) => (pixels / 1351) * 29;
+
+      // Định dạng số với 2 chữ số sau dấu phẩy
+      const formatNumber = (number) => number.toFixed(2);
+
+      // Tọa độ sau khi chuyển đổi
+      var xMeters = formatNumber(pixelsToMeters(coordinates.x || 0));
+      var yMeters = formatNumber(pixelsToMeters(coordinates.y || 0));
+      var zMeters = formatNumber(pixelsToMeters(coordinates.z || 0));
+
       Swal.fire({
         title: "Anchor informations",
         html: `
-          <p><strong>X Coordinates:</strong> ${coordinates.x || "N/A"}</p>
-          <p><strong>Y Coordinates:</strong> ${coordinates.y || "N/A"}</p>
-          <p><strong>Z Coordinates:</strong> ${coordinates.z || "N/A"}</p>
+          <p><strong>X Coordinates:</strong> ${xMeters} meters</p>
+          <p><strong>Y Coordinates:</strong> ${yMeters} meters</p>
+          <p><strong>Z Coordinates:</strong> ${zMeters} meters</p>
         `,
         showCloseButton: true,
         showConfirmButton: false,
@@ -29,8 +41,8 @@ function showAnchorDetails(buildingId, floorId, anchorId) {
       Swal.fire({
         title: "Anchor informations",
         html: `
-                      <p>Anchor details not found.</p>
-                  `,
+          <p>Anchor details not found.</p>
+        `,
         showCloseButton: true,
         showConfirmButton: false,
         backdrop: false,
@@ -41,6 +53,7 @@ function showAnchorDetails(buildingId, floorId, anchorId) {
     }
   });
 }
+
 
 function setAnchorPosition(Buildings, anchors) {
   document
