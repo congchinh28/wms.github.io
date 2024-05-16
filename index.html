@@ -191,11 +191,24 @@
   <script src="./pages/manuals.js" type="module"></script>
   <script src="./assets/js/helpers.js" type="module"></script>
   <script>
-     function refreshPage() {
+    function refreshPage() {
       location.reload();
     }
   </script>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
 
+    function refreshPage() {
+      location.reload();
+    }
+  </script>
   <!--Footer-->
   <div class="bottom-text">
     Graduation Thesis _ Ware House Management System
