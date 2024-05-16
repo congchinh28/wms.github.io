@@ -70,8 +70,8 @@ function setAnchorPosition(Buildings, anchors) {
         showCloseButton: true,
         showConfirmButton: true,
         confirmButtonText: "Next",
-        preConfirm: (building) => {
-          if (!building) {
+        preConfirm: (selectedBuilding) => {
+          if (!selectedBuilding) {
             Swal.showValidationMessage("Please choose a building");
           } else {
             // Hiển thị dropdown danh sách anchor
@@ -89,7 +89,7 @@ function setAnchorPosition(Buildings, anchors) {
                   Swal.showValidationMessage("Please choose an Anchor");
                 } else {
                   // Gọi hàm để nhập tọa độ mới cho anchor đã chọn
-                  showCoordinateInput(building, selectedanchor);
+                  showCoordinateInput(selectedBuilding, selectedanchor);
                 }
               },
             });

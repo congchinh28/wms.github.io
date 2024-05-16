@@ -378,13 +378,13 @@ nav a.active {
     position: relative;
     width: 1351px;
     height: 784px;
-    background: url('/assets/images/maps.png') no-repeat center center/cover;
+    background: url('https://github.com/congchinh28/wms.github.io/blob/main/assets/images/maps.png?raw=true') no-repeat center center/cover;
     left: 0px;
     right: 0px;
 }
 
 #rectangle1 {
-    background: url('/assets/images/maps.png') no-repeat center center/cover;
+    background: url('https://github.com/congchinh28/wms.github.io/blob/main/assets/images/maps.png?raw=true') no-repeat center center/cover;
 }
 
 #rectangle2 {
