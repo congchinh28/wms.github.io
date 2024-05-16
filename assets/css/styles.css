@@ -461,6 +461,9 @@ nav a.active {
 .product:hover {
     border: 2px solid #004580;
 }
+.anchor:hover {
+    border: 2px solid #004580;
+}
 
 
 #productTable th,

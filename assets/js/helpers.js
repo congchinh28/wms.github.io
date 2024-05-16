@@ -42,17 +42,20 @@ export const PRODUCT_PATH = {
   floor1: {
     "floor1/product/product1": "Floor 1 - Product 1",
     "floor1/product/product2": "Floor 1 - Product 2",
-    "floor1/product/product3": "Floor 1 - Product 3"
+    "floor1/product/product3": "Floor 1 - Product 3",
+    "floor1/product/product4": "Floor 1 - Product 4"
   },
   floor2: {
-    "floor2/product/product4": "Floor 2 - Product 1",
-    "floor2/product/product5": "Floor 2 - Product 2",
-    "floor2/product/product6": "Floor 2 - Product 3"
+    "floor2/product/product5": "Floor 2 - Product 5",
+    "floor2/product/product6": "Floor 2 - Product 6",
+    "floor2/product/product7": "Floor 2 - Product 7",
+    "floor1/product/product8": "Floor 1 - Product 8"
   },
   floor3: {
-    "floor3/product/product7": "Floor 3 - Product 1",
-    "floor3/product/product8": "Floor 3 - Product 2",
-    "floor3/product/product9": "Floor 3 - Product 3"
+    "floor3/product/product9": "Floor 3 - Product 9",
+    "floor3/product/product10": "Floor 3 - Product 10",
+    "floor3/product/product11": "Floor 3 - Product 11",
+    "floor1/product/product12": "Floor 1 - Product 12"
   },
 };
 

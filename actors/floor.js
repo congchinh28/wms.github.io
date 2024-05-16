@@ -80,21 +80,10 @@ const floor = (building, rectangle, stage) => {
       document.querySelectorAll(".anchor").forEach(function (anchor) {
         anchor.style.display = "block";
       });
-
-      // Cập nhật trạng thái đã click vào nút "Tầng 1"
       showStage = false;
     } else {
-      // Nếu click vào nút "Tầng 1" trước đó, ấn vào nút lần nữa sẽ ẩn đi các phần tử
       rectangleElement.style.display = "none";
       floorInfoContainer.style.display = "none";
-      // document.querySelectorAll(".product").forEach(function (product) {
-      //   product.style.display = "none";
-      // });
-      // document.querySelectorAll(".anchor").forEach(function (anchor) {
-      //   anchor.style.display = "none";
-      // });
-
-      // Cập nhật trạng thái đã click vào nút "Tầng 1"
       showStage = true;
     }
     // Truy cập dữ liệu tên và địa chỉ từ Firebase
