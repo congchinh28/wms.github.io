@@ -1,6 +1,9 @@
 import db from "../assets/js/firebase.js";
 import { showCoordinateInput } from "../assets/js/helpers.js";
 import { hideLocation } from "../pages/location.js";
+import { hideStatics } from "../pages/statics.js";
+import { hideManuals } from "../pages/manuals.js";
+import { hideAboutUs } from "../pages/aboutUs.js";
 
 function showAnchorDetails(buildingId, floorId, anchorId) {
   const link = `/${buildingId}/${floorId}/anchor/${anchorId}`;
@@ -44,6 +47,9 @@ function setAnchorPosition(Buildings, anchors) {
     .getElementById("setAnchorPosition")
     .addEventListener("click", function () {
       hideLocation ()
+      hideAboutUs ()
+      hideManuals ()
+      hideStatics ()
       Swal.fire({
         title: "Select Buildings",
         input: "select",

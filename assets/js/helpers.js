@@ -179,6 +179,34 @@ window.addEventListener('scroll', function() {
         header.classList.remove('sticky');
     }
 });
+//newMenu
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
 
+function refreshPage() {
+  location.reload();
+}
+//change brg
+document.addEventListener("DOMContentLoaded", function() {
+  const menuItems = document.querySelectorAll('.topnav a');
 
-export { showCoordinateInput, updatePosition };
+  menuItems.forEach(item => {
+    item.addEventListener('click', function(event) {
+      event.preventDefault();
+      const menuId = item.id;
+      changeBackground(menuId);
+    });
+  });
+});
+
+function changeBackground(menu) {
+  document.body.className = menu;
+}
+
+export { showCoordinateInput, updatePosition, myFunction, changeBackground, refreshPage };

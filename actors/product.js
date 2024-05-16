@@ -1,5 +1,8 @@
 import db from "../assets/js/firebase.js";
 import { hideLocation } from "../pages/location.js";
+import { hideStatics } from "../pages/statics.js";
+import { hideManuals } from "../pages/manuals.js";
+import { hideAboutUs } from "../pages/aboutUs.js";
 
 function showProductDetails(buildingId, floorId, productId) {
   const link = `/${buildingId}/${floorId}/product/${productId}/details`;
@@ -53,7 +56,10 @@ function setProductDetails(Buildings, products) {
   document
     .getElementById("setProductDetails")
     .addEventListener("click", function () {
-      hideLocation()
+      hideLocation ()
+      hideAboutUs ()
+      hideManuals ()
+      hideStatics ()
       Swal.fire({
         title: "Select Buildings",
         input: "select",

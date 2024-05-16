@@ -14,6 +14,14 @@ body {
     background-attachment: fixed;
     background-position-y: 50%;
 }
+body.location,
+body.setAnchorPosition,
+body.setProductDetails,
+body.statistics,
+body.manuals,
+body.aboutUs {
+    background-image: url('https://lambanner.com/wp-content/uploads/2016/08/Silver-Blur-Background-Wallpaper.jpg');
+}
 
 
 header {
@@ -315,12 +323,19 @@ nav a.active {
 .stageButton,
 .buildingButton {
     padding: 10px;
-    background-color: #ad481a;
-    color: #fff;
+    background-color: #E8E8E8;
+    color: black;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
+.topnav {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-bottom: #818181 1px solid;
+  }
 
 #floor1Button {
     padding: 10px;
@@ -561,13 +576,7 @@ nav a.active {
 
 /*--------------------SET ANCHOR POSITION-------------------------*/
 /*----------------------------------------------------------------*/
-.topnav {
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    border-bottom: #797979 1px solid;
-  }
+
 .sticky {
     position: fixed;
     top: 0;
@@ -586,7 +595,7 @@ nav a.active {
 }
 
 .topnav a:hover {
-  background-color: #ddd;
+  background-color: #adadad;
   color: black;
 }
 
