@@ -7,7 +7,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #fff;
-    background-image: url('https://github.com/congchinh28/wms.github.io/blob/main/assets/images/1.png?raw=true');
+    background-image: url('https://github.com/congchinh28/wms.github.io/blob/main/assets/images/2.png?raw=true');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -328,6 +328,7 @@ nav a.active {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
 }
 .topnav {
     overflow: hidden;
