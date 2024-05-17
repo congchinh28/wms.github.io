@@ -5,27 +5,42 @@ import { hideManuals } from "../pages/manuals.js";
 import { hideAboutUs } from "../pages/aboutUs.js";
 
 function showProductDetails(buildingId, floorId, productId) {
-  const link = `/${buildingId}/${floorId}/product/${productId}/details`;
-  console.log("link", link)
-  db.ref(link).once(
-    "value",
-    function (snapshot) {
-      var data = snapshot.val();
-      if (data) {
+  const detailsLink = `/${buildingId}/${floorId}/product/${productId}/details`;
+  const coordinatesLink = `/${buildingId}/${floorId}/product/${productId}/coordinates`;
+
+  console.log("detailsLink", detailsLink);
+  console.log("coordinatesLink", coordinatesLink);
+
+  // Lấy thông tin chi tiết sản phẩm
+  db.ref(detailsLink).once("value", function (detailsSnapshot) {
+    var detailsData = detailsSnapshot.val();
+
+    // Lấy thông tin tọa độ sản phẩm
+    db.ref(coordinatesLink).once("value", function (coordinatesSnapshot) {
+      var coordinatesData = coordinatesSnapshot.val();
+
+      if (detailsData && coordinatesData) {
+        // Chuyển đổi tọa độ X và Y
+        const xConverted = (coordinatesData.x / 1351) * 29;
+        const yConverted = (coordinatesData.y / 784) * 16.8;
+
         Swal.fire({
           title: "Tag informations",
           html: `
-            <div style="text-align: left; margin-left: 32%;">
-              <p><strong>ID:</strong> ${data.ID || "N/A"}</p>
-              <p><strong>Building:</strong> ${data.building || "N/A"}</p>
-              <p><strong>Floor:</strong> ${data.floor || "N/A"}</p>
-              <p><strong>Tag:</strong> ${data.tag || "N/A"}</p>
-              <p><strong>Date in:</strong> ${data.time || "N/A"}</p>
-              <p><strong>Date out:</strong> ${data.timeOut || "N/A"}</p>
-              <p><strong>Staff:</strong> ${data.staff || "N/A"}</p>
-              <p><strong>Customer:</strong> ${data.customer || "N/A"}</p>
+            <div style="text-align: left; margin-left: 25%;">            
+              <p><strong>X Coordinate:</strong> ${xConverted.toFixed(2) || "N/A"} meters</p>
+              <p><strong>Y Coordinate:</strong> ${yConverted.toFixed(2) || "N/A"} meters</p>          
+              <p><strong>Z Coordinate:</strong> ${coordinatesData.z || "N/A"} meters</p>
+              <p><strong>ID:</strong> ${detailsData.ID || "N/A"}</p>
+              <p><strong>Building:</strong> ${detailsData.building || "N/A"}</p>
+              <p><strong>Floor:</strong> ${detailsData.floor || "N/A"}</p>
+              <p><strong>Tag:</strong> ${detailsData.tag || "N/A"}</p>
+              <p><strong>Date in:</strong> ${detailsData.time || "N/A"}</p>
+              <p><strong>Date out:</strong> ${detailsData.timeOut || "N/A"}</p>
+              <p><strong>Staff:</strong> ${detailsData.staff || "N/A"}</p>
+              <p><strong>Customer:</strong> ${detailsData.customer || "N/A"}</p>
             </div>
-        `,
+          `,
           showCloseButton: true,
           showConfirmButton: false,
           backdrop: false,
@@ -37,8 +52,8 @@ function showProductDetails(buildingId, floorId, productId) {
         Swal.fire({
           title: "Product informations",
           html: `
-                            <p>Product details not found.</p>
-                        `,
+            <p>Product details not found.</p>
+          `,
           showCloseButton: true,
           showConfirmButton: false,
           backdrop: false,
@@ -47,9 +62,11 @@ function showProductDetails(buildingId, floorId, productId) {
           },
         });
       }
-    }
-  );
+    });
+  });
 }
+
+
 
 
 function setProductDetails(Buildings, products) {
