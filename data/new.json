@@ -5,30 +5,30 @@
       "anchor": {
         "anchor1": {
           "coordinates": {
-            "x": 320,
-            "y": 37,
-            "z": 1
+            "x": 503.131,
+            "y": 56,
+            "z": 69.88
           }
         },
         "anchor2": {
           "coordinates": {
-            "x": 620,
-            "y": 37,
-            "z": 1
+            "x": 894.4,
+            "y": 56,
+            "z": 69.88
           }
         },
         "anchor3": {
           "coordinates": {
-            "x": 320,
-            "y": 287,
-            "z": 1
+            "x": 503.131,
+            "y": 392,
+            "z": 69.88
           }
         },
         "anchor4": {
           "coordinates": {
-            "x": 620,
-            "y": 287,
-            "z": 1
+            "x": 894.4,
+            "y": 392,
+            "z": 69.88
           }
         }
       },
@@ -45,12 +45,12 @@
           "details": {
             "ID": "Fairy tales",
             "building": "G2-UET",
+            "customer": "G-Dragon",
             "floor": 1,
+            "staff": "Lee Min Ho",
             "tag": "Books",
             "time": "2024-03-07",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product2": {
@@ -61,12 +61,12 @@
           "details": {
             "ID": "Adruino UNO",
             "building": "G2-UET",
+            "customer": "G-Dragon",
             "floor": 1,
+            "staff": "Lee Min Ho",
             "tag": "Electronics",
             "time": "2024-03-08",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product3": {
@@ -77,12 +77,12 @@
           "details": {
             "ID": "Asus Laptop",
             "building": "G2-UET",
+            "customer": "G-Dragon",
             "floor": 1,
+            "staff": "Lee Min Ho",
             "tag": "Electronics",
             "time": "2024-03-09",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product4": {
@@ -93,12 +93,12 @@
           "details": {
             "ID": "Asus Laptop",
             "building": "G2-UET",
+            "customer": "G-Dragon",
             "floor": 1,
+            "staff": "Lee Min Ho",
             "tag": "Electronics",
             "time": "2024-03-09",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         }
       }
@@ -147,12 +147,12 @@
           "details": {
             "ID": "keyboard",
             "building": "G2-UET",
+            "customer": "G-Dragon",
             "floor": 2,
+            "staff": "Lee Min Ho",
             "tag": "electronics",
             "time": "2024-03-12",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product6": {
@@ -163,12 +163,12 @@
           "details": {
             "ID": "mouse",
             "building": "G2-UET",
+            "customer": "G-Dragon",
             "floor": 2,
+            "staff": "Lee Min Ho",
             "tag": "electronics",
             "time": "2024-07-06",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product7": {
@@ -179,12 +179,12 @@
           "details": {
             "ID": "monitor",
             "building": "G2-UET",
+            "customer": "G-Dragon",
             "floor": 2,
+            "staff": "Lee Min Ho",
             "tag": "electronics",
             "time": "2023-03-06",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product8": {
@@ -195,12 +195,12 @@
           "details": {
             "ID": "Asus Laptop",
             "building": "G2-UET",
+            "customer": "G-Dragon",
             "floor": 1,
+            "staff": "Lee Min Ho",
             "tag": "Electronics",
             "time": "2024-03-09",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         }
       }
@@ -241,22 +241,6 @@
         "name": "Floor1, G2 Building, UET - VNU"
       },
       "product": {
-        "product9": {
-          "coordinates": {
-            "x": 100,
-            "y": 50
-          },
-          "details": {
-            "ID": "jean",
-            "building": "G2-UET",
-            "floor": 3,
-            "tag": "clothes",
-            "time": "2022-03-06",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
-          }
-        },
         "product10": {
           "coordinates": {
             "x": 310,
@@ -265,12 +249,12 @@
           "details": {
             "ID": "jacket",
             "building": "G2-UET",
+            "customer": "G-Dragon",
             "floor": 3,
+            "staff": "Lee Min Ho",
             "tag": "clothes",
             "time": "2021-03-06",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product11": {
@@ -281,12 +265,12 @@
           "details": {
             "ID": "t-shirt",
             "building": "G2-UET",
+            "customer": "G-Dragon",
             "floor": 3,
+            "staff": "Lee Min Ho",
             "tag": "clothes",
             "time": "2024-03-06",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product12": {
@@ -297,12 +281,28 @@
           "details": {
             "ID": "Asus Laptop",
             "building": "G2-UET",
+            "customer": "G-Dragon",
             "floor": 1,
+            "staff": "Lee Min Ho",
             "tag": "Electronics",
             "time": "2024-03-09",
-            "timeOut": "2024-06-07",
+            "timeOut": "2024-06-07"
+          }
+        },
+        "product9": {
+          "coordinates": {
+            "x": 100,
+            "y": 50
+          },
+          "details": {
+            "ID": "jean",
+            "building": "G2-UET",
+            "customer": "G-Dragon",
+            "floor": 3,
             "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "tag": "clothes",
+            "time": "2022-03-06",
+            "timeOut": "2024-06-07"
           }
         }
       }
@@ -314,9 +314,9 @@
       "anchor": {
         "anchor1": {
           "coordinates": {
-            "x": 0,
-            "y": 0,
-            "z": 1
+            "x": "0",
+            "y": "0",
+            "z": "1"
           }
         },
         "anchor2": {
@@ -354,12 +354,12 @@
           "details": {
             "ID": "cake",
             "building": "Lotte Mall West Lake Ha Noi",
+            "customer": "G-Dragon",
             "floor": 1,
+            "staff": "Lee Min Ho",
             "tag": "foods",
             "time": "2024-03-09",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product2": {
@@ -370,12 +370,12 @@
           "details": {
             "ID": "candy",
             "building": "Lotte Mall West Lake Ha Noi",
+            "customer": "G-Dragon",
             "floor": 1,
+            "staff": "Lee Min Ho",
             "tag": "foods",
             "time": "2024-03-08",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product3": {
@@ -386,12 +386,12 @@
           "details": {
             "ID": "meat",
             "building": "Lotte Mall West Lake Ha Noi",
+            "customer": "G-Dragon",
             "floor": 1,
+            "staff": "Lee Min Ho",
             "tag": "foods",
             "time": "2021-04-06",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product4": {
@@ -402,12 +402,12 @@
           "details": {
             "ID": "Asus Laptop",
             "building": "G2-UET",
+            "customer": "G-Dragon",
             "floor": 1,
+            "staff": "Lee Min Ho",
             "tag": "Electronics",
             "time": "2024-03-09",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         }
       }
@@ -456,12 +456,12 @@
           "details": {
             "ID": "apple",
             "building": "Lotte Mall West Lake Ha Noi",
+            "customer": "G-Dragon",
             "floor": 2,
+            "staff": "Lee Min Ho",
             "tag": "fruits",
             "time": "2024-01-06",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product6": {
@@ -472,12 +472,12 @@
           "details": {
             "ID": "mango",
             "building": "Lotte Mall West Lake Ha Noi",
+            "customer": "G-Dragon",
             "floor": 2,
+            "staff": "Lee Min Ho",
             "tag": "fruits",
             "time": "2024-01-07",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product7": {
@@ -488,12 +488,12 @@
           "details": {
             "ID": "banana",
             "building": "Lotte Mall West Lake Ha Noi",
+            "customer": "G-Dragon",
             "floor": 2,
+            "staff": "Lee Min Ho",
             "tag": "fruits",
             "time": "2024-03-06",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product8": {
@@ -504,12 +504,12 @@
           "details": {
             "ID": "Asus Laptop",
             "building": "G2-UET",
+            "customer": "G-Dragon",
             "floor": 1,
+            "staff": "Lee Min Ho",
             "tag": "Electronics",
             "time": "2024-03-09",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         }
       }
@@ -550,22 +550,6 @@
         "name": "Floor1, Lotte Mall West Lake Ha Noi"
       },
       "product": {
-        "product9": {
-          "coordinates": {
-            "x": 100,
-            "y": 50
-          },
-          "details": {
-            "ID": "15 Promax",
-            "building": "Lotte Mall West Lake Ha Noi",
-            "floor": 3,
-            "tag": "Iphone",
-            "time": "2024-03-06",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
-          }
-        },
         "product10": {
           "coordinates": {
             "x": 310,
@@ -574,12 +558,12 @@
           "details": {
             "ID": "Pro M3",
             "building": "Lotte Mall West Lake Ha Noi",
+            "customer": "G-Dragon",
             "floor": 3,
+            "staff": "Lee Min Ho",
             "tag": "Macbook",
             "time": "2024-03-06",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product11": {
@@ -590,12 +574,12 @@
           "details": {
             "ID": "Serial 4",
             "building": "Lotte Mall West Lake Ha Noi",
+            "customer": "G-Dragon",
             "floor": 3,
+            "staff": "Lee Min Ho",
             "tag": "Apple Watch",
             "time": "2024-03-06",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product12": {
@@ -606,12 +590,28 @@
           "details": {
             "ID": "Asus Laptop",
             "building": "G2-UET",
+            "customer": "G-Dragon",
             "floor": 1,
+            "staff": "Lee Min Ho",
             "tag": "Electronics",
             "time": "2024-03-09",
-            "timeOut": "2024-06-07",
+            "timeOut": "2024-06-07"
+          }
+        },
+        "product9": {
+          "coordinates": {
+            "x": 100,
+            "y": 50
+          },
+          "details": {
+            "ID": "15 Promax",
+            "building": "Lotte Mall West Lake Ha Noi",
+            "customer": "G-Dragon",
+            "floor": 3,
             "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "tag": "Iphone",
+            "time": "2024-03-06",
+            "timeOut": "2024-06-07"
           }
         }
       }
@@ -663,12 +663,12 @@
           "details": {
             "ID": "cake",
             "building": "Lotte Mall West Lake Ha Noi",
+            "customer": "G-Dragon",
             "floor": 1,
+            "staff": "Lee Min Ho",
             "tag": "foods",
             "time": "2024-03-09",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product2": {
@@ -679,12 +679,12 @@
           "details": {
             "ID": "candy",
             "building": "Lotte Mall West Lake Ha Noi",
+            "customer": "G-Dragon",
             "floor": 1,
+            "staff": "Lee Min Ho",
             "tag": "foods",
             "time": "2024-03-08",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product3": {
@@ -695,12 +695,12 @@
           "details": {
             "ID": "meat",
             "building": "Lotte Mall West Lake Ha Noi",
+            "customer": "G-Dragon",
             "floor": 1,
+            "staff": "Lee Min Ho",
             "tag": "foods",
             "time": "2021-04-06",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product4": {
@@ -711,12 +711,12 @@
           "details": {
             "ID": "Asus Laptop",
             "building": "G2-UET",
+            "customer": "G-Dragon",
             "floor": 1,
+            "staff": "Lee Min Ho",
             "tag": "Electronics",
             "time": "2024-03-09",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         }
       }
@@ -765,12 +765,12 @@
           "details": {
             "ID": "apple",
             "building": "Lotte Mall West Lake Ha Noi",
+            "customer": "G-Dragon",
             "floor": 2,
+            "staff": "Lee Min Ho",
             "tag": "fruits",
             "time": "2024-01-06",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product6": {
@@ -781,12 +781,12 @@
           "details": {
             "ID": "mango",
             "building": "Lotte Mall West Lake Ha Noi",
+            "customer": "G-Dragon",
             "floor": 2,
+            "staff": "Lee Min Ho",
             "tag": "fruits",
             "time": "2024-01-07",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product7": {
@@ -797,12 +797,12 @@
           "details": {
             "ID": "banana",
             "building": "Lotte Mall West Lake Ha Noi",
+            "customer": "G-Dragon",
             "floor": 2,
+            "staff": "Lee Min Ho",
             "tag": "fruits",
             "time": "2024-03-06",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product8": {
@@ -813,12 +813,12 @@
           "details": {
             "ID": "Asus Laptop",
             "building": "G2-UET",
+            "customer": "G-Dragon",
             "floor": 1,
+            "staff": "Lee Min Ho",
             "tag": "Electronics",
             "time": "2024-03-09",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         }
       }
@@ -859,22 +859,6 @@
         "name": "Floor1, Lotte Mall West Lake Ha Noi"
       },
       "product": {
-        "product9": {
-          "coordinates": {
-            "x": 100,
-            "y": 50
-          },
-          "details": {
-            "ID": "15 Promax",
-            "building": "Lotte Mall West Lake Ha Noi",
-            "floor": 3,
-            "tag": "Iphone",
-            "time": "2024-03-06",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
-          }
-        },
         "product10": {
           "coordinates": {
             "x": 310,
@@ -883,12 +867,12 @@
           "details": {
             "ID": "Pro M3",
             "building": "Lotte Mall West Lake Ha Noi",
+            "customer": "G-Dragon",
             "floor": 3,
+            "staff": "Lee Min Ho",
             "tag": "Macbook",
             "time": "2024-03-06",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product11": {
@@ -899,12 +883,12 @@
           "details": {
             "ID": "Serial 4",
             "building": "Lotte Mall West Lake Ha Noi",
+            "customer": "G-Dragon",
             "floor": 3,
+            "staff": "Lee Min Ho",
             "tag": "Apple Watch",
             "time": "2024-03-06",
-            "timeOut": "2024-06-07",
-            "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "timeOut": "2024-06-07"
           }
         },
         "product12": {
@@ -915,12 +899,28 @@
           "details": {
             "ID": "Asus Laptop",
             "building": "G2-UET",
+            "customer": "G-Dragon",
             "floor": 1,
+            "staff": "Lee Min Ho",
             "tag": "Electronics",
             "time": "2024-03-09",
-            "timeOut": "2024-06-07",
+            "timeOut": "2024-06-07"
+          }
+        },
+        "product9": {
+          "coordinates": {
+            "x": 100,
+            "y": 50
+          },
+          "details": {
+            "ID": "15 Promax",
+            "building": "Lotte Mall West Lake Ha Noi",
+            "customer": "G-Dragon",
+            "floor": 3,
             "staff": "Lee Min Ho",
-            "customer": "G-Dragon"
+            "tag": "Iphone",
+            "time": "2024-03-06",
+            "timeOut": "2024-06-07"
           }
         }
       }
