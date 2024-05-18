@@ -59,47 +59,6 @@ export const PRODUCT_PATH = {
   },
 };
 
-//Nhập tọa độ mới cho Anchor trong Menu Set Anchor Posistion
-function showCoordinateInput(selectedBuilding, selectedanchor) {
-  // Hiển thị hộp thoại nhập tọa độ
-  Swal.fire({
-    title: `Enter coordinates for anchor`,
-    html: `
-              <label for="newXCoordinate">X Coordinates:</label>
-              <input type="text" id="newXCoordinate" placeholder="Coordinates for X">
-              <br/>
-              <label for="newYCoordinate">Y Coordinates:</label>
-              <input type="text" id="newYCoordinate" placeholder="Coordinates for Y">
-              <br/>
-              <label for="newZCoordinate">Z Coordinates:</label>
-              <input type="text" id="newZCoordinate" placeholder="Coordinates for Z">
-          `,
-    showCloseButton: true,
-    showConfirmButton: true,
-    confirmButtonText: "Save",
-    preConfirm: () => {
-      // Lấy giá trị tọa độ mới từ input
-      const newXCoordinate = document.getElementById("newXCoordinate").value;
-      const newYCoordinate = document.getElementById("newYCoordinate").value;
-      const newZCoordinate = document.getElementById("newZCoordinate").value;
-
-      // Kiểm tra xem tọa độ có hợp lệ không
-      
-      if (!newXCoordinate || !newYCoordinate) {
-        Swal.showValidationMessage("Please enter full coordinates.");
-      } else {
-        // Cập nhật tọa độ mới lên Firebase cho anchor đã chọn
-        updateanchorCoordinates(
-          selectedBuilding,
-          selectedanchor,
-          newXCoordinate,
-          newYCoordinate,
-          newZCoordinate
-        );
-      }
-    },
-  });
-}
 // Cập nhật tọa độ mới cho Anchor trong Menu Set Anchor Posistion
 function updateanchorCoordinates(selectedBuilding, selectedanchor, newX, newY, newZ) {
   // Cập nhật tọa độ mới lên Firebase
@@ -211,5 +170,29 @@ document.addEventListener("DOMContentLoaded", function() {
 function changeBackground(menu) {
   document.body.className = menu;
 }
+function updateProductDetails(selectedBuilding, selectedproduct, newID, newBuilding, newFloor, newTag, newTime, newTimeOut, newStaff, newCustomer) {
+  // Cập nhật tọa độ mới lên Firebase
+  db.ref(`/${selectedBuilding}/${selectedproduct}/details`)
+    .set({
+      ID: newID,
+      building: newBuilding,
+      customer: newCustomer,
+      floor: newFloor,
+      staff: newStaff,
+      tag: newTag,
+      time: newTime,
+      timeOut: newTimeOut
+    })
+    .then(() => {
+      Swal.fire("Notice", "Updated coordinates successfully!", "success");
+    })
+    .catch((error) => {
+      Swal.fire(
+        "Notice",
+        "An error occurred while updating coordinates.",
+        "error"
+      );
+    });
+}
 
-export { showCoordinateInput, updatePosition, myFunction, changeBackground, refreshPage };
+export { updatePosition, myFunction, changeBackground, refreshPage, updateanchorCoordinates, updateProductDetails };
