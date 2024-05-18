@@ -17,20 +17,22 @@ location.addEventListener("click", function () {
   hideStatics();
   hideAboutUs();
   hideManuals();
-
+  buildings.innerHTML = "";
+  hideAllInFloors();
+  buildings.style.display = "block";
+  building(BUILDING_LISTs["Building 1"]);
+  building(BUILDING_LISTs["Building 2"]);
   if (showLocation) {
     buildings.style.display = "block";
     showLocation = false;
   } else {
-    buildings.style.display = "none";
+    // buildings.style.display = "none";
     hideAllInFloors();
     showLocation = true;
   }
 });
 
 hideAllInFloors();
-building(BUILDING_LISTs["Building 1"]);
-building(BUILDING_LISTs["Building 2"]);
 
 const hideLocation = () => {
   hideAllInFloors();
