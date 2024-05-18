@@ -3,6 +3,7 @@ import { hideLocation } from "../pages/location.js";
 import { hideStatics } from "../pages/statics.js";
 import { hideManuals } from "../pages/manuals.js";
 import { hideAboutUs } from "../pages/aboutUs.js";
+import { updateProductDetails } from "../assets/js/helpers.js";
 
 function showProductDetails(buildingId, floorId, productId) {
   const detailsLink = `/${buildingId}/${floorId}/product/${productId}/details`;
@@ -67,141 +68,101 @@ function showProductDetails(buildingId, floorId, productId) {
 }
 
 
-
-
 function setProductDetails(Buildings, products) {
   document
     .getElementById("setProductDetails")
     .addEventListener("click", function () {
-      hideLocation ()
-      hideAboutUs ()
-      hideManuals ()
-      hideStatics ()
+      hideLocation();
+      hideAboutUs();
+      hideManuals();
+      hideStatics();
       Swal.fire({
-        title: "Select Buildings",
-        input: "select",
-        inputOptions: Buildings,
-        showCloseButton: true,
+        title: "Update Product Details",
+        html: `
+        <div class="form-group2 text-left">
+        <label for="buildingSelect" class="font-weight-bold">Select Building:</label>
+        <select id="buildingSelect" class="form-control">
+          ${Object.keys(Buildings).map(building => `<option value="${building}">${Buildings[building]}</option>`).join('')}
+        </select>
+      </div>
+      <div class="form-group2 text-left">
+        <label for="productSelect" class="font-weight-bold">Select Product:</label>
+        <select id="productSelect" class="form-control">
+          ${Object.keys(products).map(floor => 
+            Object.keys(products[floor]).map(product => 
+              `<option value="${product}">${products[floor][product]}</option>`
+            ).join('')
+          ).join('')}
+        </select>
+      </div>
+      <div class="form-group2 text-left">
+        <label for="newID" class="font-weight-bold">ID:</label>
+        <input type="text" id="newID" class="form-control" placeholder="ID for Product">
+      </div>
+      <div class="form-group2 text-left">
+        <label for="newBuilding" class="font-weight-bold">Building:</label>
+        <input type="text" id="newBuilding" class="form-control" placeholder="Name of Building">
+      </div>
+      <div class="form-group2 text-left">
+        <label for="newFloor" class="font-weight-bold">Floor:</label>
+        <input type="text" id="newFloor" class="form-control" placeholder="Floor of Product">
+      </div>
+      <div class="form-group2 text-left">
+        <label for="newTag" class="font-weight-bold">Tag:</label>
+        <input type="text" id="newTag" class="form-control" placeholder="Fag for Product">
+      </div>
+      <div class="form-group2 text-left">
+        <label for="newTime" class="font-weight-bold">Date in:</label>
+        <input type="text" id="newTime" class="form-control" placeholder="New Date in">
+      </div>
+      <div class="form-group2 text-left">
+        <label for="newTimeOut" class="font-weight-bold">Date out:</label>
+        <input type="text" id="newTimeOut" class="form-control" placeholder="New Date out">
+      </div>
+      <div class="form-group2 text-left">
+        <label for="newStaff" class="font-weight-bold">Staff:</label>
+        <input type="text" id="newStaff" class="form-control" placeholder="Name of Staff">
+      </div>
+      <div class="form-group2 text-left">
+        <label for="newCustomer" class="font-weight-bold">Customer:</label>
+        <input type="text" id="newCustomer" class="form-control" placeholder="Name of Customer">
+      </div>
+      `,
+        showCloseButton: 0,
         showConfirmButton: true,
-        confirmButtonText: "Next",
-        preConfirm: (building) => {
-          if (!building) {
-            Swal.showValidationMessage("Please choose a building");
+        confirmButtonText: "Save",
+        preConfirm: () => {
+          const newID = document.getElementById("newID").value;
+          const newBuilding = document.getElementById("newBuilding").value;
+          const newFloor = document.getElementById("newFloor").value;
+          const newTag = document.getElementById("newTag").value;
+          const newTime = document.getElementById("newTime").value;
+          const newTimeOut = document.getElementById("newTimeOut").value;
+          const newStaff = document.getElementById("newStaff").value;
+          const newCustomer = document.getElementById("newCustomer").value;
+
+          if (!newID || !newBuilding || !newFloor || !newTag || !newTime || !newTimeOut || !newStaff || !newCustomer) {
+            Swal.showValidationMessage("Please enter full coordinates.");
           } else {
-            // Hiển thị dropdown danh sách product
-            Swal.fire({
-              title: "Select Products",
-              input: "select",
-              inputOptions: products,
-              showCloseButton: true,
-              showConfirmButton: true,
-              confirmButtonText: "Next",
-              inputPlaceholder: "Select a product",
-              preConfirm: (selectedproduct) => {
-                // Kiểm tra xem có chọn anchor nào không
-                if (!selectedproduct) {
-                  Swal.showValidationMessage("Please choose a Product");
-                } else {
-                  // Gọi hàm để nhập tọa độ mới cho anchor đã chọn
-                  showDetailsInput(building, selectedproduct);
-                }
-              },
-            });
+            // Cập nhật tọa độ mới lên Firebase cho anchor đã chọn
+            updateProductDetails(
+              selectedBuilding,
+              selectedproduct,
+              newID,
+              newBuilding,
+              newFloor,
+              newTag,
+              newTime,
+              newTimeOut,
+              newStaff,
+              newCustomer
+            );
           }
         },
       });
     });
 }
-function showDetailsInput(selectedBuilding, selectedproduct) {
-  // Hiển thị hộp thoại nhập tọa độ
-  Swal.fire({
-    title: `Enter details for product`,
-    html: `
-              <div style="text-align: left; margin-left: 20%;">
-                  <label for="newID">ID:</label>
-                  <input type="text" id="newID" placeholder="ID for Product">
-                  <br/>
-                  <label for="newBuilding">Building:</label>
-                  <input type="text" id="newBuilding" placeholder="Name of Building">
-                  <br/>
-                  <label for="newFloor">Floor:</label>
-                  <input type="text" id="newFloor" placeholder="Floor of Product">
-                  <br/>
-                  <label for="newTag">Tag:</label>
-                  <input type="text" id="newTag" placeholder="Tag for Product">
-                  <br/>
-                  <label for="newTime">Date in:</label>
-                  <input type="text" id="newTime" placeholder="New Date in">
-                  <br/>
-                  <label for="newTimeOut">Date out:</label>
-                  <input type="text" id="newTimeOut" placeholder="New Date out">
-                  <br/>
-                  <label for="newStaff">Staff:</label>
-                  <input type="text" id="newStaff" placeholder="Name of Staff">
-                  <br/>              
-                  <label for="newCustomer">Customer:</label>
-                  <input type="text" id="newCustomer" placeholder="Name of Customer">
-              </div>
-          `,
-    showCloseButton: true,
-    showConfirmButton: true,
-    confirmButtonText: "Save",
-    preConfirm: () => {
-      // Lấy giá trị tọa độ mới từ input
-      const newID = document.getElementById("newID").value;
-      const newBuilding = document.getElementById("newBuilding").value;
-      const newFloor = document.getElementById("newFloor").value;
-      const newTag = document.getElementById("newTag").value;
-      const newTime = document.getElementById("newTime").value;
-      const newTimeOut = document.getElementById("newTimeOut").value;
-      const newStaff = document.getElementById("newStaff").value;
-      const newCustomer = document.getElementById("newCustomer").value;
 
-      // Kiểm tra xem tọa độ có hợp lệ không
-      if (!newID || !newBuilding || !newFloor || !newTag || !newTime || !newTimeOut || !newStaff || !newCustomer) {
-        Swal.showValidationMessage("Please enter full coordinates.");
-      } else {
-        // Cập nhật tọa độ mới lên Firebase cho anchor đã chọn
-        updateProductDetails(
-          selectedBuilding,
-          selectedproduct,
-          newID,
-          newBuilding,
-          newFloor,
-          newTag,
-          newTime,
-          newTimeOut,
-          newStaff,
-          newCustomer
-        );
-      }
-    },
-  });
-}
-function updateProductDetails(selectedBuilding, selectedproduct, newID, newBuilding, newFloor, newTag, newTime, newTimeOut, newStaff, newCustomer) {
-  // Cập nhật tọa độ mới lên Firebase
-  db.ref(`/${selectedBuilding}/${selectedproduct}/details`)
-    .set({
-      ID: newID,
-      building: newBuilding,
-      customer: newCustomer,
-      floor: newFloor,
-      staff: newStaff,
-      tag: newTag,
-      time: newTime,
-      timeOut: newTimeOut
-    })
-    .then(() => {
-      Swal.fire("Notice", "Updated coordinates successfully!", "success");
-    })
-    .catch((error) => {
-      Swal.fire(
-        "Notice",
-        "An error occurred while updating coordinates.",
-        "error"
-      );
-    });
-}
 
 
 
