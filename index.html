@@ -38,21 +38,24 @@
     <!-- CONTENT -->
     <!-- Bảng Thông tin Món hàng trong menu Statistics -->
     <div id="tableContainer" class="centered-table" style="display: none">
-      <table id="productTable">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Building</th>
-            <th>Floor</th>
-            <th>Tag</th>
-            <th>Date in</th>
-            <th>Date out</th>
-            <th>Staff</th>
-            <th>customer</th>
-          </tr>
-        </thead>
-        <tbody id="productTableBody"></tbody>
-      </table>
+      <div class = "table-wrapper">
+        <table id="productTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Building</th>
+              <th>Floor</th>
+              <th>Tag</th>
+              <th>Date in</th>
+              <th>Date out</th>
+              <th>Staff</th>
+              <th>customer</th>
+            </tr>
+          </thead>
+          <tbody id="productTableBody"></tbody>
+        </table>
+      </div>
+      
       <!-- Thêm nút "Xuất thống kê" -->
       <button id="exportButton" class="export-button">Export Statistics</button>
     </div>
@@ -205,7 +208,17 @@
         x.className = "topnav";
       }
     }
-
+  
+    // Thêm sự kiện click cho tất cả các mục menu
+    document.querySelectorAll('.topnav a:not(.icon)').forEach(item => {
+      item.addEventListener('click', () => {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav responsive") {
+          x.className = "topnav";
+        }
+      });
+    });
+  
     function refreshPage() {
       location.reload();
     }
