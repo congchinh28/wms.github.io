@@ -346,6 +346,77 @@ nav a.active {
     border-radius: 5px;
     cursor: pointer;
 }
+/* General popup styling */
+.swal2-popup {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Title styling */
+.swal2-title {
+  color: #333;
+  font-size: 29px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+/* Form group styling */
+.form-group {
+  margin-bottom: 18px;
+  text-align: left; /* Căn trái */
+}
+
+/* Label styling */
+.form-group label {
+  color: #555;
+  font-size: 19px;
+  margin-bottom: 5px;
+  font-weight: bold; /* In đậm */
+}
+.form-group2 {
+  margin-bottom: 4px;
+  text-align: left; /* Căn trái */
+}
+
+/* Label styling */
+.form-group2 label {
+  color: #555;
+  font-size: 19px;
+  margin-bottom: 5px;
+  font-weight: bold; /* In đậm */
+}
+
+/* Input and select styling */
+.form-control {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 14px;
+  width: 100%; /* Đặt chiều rộng 100% */
+  box-sizing: border-box; /* Đảm bảo padding không làm tăng chiều rộng */
+}
+
+/* Placeholder styling */
+.form-control::placeholder {
+  color: #aaa;
+}
+
+/* Confirm button styling */
+.swal2-confirm {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.swal2-confirm:hover {
+  background-color: #0056b3;
+}
 
 #floor2Button {
     padding: 10px;
@@ -363,7 +434,9 @@ nav a.active {
 #floor2Button:hover {
     background-color: #77c5ff;
 }
-
+.swal2-container {
+  background: rgba(0, 0, 0, 0) !important;
+}
 .map {
     /* background-color: #fff; */
     margin-top: 1rem;
@@ -457,8 +530,12 @@ nav a.active {
     align-items: flex-end;
     overflow: auto;
     margin: 0px;
+    
 }
-
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
 .product:hover {
     border: 2px solid #004580;
 }
