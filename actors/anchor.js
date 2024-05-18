@@ -1,5 +1,5 @@
 import db from "../assets/js/firebase.js";
-import { showCoordinateInput } from "../assets/js/helpers.js";
+import { updateanchorCoordinates } from "../assets/js/helpers.js";
 import { hideLocation } from "../pages/location.js";
 import { hideStatics } from "../pages/statics.js";
 import { hideManuals } from "../pages/manuals.js";
@@ -54,50 +54,86 @@ function showAnchorDetails(buildingId, floorId, anchorId) {
   });
 }
 
-
 function setAnchorPosition(Buildings, anchors) {
   document
     .getElementById("setAnchorPosition")
     .addEventListener("click", function () {
-      hideLocation ()
-      hideAboutUs ()
-      hideManuals ()
-      hideStatics ()
+      hideLocation();
+      hideAboutUs();
+      hideManuals();
+      hideStatics();
       Swal.fire({
-        title: "Select Buildings",
-        input: "select",
-        inputOptions: Buildings,
-        showCloseButton: true,
+        title: "Update Anchor Position",
+        html: `
+        <div class="form-group text-left">
+        <label for="buildingSelect" class="font-weight-bold">Select Building:</label>
+        <select id="buildingSelect" class="form-control">
+          ${Object.keys(Buildings).map(building => `<option value="${building}">${Buildings[building]}</option>`).join('')}
+        </select>
+      </div>
+      <div class="form-group text-left">
+        <label for="anchorSelect" class="font-weight-bold">Select Anchor:</label>
+        <select id="anchorSelect" class="form-control">
+          ${Object.keys(anchors).map(floor => 
+            Object.keys(anchors[floor]).map(anchor => 
+              `<option value="${anchor}">${anchors[floor][anchor]}</option>`
+            ).join('')
+          ).join('')}
+        </select>
+      </div>
+      <div class="form-group text-left">
+        <label for="newXCoordinate" class="font-weight-bold">X Coordinates:</label>
+        <input type="text" id="newXCoordinate" class="form-control" placeholder="Coordinates for X">
+      </div>
+      <div class="form-group text-left">
+        <label for="newYCoordinate" class="font-weight-bold">Y Coordinates:</label>
+        <input type="text" id="newYCoordinate" class="form-control" placeholder="Coordinates for Y">
+      </div>
+      <div class="form-group text-left">
+        <label for="newZCoordinate" class="font-weight-bold">Z Coordinates:</label>
+        <input type="text" id="newZCoordinate" class="form-control" placeholder="Coordinates for Z">
+      </div>
+      `,
+        showCloseButton: 0,
         showConfirmButton: true,
-        confirmButtonText: "Next",
-        preConfirm: (selectedBuilding) => {
-          if (!selectedBuilding) {
-            Swal.showValidationMessage("Please choose a building");
+        confirmButtonText: "Save",
+        preConfirm: () => {
+          const selectedBuilding =
+            document.getElementById("buildingSelect").value;
+          const selectedAnchor = document.getElementById("anchorSelect").value;
+          const newXCoordinate =
+            document.getElementById("newXCoordinate").value;
+          const newYCoordinate =
+            document.getElementById("newYCoordinate").value;
+          const newZCoordinate =
+            document.getElementById("newZCoordinate").value;
+
+          if (
+            !selectedBuilding ||
+            !selectedAnchor ||
+            !newXCoordinate ||
+            !newYCoordinate
+          ) {
+            Swal.showValidationMessage(
+              "Please enter full coordinates and select a building and an anchor."
+            );
           } else {
-            // Hiển thị dropdown danh sách anchor
-            Swal.fire({
-              title: "Select Anchors",
-              input: "select",
-              inputOptions: anchors,
-              showCloseButton: true,
-              showConfirmButton: true,
-              confirmButtonText: "Next",
-              inputPlaceholder: "Select a anchor",
-              preConfirm: (selectedanchor) => {
-                // Kiểm tra xem có chọn anchor nào không
-                if (!selectedanchor) {
-                  Swal.showValidationMessage("Please choose an Anchor");
-                } else {
-                  // Gọi hàm để nhập tọa độ mới cho anchor đã chọn
-                  showCoordinateInput(selectedBuilding, selectedanchor);
-                }
-              },
-            });
+            // Cập nhật tọa độ mới lên Firebase cho anchor đã chọn
+            updateanchorCoordinates(
+              selectedBuilding,
+              selectedAnchor,
+              newXCoordinate,
+              newYCoordinate,
+              newZCoordinate
+            );
           }
         },
       });
     });
 }
+
+
+
 
 // export { showAnchorDetails, setAnchorPosition, chooseBuilding, chooseFloor }
 export { showAnchorDetails, setAnchorPosition };
