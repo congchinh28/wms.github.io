@@ -25,7 +25,7 @@
 //   const floors = document.getElementById("floors");
 //   const buildingbutton = document.createElement("button");
 //   const currentButton = document.getElementById(buildingbutton.id);
-//   buildingbutton.textContent = building; 
+//   buildingbutton.textContent = building;
 //   buildingRef.child("address").on("value", function(snapshot) {
 //     const address = snapshot.val();
 //     buildingbutton.textContent = `${building} - ${address}`;
@@ -34,7 +34,6 @@
 //   buildingbutton.setAttribute("class", "buildingButton");
 //   buildingbutton.id = building;
 //   buildingbutton.style.marginRight = "1%";
-
 
 //   if (!currentButton) buildings.appendChild(buildingbutton);
 //   var showBuilding = true;
@@ -79,15 +78,15 @@ const buildings = document.getElementById("buildings");
 const building = (building) => {
   var buildingRef = db.ref(`/${building}`);
   var address;
-  buildingRef.child("address").on("value", function(snapshot) {
+  buildingRef.child("address").on("value", function (snapshot) {
     address = snapshot.val();
   });
   const maps = document.getElementsByClassName("map");
   const floors = document.getElementById("floors");
   const buildingbutton = document.createElement("button");
   const currentButton = document.getElementById(buildingbutton.id);
-  buildingbutton.textContent = building; 
-  buildingRef.child("address").on("value", function(snapshot) {
+  buildingbutton.textContent = building;
+  buildingRef.child("address").on("value", function (snapshot) {
     const address = snapshot.val();
     buildingbutton.textContent = `${address}`;
   });
@@ -101,7 +100,7 @@ const building = (building) => {
   buildingbutton.addEventListener("click", function () {
     if (showBuilding) {
       floors.style.display = "block";
-      floors.innerHTML='';
+      floors.innerHTML = "";
       for (let element of maps) {
         element.style.display = "flex";
       }
@@ -113,12 +112,10 @@ const building = (building) => {
       hideAllInFloors();
       showBuilding = true;
     }
-    // Remove all building buttons after click
-    const allBuildingButtons = document.querySelectorAll('.buildingButton');
-    allBuildingButtons.forEach(button => button.remove());
+    hideBuildings();
   });
 };
-const hideBuildings = () =>{
-    buildings.style.display = "none";
-}
+const hideBuildings = () => {
+  buildings.style.display = "none";
+};
 export { building, hideBuildings };
