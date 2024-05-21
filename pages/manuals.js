@@ -24,8 +24,6 @@ document.getElementById("manuals").addEventListener("click", function () {
   }
 
 
-  // document.getElementById("contentAboutUs").style.display = "block";
-  // window.location.href = "./aboutUs.html"
 });
 const hideManuals = () => {
   document.getElementById("contentManuals").style.display = "none";

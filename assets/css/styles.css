@@ -126,10 +126,10 @@ nav a.active {
 .mapres {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Căn giữa theo chiều ngang nếu cần */
-    position: relative; /* Đảm bảo tôn trọng vị trí tuyệt đối bên trong */
+    align-items: center; 
+    position: relative; 
     width: 100%;
-    /* Thêm các kiểu khác nếu cần */
+  
 }
 
 @media only screen and (max-width: 1351px) {
@@ -181,16 +181,16 @@ nav a.active {
     }
     .mapres {
         position: relative; 
-        width: 100%; /* hoặc kích thước mong muốn */
+        width: 100%; 
         height: 824px;
     }
     .anchor, .product, .rectangle  {
-        display: inline-block; /* Đảm bảo các ảnh nằm cạnh nhau */
-        vertical-align: top; /* Đảm bảo các ảnh nằm ở cùng một dòng */
+        display: inline-block; 
+        vertical-align: top;
 
     }
     .rectangle {
-        transform: scale(1); /* Thay đổi kích thước div con */
+        transform: scale(1); 
         transform-origin: top left; /* Điểm mà transform được áp dụng */
         position: absolute; /* Định vị tuyệt đối để di chuyển div con */
         }
@@ -293,8 +293,6 @@ nav a.active {
         top: 0% !important;
     }
 }
-
-/*--------------------LOCATION-------------------------*/
 .custom-popup {
     left: 0%;
     top: 0%
@@ -623,7 +621,6 @@ nav a.active {
     background-color: #004580;
 }
 
-/*--------------------ABOUT US-------------------------*/
   h1 {
     color: #333;
     margin: 0;
@@ -654,9 +651,6 @@ nav a.active {
     max-width: 100%;
     height: auto;
   }
-
-/*--------------------SET ANCHOR POSITION-------------------------*/
-/*----------------------------------------------------------------*/
 
 .sticky {
     position: fixed;
@@ -693,9 +687,6 @@ nav a.active {
     transform: scale(1.1); /* Thay đổi kích thước khi hover */
     transition: transform 0.3s ease; /* Hiệu ứng chuyển động mượt mà */
 }
-
-
-
 
 
 /* css rtg */

@@ -1,8 +1,3 @@
-// ############## Firebase begin
-// import "https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js";
-// import { getAnalytics } from "https://www.gstatic.com/firebasejs8.2.9/firebase-analytics.js";
-// TODO: Add SDKs for Firebase products that you want to use
-
 const firebaseConfig = {
   apiKey: "AIzaSyDsZGUIWm5X8i79CnSnJKwlv4_Pu3q3iuc",
   authDomain: "myfirstfb-65c63.firebaseapp.com",

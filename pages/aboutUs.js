@@ -1,10 +1,9 @@
-//--------------------ABOUT US-------------------------
+
 
 import { hideStatics } from "./statics.js";
 import { hideLocation } from "./location.js";
 import { hideManuals } from "./manuals.js";
 
-//Menu About Us
 var isAboutUsVisible = false;
 document.getElementById("aboutUs").addEventListener("click", function () {
   hideLocation();
@@ -27,8 +26,6 @@ document.getElementById("aboutUs").addEventListener("click", function () {
   }
 
 
-  // document.getElementById("contentAboutUs").style.display = "block";
-  // window.location.href = "./aboutUs.html"
 });
 const hideAboutUs = () => {
   document.getElementById("contentAboutUs").style.display = "none";

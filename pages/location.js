@@ -5,7 +5,6 @@ import { hideAboutUs } from "./aboutUs.js";
 import { BUILDING_LISTs } from "../assets/js/helpers.js";
 import { hideManuals } from "./manuals.js";
 
-//--------------------LOCATION-------------------------
 
 const buildings = document.getElementById("buildings");
 const location = document.getElementById("location");
@@ -26,7 +25,6 @@ location.addEventListener("click", function () {
     buildings.style.display = "block";
     showLocation = false;
   } else {
-    // buildings.style.display = "none";
     hideAllInFloors();
     showLocation = true;
   }

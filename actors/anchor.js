@@ -132,8 +132,4 @@ function setAnchorPosition(Buildings, anchors) {
     });
 }
 
-
-
-
-// export { showAnchorDetails, setAnchorPosition, chooseBuilding, chooseFloor }
 export { showAnchorDetails, setAnchorPosition };

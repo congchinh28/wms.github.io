@@ -1,4 +1,4 @@
-// ############## Firebase end
+
 import db from "../assets/js/firebase.js";
 import { MAP_RECTANGLE_FLOORS, updatePosition } from "../assets/js/helpers.js";
 import { showAnchorDetails } from "./anchor.js";
@@ -21,7 +21,6 @@ function displayFloorInformation(
   const floorInfoContainer = document.getElementById(
     `floorInfoContainer${floorName}`
   );
-  // Xây dựng nội dung thông tin
   var infoHTML = `
               <div class="floor-info">
                   <h3>Floor Information</h3>
@@ -31,11 +30,8 @@ function displayFloorInformation(
                   <p><strong>Total Anchors:</strong> ${anchorCount}</p>
               </div>
           `;
-
-  // Thêm nội dung vào khung thông tin
   floorInfoContainer.innerHTML = infoHTML;
 }
-//--------------------LOCATION-------------------------
 
 //Truy cập đến map trong menutracuus
 const floor = (building, rectangle, stage) => {
@@ -59,7 +55,6 @@ const floor = (building, rectangle, stage) => {
 
   stageButton.addEventListener("click", function () {
     if (showStage) {
-      // tim tat ca cac floors con lai
       const anotherFloors = document.getElementsByClassName("rectangle");
       for (let element of anotherFloors) {
         if (element.id !== rectangleElement.id) {
@@ -71,7 +66,6 @@ const floor = (building, rectangle, stage) => {
           element.style.display = "none";
         }
       }
-      // Hiển thị các phần tử khi click vào nút "Tầng 1"
       rectangleElement.style.display = "flex";
       floorInfoContainer.style.display = "block";
       document.querySelectorAll(".product").forEach(function (product) {
@@ -203,9 +197,6 @@ const floor = (building, rectangle, stage) => {
     );
   });
 
-  // Cập nhật Nội dung của Nút Floor 1
-
-  // const stageElement = document.getElementById(stage);
 
   function updateStageButtonContent(productCount, anchorCount) {
     stageButton.textContent = `Floor ${floorName} (${productCount}P/${anchorCount}A)`;
@@ -237,7 +228,6 @@ const floor = (building, rectangle, stage) => {
     );
   }
 
-  // Gọi hàm để tính và cập nhật tổng số lượng sản phẩm và anchor khi trang được tải
   calculateProductAndAnchorCounts();
 };
 
