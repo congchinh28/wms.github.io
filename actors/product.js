@@ -100,14 +100,6 @@ function setProductDetails(Buildings, products) {
         <input type="text" id="newID" class="form-control" placeholder="ID for Product">
       </div>
       <div class="form-group2 text-left">
-        <label for="newBuilding" class="font-weight-bold">Building:</label>
-        <input type="text" id="newBuilding" class="form-control" placeholder="Name of Building">
-      </div>
-      <div class="form-group2 text-left">
-        <label for="newFloor" class="font-weight-bold">Floor:</label>
-        <input type="text" id="newFloor" class="form-control" placeholder="Floor of Product">
-      </div>
-      <div class="form-group2 text-left">
         <label for="newTag" class="font-weight-bold">Tag:</label>
         <input type="text" id="newTag" class="form-control" placeholder="Fag for Product">
       </div>
@@ -133,15 +125,13 @@ function setProductDetails(Buildings, products) {
         confirmButtonText: "Save",
         preConfirm: () => {
           const newID = document.getElementById("newID").value;
-          const newBuilding = document.getElementById("newBuilding").value;
-          const newFloor = document.getElementById("newFloor").value;
           const newTag = document.getElementById("newTag").value;
           const newTime = document.getElementById("newTime").value;
           const newTimeOut = document.getElementById("newTimeOut").value;
           const newStaff = document.getElementById("newStaff").value;
           const newCustomer = document.getElementById("newCustomer").value;
 
-          if (!newID || !newBuilding || !newFloor || !newTag || !newTime || !newTimeOut || !newStaff || !newCustomer) {
+          if (!newID || !newTag || !newTime || !newTimeOut || !newStaff || !newCustomer) {
             Swal.showValidationMessage("Please enter full coordinates.");
           } else {
             // Cập nhật tọa độ mới lên Firebase cho anchor đã chọn
@@ -149,8 +139,6 @@ function setProductDetails(Buildings, products) {
               selectedBuilding,
               selectedproduct,
               newID,
-              newBuilding,
-              newFloor,
               newTag,
               newTime,
               newTimeOut,

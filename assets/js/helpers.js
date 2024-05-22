@@ -170,14 +170,12 @@ document.addEventListener("DOMContentLoaded", function() {
 function changeBackground(menu) {
   document.body.className = menu;
 }
-function updateProductDetails(selectedBuilding, selectedproduct, newID, newBuilding, newFloor, newTag, newTime, newTimeOut, newStaff, newCustomer) {
+function updateProductDetails(selectedBuilding, selectedproduct, newID, newTag, newTime, newTimeOut, newStaff, newCustomer) {
   // Cập nhật tọa độ mới lên Firebase
   db.ref(`/${selectedBuilding}/${selectedproduct}/details`)
     .set({
       ID: newID,
-      building: newBuilding,
       customer: newCustomer,
-      floor: newFloor,
       staff: newStaff,
       tag: newTag,
       time: newTime,
