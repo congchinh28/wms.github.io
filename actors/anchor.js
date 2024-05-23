@@ -94,7 +94,7 @@ function setAnchorPosition(Buildings, anchors) {
         <input type="text" id="newZCoordinate" class="form-control" placeholder="Coordinates for Z">
       </div>
       `,
-        showCloseButton: 0,
+        showCloseButton: 1,
         showConfirmButton: true,
         confirmButtonText: "Save",
         preConfirm: () => {

@@ -120,7 +120,7 @@ function setProductDetails(Buildings, products) {
         <input type="text" id="newCustomer" class="form-control" placeholder="Name of Customer">
       </div>
       `,
-        showCloseButton: 0,
+        showCloseButton: 1,
         showConfirmButton: true,
         confirmButtonText: "Save",
         preConfirm: () => {
