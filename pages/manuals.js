@@ -27,6 +27,7 @@ document.getElementById("manuals").addEventListener("click", function () {
 });
 const hideManuals = () => {
   document.getElementById("contentManuals").style.display = "none";
+  isManualsVisible = false;
 };
 
 export { hideManuals };

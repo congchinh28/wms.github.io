@@ -93,6 +93,7 @@ function showProductTable() {
 }
 const hideStatics = () => {
   document.getElementById("tableContainer").style.display = "none";
+  isTableVisible = false;
 };
 
 export { hideStatics };

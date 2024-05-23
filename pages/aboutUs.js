@@ -29,6 +29,7 @@ document.getElementById("aboutUs").addEventListener("click", function () {
 });
 const hideAboutUs = () => {
   document.getElementById("contentAboutUs").style.display = "none";
+  isAboutUsVisible = false;
 };
 
 export { hideAboutUs };
