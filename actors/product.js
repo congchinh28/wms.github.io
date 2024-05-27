@@ -28,14 +28,14 @@ function showProductDetails(buildingId, floorId, productId) {
         Swal.fire({
           title: "Tag informations",
           html: `
-            <div style="text-align: left; margin-left: 25%;">            
+            <div style="text-align: left; margin-left: 20%;">            
               <p><strong>X Coordinate:</strong> ${xConverted.toFixed(2) || "N/A"} meters</p>
               <p><strong>Y Coordinate:</strong> ${yConverted.toFixed(2) || "N/A"} meters</p>          
               <p><strong>Z Coordinate:</strong> ${coordinatesData.z || "N/A"} meters</p>
-              <p><strong>ID:</strong> ${detailsData.ID || "N/A"}</p>
+              <p><strong>Product ID:</strong> ${detailsData.ID || "N/A"}</p>
               <p><strong>Building:</strong> ${detailsData.building || "N/A"}</p>
               <p><strong>Floor:</strong> ${detailsData.floor || "N/A"}</p>
-              <p><strong>Tag:</strong> ${detailsData.tag || "N/A"}</p>
+              <p><strong>Name of product:</strong> ${detailsData.tag || "N/A"}</p>
               <p><strong>Date in:</strong> ${detailsData.time || "N/A"}</p>
               <p><strong>Date out:</strong> ${detailsData.timeOut || "N/A"}</p>
               <p><strong>Staff:</strong> ${detailsData.staff || "N/A"}</p>
@@ -96,12 +96,12 @@ function setProductDetails(Buildings, products) {
         </select>
       </div>
       <div class="form-group2 text-left">
-        <label for="newID" class="font-weight-bold">ID:</label>
+        <label for="newID" class="font-weight-bold">Product ID:</label>
         <input type="text" id="newID" class="form-control" placeholder="ID for Product">
       </div>
       <div class="form-group2 text-left">
-        <label for="newTag" class="font-weight-bold">Tag:</label>
-        <input type="text" id="newTag" class="form-control" placeholder="Fag for Product">
+        <label for="newTag" class="font-weight-bold">Name:</label>
+        <input type="text" id="newTag" class="form-control" placeholder="Name for Product">
       </div>
       <div class="form-group2 text-left">
         <label for="newTime" class="font-weight-bold">Date in:</label>
