@@ -23,7 +23,8 @@ function showProductDetails(buildingId, floorId, productId) {
       if (detailsData && coordinatesData) {
         // Chuyển đổi tọa độ X và Y
         const xConverted = (coordinatesData.x / 1351) * 29;
-        const yConverted = (coordinatesData.y / 784) * 16.8;
+        const yConverted = 16.8 - (coordinatesData.y / 784) * 16.8;
+        const zConverted = (coordinatesData.z / 784) * 16.8;
 
         Swal.fire({
           title: "Tag informations",
@@ -31,7 +32,7 @@ function showProductDetails(buildingId, floorId, productId) {
             <div style="text-align: left; margin-left: 20%;">            
               <p><strong>X Coordinate:</strong> ${xConverted.toFixed(2) || "N/A"} meters</p>
               <p><strong>Y Coordinate:</strong> ${yConverted.toFixed(2) || "N/A"} meters</p>          
-              <p><strong>Z Coordinate:</strong> ${coordinatesData.z || "N/A"} meters</p>
+              <p><strong>Z Coordinate:</strong> ${zConverted.toFixed(2) || "N/A"} meters</p>
               <p><strong>Product ID:</strong> ${detailsData.ID || "N/A"}</p>
               <p><strong>Building:</strong> ${detailsData.building || "N/A"}</p>
               <p><strong>Floor:</strong> ${detailsData.floor || "N/A"}</p>

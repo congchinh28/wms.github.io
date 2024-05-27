@@ -20,7 +20,7 @@ function showAnchorDetails(buildingId, floorId, anchorId) {
 
       // Tọa độ sau khi chuyển đổi
       var xMeters = formatNumber(pixelsToMeters(coordinates.x || 0));
-      var yMeters = formatNumber(pixelsToMeters(coordinates.y || 0));
+      var yMeters = formatNumber(16.8 - pixelsToMeters(coordinates.y || 0));
       var zMeters = formatNumber(pixelsToMeters(coordinates.z || 0));
 
       Swal.fire({
